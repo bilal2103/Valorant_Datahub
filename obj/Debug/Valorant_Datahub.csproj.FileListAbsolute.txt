@@ -1,0 +1,13 @@
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\bin\Debug\Valorant_Datahub.exe.config
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\bin\Debug\Valorant_Datahub.exe
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\bin\Debug\Valorant_Datahub.pdb
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.csproj.AssemblyReference.cache
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.csproj.SuggestedBindingRedirects.cache
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.Form1.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.GuestForm.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.Properties.Resources.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.csproj.GenerateResource.cache
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.csproj.CoreCompileInputs.cache
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.exe
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.pdb
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub\Valorant_Datahub\obj\Debug\Valorant_Datahub.TournamentWindow.resources
