@@ -154,6 +154,7 @@
             this.Winner1.Size = new System.Drawing.Size(141, 46);
             this.Winner1.TabIndex = 11;
             this.Winner1.Text = "";
+            this.Winner1.TextChanged += new System.EventHandler(this.Winner1_TextChanged);
             // 
             // Winner2
             // 

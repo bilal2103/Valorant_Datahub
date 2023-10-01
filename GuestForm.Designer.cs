@@ -51,6 +51,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Agents";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -82,6 +83,7 @@
             this.Controls.Add(this.button1);
             this.Name = "GuestForm";
             this.Text = "GuestForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GuestForm_FormClosing);
             this.ResumeLayout(false);
 
         }
