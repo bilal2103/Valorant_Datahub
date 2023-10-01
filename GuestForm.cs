@@ -23,5 +23,20 @@ namespace Valorant_Datahub
             TournamentWindow t = new TournamentWindow();
             t.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AgentsWindow agents = new AgentsWindow();
+            agents.Show();
+        }
+
+        private void GuestForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GuestForm g = new GuestForm();
+            g.Close();
+            Form1 f = new Form1();
+            f.Show();
+        }
     }
 }

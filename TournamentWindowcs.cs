@@ -62,5 +62,10 @@ namespace Valorant_Datahub
 
 
         }
+
+        private void Winner1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
