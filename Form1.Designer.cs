@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.GuestButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,14 +43,15 @@
             this.GuestButton.UseVisualStyleBackColor = true;
             this.GuestButton.Click += new System.EventHandler(this.GuestButton_Click);
             // 
-            // button1
+            // loginButton
             // 
-            this.button1.Location = new System.Drawing.Point(217, 210);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 55);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
+            this.loginButton.Location = new System.Drawing.Point(217, 210);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(157, 55);
+            this.loginButton.TabIndex = 1;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // button2
             // 
@@ -67,7 +68,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.GuestButton);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -79,7 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Button GuestButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button button2;
     }
 }

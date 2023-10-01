@@ -12,10 +12,14 @@ namespace Valorant_Datahub
 {
     public partial class TournamentWindow : Form
     {
-        public TournamentWindow()
+        string Opened_by;
+        public TournamentWindow(string str)
         {
+            this.Opened_by = str;
             InitializeComponent();
+            
         }
+        public TournamentWindow() { }
 
         private void Tournament_Paint(object sender, PaintEventArgs e)
         {
@@ -66,6 +70,26 @@ namespace Valorant_Datahub
         private void Winner1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TournamentWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                TournamentWindow t = new TournamentWindow();
+                if(Opened_by == "Guest")
+                {
+                    GuestForm g = new GuestForm();
+                    g.Show();
+                }
+                else
+                {
+                    //UserForm u = new UserForm();
+                    //u.Show();
+                }
+                t.Close();
+
+            }
         }
     }
 }

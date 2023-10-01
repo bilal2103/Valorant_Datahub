@@ -58,6 +58,12 @@
     <Compile Include="AgentsWindow.Designer.cs">
       <DependentUpon>AgentsWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Before_TournamentWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Before_TournamentWindow.Designer.cs">
+      <DependentUpon>Before_TournamentWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,18 @@
     <Compile Include="GuestForm.Designer.cs">
       <DependentUpon>GuestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maps.Designer.cs">
+      <DependentUpon>Maps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapsWindow.Designer.cs">
+      <DependentUpon>MapsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TournamentWindowcs.cs">
@@ -78,17 +96,50 @@
     <Compile Include="TournamentWindowcs.Designer.cs">
       <DependentUpon>TournamentWindowcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tournament_Alternate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tournament_Alternate.Designer.cs">
+      <DependentUpon>Tournament_Alternate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeaponaryWindowcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WeaponaryWindowcs.Designer.cs">
+      <DependentUpon>WeaponaryWindowcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Weapons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Weapons.Designer.cs">
+      <DependentUpon>Weapons.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Agent.resx">
       <DependentUpon>Agent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AgentsWindow.resx">
       <DependentUpon>AgentsWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Before_TournamentWindow.resx">
+      <DependentUpon>Before_TournamentWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GuestForm.resx">
       <DependentUpon>GuestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maps.resx">
+      <DependentUpon>Maps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MapsWindow.resx">
+      <DependentUpon>MapsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,6 +152,18 @@
     </Compile>
     <EmbeddedResource Include="TournamentWindowcs.resx">
       <DependentUpon>TournamentWindowcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tournament_Alternate.resx">
+      <DependentUpon>Tournament_Alternate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeaponaryWindowcs.resx">
+      <DependentUpon>WeaponaryWindowcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Weapons.resx">
+      <DependentUpon>Weapons.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

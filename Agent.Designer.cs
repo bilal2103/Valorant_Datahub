@@ -42,67 +42,72 @@
             this.weapon_tb = new System.Windows.Forms.TextBox();
             this.win_tb = new System.Windows.Forms.TextBox();
             this.agent_picture = new System.Windows.Forms.PictureBox();
+            this.ult_tb = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.About_tb = new System.Windows.Forms.RichTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.agent_picture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 71);
+            this.label1.Location = new System.Drawing.Point(42, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 16);
+            this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name: ";
+            this.label1.Text = "Name:";
             // 
             // name_tb
             // 
-            this.name_tb.Location = new System.Drawing.Point(223, 65);
+            this.name_tb.Location = new System.Drawing.Point(188, 64);
             this.name_tb.Name = "name_tb";
             this.name_tb.ReadOnly = true;
-            this.name_tb.Size = new System.Drawing.Size(100, 22);
+            this.name_tb.Size = new System.Drawing.Size(157, 22);
             this.name_tb.TabIndex = 1;
             // 
             // category_tb
             // 
-            this.category_tb.Location = new System.Drawing.Point(223, 124);
+            this.category_tb.Location = new System.Drawing.Point(188, 124);
             this.category_tb.Name = "category_tb";
             this.category_tb.ReadOnly = true;
-            this.category_tb.Size = new System.Drawing.Size(100, 22);
+            this.category_tb.Size = new System.Drawing.Size(157, 22);
             this.category_tb.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 265);
+            this.label2.Location = new System.Drawing.Point(42, 250);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 16);
+            this.label2.Size = new System.Drawing.Size(109, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Pick Percentage";
+            this.label2.Text = "Pick Percentage:";
             // 
             // tier_tb
             // 
-            this.tier_tb.Location = new System.Drawing.Point(223, 194);
+            this.tier_tb.Location = new System.Drawing.Point(188, 184);
             this.tier_tb.Name = "tier_tb";
             this.tier_tb.ReadOnly = true;
-            this.tier_tb.Size = new System.Drawing.Size(100, 22);
+            this.tier_tb.Size = new System.Drawing.Size(157, 22);
             this.tier_tb.TabIndex = 5;
             // 
             // pick_tb
             // 
-            this.pick_tb.Location = new System.Drawing.Point(223, 259);
+            this.pick_tb.Location = new System.Drawing.Point(188, 244);
             this.pick_tb.Name = "pick_tb";
             this.pick_tb.ReadOnly = true;
-            this.pick_tb.Size = new System.Drawing.Size(100, 22);
+            this.pick_tb.Size = new System.Drawing.Size(157, 22);
             this.pick_tb.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 130);
+            this.label4.Location = new System.Drawing.Point(42, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 16);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = " Category";
+            this.label4.Text = " Category:";
             // 
             // label5
             // 
@@ -115,59 +120,106 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 341);
+            this.label6.Location = new System.Drawing.Point(42, 310);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 16);
+            this.label6.Size = new System.Drawing.Size(106, 16);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Win Percentage";
+            this.label6.Text = "Win Percentage:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(42, 406);
+            this.label7.Location = new System.Drawing.Point(42, 370);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 16);
+            this.label7.Size = new System.Drawing.Size(95, 16);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Ideal Weapon";
+            this.label7.Text = "Ideal Weapon:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 200);
+            this.label8.Location = new System.Drawing.Point(42, 190);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 16);
+            this.label8.Size = new System.Drawing.Size(34, 16);
             this.label8.TabIndex = 8;
-            this.label8.Text = "Tier";
+            this.label8.Text = "Tier:";
             // 
             // weapon_tb
             // 
-            this.weapon_tb.Location = new System.Drawing.Point(223, 400);
+            this.weapon_tb.Location = new System.Drawing.Point(188, 364);
             this.weapon_tb.Name = "weapon_tb";
             this.weapon_tb.ReadOnly = true;
-            this.weapon_tb.Size = new System.Drawing.Size(100, 22);
+            this.weapon_tb.Size = new System.Drawing.Size(157, 22);
             this.weapon_tb.TabIndex = 13;
             // 
             // win_tb
             // 
-            this.win_tb.Location = new System.Drawing.Point(223, 335);
+            this.win_tb.Location = new System.Drawing.Point(188, 304);
             this.win_tb.Name = "win_tb";
             this.win_tb.ReadOnly = true;
-            this.win_tb.Size = new System.Drawing.Size(100, 22);
+            this.win_tb.Size = new System.Drawing.Size(157, 22);
             this.win_tb.TabIndex = 12;
             // 
             // agent_picture
             // 
-            this.agent_picture.Location = new System.Drawing.Point(740, 12);
+            this.agent_picture.Location = new System.Drawing.Point(405, 54);
             this.agent_picture.Name = "agent_picture";
-            this.agent_picture.Size = new System.Drawing.Size(428, 711);
+            this.agent_picture.Size = new System.Drawing.Size(763, 452);
             this.agent_picture.TabIndex = 14;
             this.agent_picture.TabStop = false;
+            // 
+            // ult_tb
+            // 
+            this.ult_tb.Location = new System.Drawing.Point(188, 424);
+            this.ult_tb.Name = "ult_tb";
+            this.ult_tb.ReadOnly = true;
+            this.ult_tb.Size = new System.Drawing.Size(157, 22);
+            this.ult_tb.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(42, 430);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 16);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Ultimate:";
+            // 
+            // About_tb
+            // 
+            this.About_tb.Location = new System.Drawing.Point(405, 512);
+            this.About_tb.Name = "About_tb";
+            this.About_tb.Size = new System.Drawing.Size(763, 211);
+            this.About_tb.TabIndex = 17;
+            this.About_tb.Text = "";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(42, 490);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 16);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Voice Actor:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(188, 484);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(157, 22);
+            this.textBox1.TabIndex = 19;
             // 
             // Agent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 735);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.About_tb);
+            this.Controls.Add(this.ult_tb);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.agent_picture);
             this.Controls.Add(this.weapon_tb);
             this.Controls.Add(this.win_tb);
@@ -207,5 +259,10 @@
         private System.Windows.Forms.TextBox weapon_tb;
         private System.Windows.Forms.TextBox win_tb;
         private System.Windows.Forms.PictureBox agent_picture;
+        private System.Windows.Forms.TextBox ult_tb;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RichTextBox About_tb;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

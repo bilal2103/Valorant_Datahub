@@ -17,19 +17,7 @@ namespace Valorant_Datahub
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            TournamentWindow t = new TournamentWindow();
-            t.Show();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            AgentsWindow agents = new AgentsWindow();
-            agents.Show();
-        }
 
         private void GuestForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -37,6 +25,39 @@ namespace Valorant_Datahub
             g.Close();
             Form1 f = new Form1();
             f.Show();
+        }
+
+        private void Tournaments_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Before_TournamentWindow t = new Before_TournamentWindow("Guest");
+            t.Show();
+        }
+
+        private void Agents_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AgentsWindow agents = new AgentsWindow("Guest");
+            agents.Show();
+        }
+
+        private void Leaderboards_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Maps_btn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MapsWindow maps = new MapsWindow("Guest");
+            maps.Show();
+        }
+
+        private void weaponary_btn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            WeaponaryWindow w = new WeaponaryWindow("Guest");
+            w.Show();
         }
     }
 }

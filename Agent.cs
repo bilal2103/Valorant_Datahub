@@ -13,16 +13,14 @@ namespace Valorant_Datahub
     public partial class Agent : Form
     {
         
-        string name, Tier, Category, Suited_Weapon;
+        string name, Tier, Category, Suited_Weapon,ult,About;
         float pick_pct, win_pct;
-
+        string view;
         private void Agent_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(e.CloseReason == CloseReason.UserClosing)
             {
-                Agent a = new Agent();
-                a.Close();
-                AgentsWindow hehe = new AgentsWindow();
+                AgentsWindow hehe = new AgentsWindow(view);
                 hehe.Show();
             }
         }
@@ -32,13 +30,17 @@ namespace Valorant_Datahub
         {
 
         }
-        public Agent(string name)
+        public Agent(string view,string name)
         {
+            this.view = view;
             this.name = name;
             InitializeComponent();
             DisplayStats();
         }
-        public Agent() { }
+        public Agent()
+        {
+            InitializeComponent();
+        }
 
 
     }

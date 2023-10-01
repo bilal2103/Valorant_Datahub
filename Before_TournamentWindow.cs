@@ -10,28 +10,26 @@ using System.Windows.Forms;
 
 namespace Valorant_Datahub
 {
-    public partial class AgentsWindow : Form
+    public partial class Before_TournamentWindow : Form
     {
         string view;
-        public AgentsWindow()
+        public Before_TournamentWindow()
         {
             InitializeComponent();
         }
-        public AgentsWindow(string str)
+        public Before_TournamentWindow(string str)
         {
             view = str;
             InitializeComponent();
         }
-        public string agent_name;
-        private void button1_Click(object sender, EventArgs e)
+        private void alternate_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            agent_name = textBox1.Text;
-            Agent hehe = new Agent(view,agent_name);
-            hehe.Show();
+            Tournament_Alternate t = new Tournament_Alternate(view);
+            t.Show();
         }
 
-        private void AgentsWindow_FormClosing(object sender, FormClosingEventArgs e)
+        private void Before_TournamentWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(view == "Guest")
             {

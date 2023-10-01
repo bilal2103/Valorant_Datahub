@@ -26,3 +26,10 @@ C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\V
 C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.pdb
 C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.Agent.resources
 C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.AgentsWindow.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.Maps.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.MapsWindow.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.WeaponaryWindow.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.Weapons.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.Before_TournamentWindow.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.Tournament_Alternate.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.UserForm.resources

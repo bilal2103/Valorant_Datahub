@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TournamentWindow));
             this.Team1 = new System.Windows.Forms.RichTextBox();
             this.Team2 = new System.Windows.Forms.RichTextBox();
             this.Team3 = new System.Windows.Forms.RichTextBox();
@@ -43,6 +44,8 @@
             this.Winner6 = new System.Windows.Forms.RichTextBox();
             this.Winner5 = new System.Windows.Forms.RichTextBox();
             this.Winner = new System.Windows.Forms.RichTextBox();
+            this.trophy = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.trophy)).BeginInit();
             this.SuspendLayout();
             // 
             // Team1
@@ -196,11 +199,22 @@
             this.Winner.TabIndex = 14;
             this.Winner.Text = "";
             // 
+            // trophy
+            // 
+            this.trophy.Image = ((System.Drawing.Image)(resources.GetObject("trophy.Image")));
+            this.trophy.Location = new System.Drawing.Point(1072, 244);
+            this.trophy.Name = "trophy";
+            this.trophy.Size = new System.Drawing.Size(171, 257);
+            this.trophy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.trophy.TabIndex = 15;
+            this.trophy.TabStop = false;
+            // 
             // TournamentWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1419, 771);
+            this.Controls.Add(this.trophy);
             this.Controls.Add(this.Winner);
             this.Controls.Add(this.Winner5);
             this.Controls.Add(this.Winner6);
@@ -218,7 +232,9 @@
             this.Controls.Add(this.Team1);
             this.Name = "TournamentWindow";
             this.Text = "TournamentWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TournamentWindow_FormClosing);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Tournament_Paint);
+            ((System.ComponentModel.ISupportInitialize)(this.trophy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +256,6 @@
         private System.Windows.Forms.RichTextBox Winner6;
         private System.Windows.Forms.RichTextBox Winner5;
         private System.Windows.Forms.RichTextBox Winner;
+        private System.Windows.Forms.PictureBox trophy;
     }
 }
