@@ -51,6 +51,7 @@
             // Team1
             // 
             this.Team1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team1.Location = new System.Drawing.Point(12, 10);
             this.Team1.Name = "Team1";
             this.Team1.ReadOnly = true;
@@ -61,6 +62,7 @@
             // Team2
             // 
             this.Team2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team2.Location = new System.Drawing.Point(12, 100);
             this.Team2.Name = "Team2";
             this.Team2.ReadOnly = true;
@@ -71,6 +73,7 @@
             // Team3
             // 
             this.Team3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team3.Location = new System.Drawing.Point(12, 210);
             this.Team3.Name = "Team3";
             this.Team3.ReadOnly = true;
@@ -81,6 +84,7 @@
             // Team4
             // 
             this.Team4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team4.Location = new System.Drawing.Point(12, 300);
             this.Team4.Name = "Team4";
             this.Team4.ReadOnly = true;
@@ -91,6 +95,7 @@
             // Team5
             // 
             this.Team5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team5.Location = new System.Drawing.Point(12, 410);
             this.Team5.Name = "Team5";
             this.Team5.ReadOnly = true;
@@ -101,6 +106,7 @@
             // Team6
             // 
             this.Team6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team6.Location = new System.Drawing.Point(12, 500);
             this.Team6.Name = "Team6";
             this.Team6.ReadOnly = true;
@@ -111,6 +117,7 @@
             // Team8
             // 
             this.Team8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team8.Location = new System.Drawing.Point(12, 685);
             this.Team8.Name = "Team8";
             this.Team8.ReadOnly = true;
@@ -121,6 +128,7 @@
             // Team7
             // 
             this.Team7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team7.Location = new System.Drawing.Point(12, 595);
             this.Team7.Name = "Team7";
             this.Team7.ReadOnly = true;
@@ -131,6 +139,7 @@
             // Winner4
             // 
             this.Winner4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner4.Location = new System.Drawing.Point(314, 640);
             this.Winner4.Name = "Winner4";
             this.Winner4.ReadOnly = true;
@@ -141,6 +150,7 @@
             // Winner3
             // 
             this.Winner3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner3.Location = new System.Drawing.Point(314, 455);
             this.Winner3.Name = "Winner3";
             this.Winner3.ReadOnly = true;
@@ -151,17 +161,18 @@
             // Winner1
             // 
             this.Winner1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner1.Location = new System.Drawing.Point(314, 55);
             this.Winner1.Name = "Winner1";
             this.Winner1.ReadOnly = true;
             this.Winner1.Size = new System.Drawing.Size(141, 46);
             this.Winner1.TabIndex = 11;
             this.Winner1.Text = "";
-            this.Winner1.TextChanged += new System.EventHandler(this.Winner1_TextChanged);
             // 
             // Winner2
             // 
             this.Winner2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner2.Location = new System.Drawing.Point(314, 255);
             this.Winner2.Name = "Winner2";
             this.Winner2.ReadOnly = true;
@@ -172,6 +183,7 @@
             // Winner6
             // 
             this.Winner6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner6.Location = new System.Drawing.Point(614, 547);
             this.Winner6.Name = "Winner6";
             this.Winner6.ReadOnly = true;
@@ -182,6 +194,7 @@
             // Winner5
             // 
             this.Winner5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner5.Location = new System.Drawing.Point(614, 155);
             this.Winner5.Name = "Winner5";
             this.Winner5.ReadOnly = true;
@@ -192,6 +205,7 @@
             // Winner
             // 
             this.Winner.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner.Location = new System.Drawing.Point(914, 351);
             this.Winner.Name = "Winner";
             this.Winner.ReadOnly = true;
@@ -230,6 +244,7 @@
             this.Controls.Add(this.Team3);
             this.Controls.Add(this.Team2);
             this.Controls.Add(this.Team1);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "TournamentWindow";
             this.Text = "TournamentWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TournamentWindow_FormClosing);

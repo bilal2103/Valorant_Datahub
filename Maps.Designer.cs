@@ -93,7 +93,7 @@
             this.weapon_tb.Location = new System.Drawing.Point(190, 304);
             this.weapon_tb.Name = "weapon_tb";
             this.weapon_tb.ReadOnly = true;
-            this.weapon_tb.Size = new System.Drawing.Size(157, 22);
+            this.weapon_tb.Size = new System.Drawing.Size(233, 22);
             this.weapon_tb.TabIndex = 21;
             // 
             // location_tb
@@ -101,7 +101,7 @@
             this.location_tb.Location = new System.Drawing.Point(190, 244);
             this.location_tb.Name = "location_tb";
             this.location_tb.ReadOnly = true;
-            this.location_tb.Size = new System.Drawing.Size(157, 22);
+            this.location_tb.Size = new System.Drawing.Size(233, 22);
             this.location_tb.TabIndex = 20;
             // 
             // teleportation_tb
@@ -109,7 +109,7 @@
             this.teleportation_tb.Location = new System.Drawing.Point(190, 184);
             this.teleportation_tb.Name = "teleportation_tb";
             this.teleportation_tb.ReadOnly = true;
-            this.teleportation_tb.Size = new System.Drawing.Size(157, 22);
+            this.teleportation_tb.Size = new System.Drawing.Size(233, 22);
             this.teleportation_tb.TabIndex = 19;
             // 
             // sites_tb
@@ -117,7 +117,7 @@
             this.sites_tb.Location = new System.Drawing.Point(190, 124);
             this.sites_tb.Name = "sites_tb";
             this.sites_tb.ReadOnly = true;
-            this.sites_tb.Size = new System.Drawing.Size(157, 22);
+            this.sites_tb.Size = new System.Drawing.Size(233, 22);
             this.sites_tb.TabIndex = 18;
             // 
             // name_tb
@@ -125,7 +125,7 @@
             this.name_tb.Location = new System.Drawing.Point(190, 64);
             this.name_tb.Name = "name_tb";
             this.name_tb.ReadOnly = true;
-            this.name_tb.Size = new System.Drawing.Size(157, 22);
+            this.name_tb.Size = new System.Drawing.Size(233, 22);
             this.name_tb.TabIndex = 17;
             // 
             // pictureBox1

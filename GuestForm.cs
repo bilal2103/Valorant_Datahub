@@ -16,9 +16,6 @@ namespace Valorant_Datahub
         {
             InitializeComponent();
         }
-
-
-
         private void GuestForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             GuestForm g = new GuestForm();
