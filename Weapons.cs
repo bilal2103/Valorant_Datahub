@@ -17,10 +17,22 @@ namespace Valorant_Datahub
         {
             InitializeComponent();
         }
-        public Weapons(string str)
+        public void Display(WeaponsInformation w)
+        {
+            textBox1.Text = w.weapon_name;
+            textBox2.Text = w.weapon_type;
+            textBox3.Text = string.Format("{0:N3}", w.damage) + " (Headshot)";
+            textBox4.Text = w.capacity.ToString();
+            textBox5.Text = string.Format("{0:N3}", w.max_range) + " meters";
+            frate_tb.Text = string.Format("{0:N3}", w.fire_rate) + " rounds/sec";
+            cspeed_tb.Text = string.Format("{0:N3}", w.run_speed) + " meters/sec";
+            fmode_tb.Text = w.fire_mode;
+        }
+        public Weapons(string str,WeaponsInformation w)
         {
             view = str;
             InitializeComponent();
+            Display(w);
         }
         private void Weapons_FormClosing(object sender, FormClosingEventArgs e)
         {

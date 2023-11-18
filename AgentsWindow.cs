@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,10 +26,29 @@ namespace Valorant_Datahub
         public string agent_name;
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
             agent_name = textBox1.Text;
-            Agent hehe = new Agent(view,agent_name);
-            hehe.Show();
+            string Query = "select * from agents where agent_name = @agent_name";
+            string Connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+            SqlConnection con = new SqlConnection(Connection);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(Query, con);
+            cmd.Parameters.AddWithValue("@agent_name", agent_name);
+            SqlDataReader result = cmd.ExecuteReader();
+            if (result.Read())
+            {
+                float win_pct = result.GetFloat(result.GetOrdinal("win_pct"));
+                float pick_pct = result.GetFloat(result.GetOrdinal("pick_pct"));
+                AgentInformation obj = new AgentInformation(result["Agent_name"].ToString(), pick_pct, win_pct,
+                    result["Tier"].ToString(), result["Category"].ToString(), result["Suited_Weapon"].ToString(), result["Ultimate"].ToString(), result["Description"].ToString(),
+                    result["Voiced_by"].ToString());
+                Agent a = new Agent(view, obj);
+                this.Hide();
+                a.Show();
+            }
+            else MessageBox.Show("Agent not found");
+            con.Close();
+
+            
         }
 
         private void AgentsWindow_FormClosing(object sender, FormClosingEventArgs e)

@@ -162,7 +162,7 @@
             // 
             // agent_picture
             // 
-            this.agent_picture.Location = new System.Drawing.Point(405, 54);
+            this.agent_picture.Location = new System.Drawing.Point(405, 41);
             this.agent_picture.Name = "agent_picture";
             this.agent_picture.Size = new System.Drawing.Size(763, 452);
             this.agent_picture.TabIndex = 14;
@@ -187,9 +187,10 @@
             // 
             // About_tb
             // 
-            this.About_tb.Location = new System.Drawing.Point(405, 512);
+            this.About_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.About_tb.Location = new System.Drawing.Point(405, 499);
             this.About_tb.Name = "About_tb";
-            this.About_tb.Size = new System.Drawing.Size(763, 211);
+            this.About_tb.Size = new System.Drawing.Size(763, 108);
             this.About_tb.TabIndex = 17;
             this.About_tb.Text = "";
             // 

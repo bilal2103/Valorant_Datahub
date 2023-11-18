@@ -68,6 +68,7 @@
             this.search_btn.TabIndex = 3;
             this.search_btn.Text = "View Details";
             this.search_btn.UseVisualStyleBackColor = true;
+            this.search_btn.Click += new System.EventHandler(this.search_btn_Click);
             // 
             // Before_TournamentWindow
             // 
