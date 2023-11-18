@@ -23,7 +23,6 @@ namespace Valorant_Datahub
             InitializeComponent();
             name_tb.Text = minfo.map_name;
             sites_tb.Text = minfo.spikesites.ToString();
-            teleportation_tb.Text = minfo.teleportation;
             location_tb.Text = minfo.location;
             weapon_tb.Text = minfo.suited_weapon;
             richTextBox1.Text = minfo.description;

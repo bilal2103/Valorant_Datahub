@@ -33,7 +33,7 @@ namespace Valorant_Datahub
             if(reader.HasRows)
             {
                 this.Hide();
-                UserForm u = new UserForm();
+                UserForm u = new UserForm(uname);
                 u.Show();
             }
             else

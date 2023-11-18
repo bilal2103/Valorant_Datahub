@@ -39,7 +39,7 @@ namespace Valorant_Datahub
                 float win_pct = result.GetFloat(result.GetOrdinal("win_pct"));
                 float pick_pct = result.GetFloat(result.GetOrdinal("pick_pct"));
                 AgentInformation obj = new AgentInformation(result["Agent_name"].ToString(), pick_pct, win_pct,
-                    result["Tier"].ToString(), result["Category"].ToString(), result["Suited_Weapon"].ToString(), result["Ultimate"].ToString(), result["Description"].ToString(),
+                    result["Tier"].ToString(), result["Role"].ToString(), result["Suited_Weapon"].ToString(), result["Ultimate"].ToString(), result["Description"].ToString(),
                     result["Voiced_by"].ToString());
                 Agent a = new Agent(view, obj);
                 this.Hide();

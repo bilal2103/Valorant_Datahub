@@ -35,3 +35,5 @@ C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\V
 C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.UserForm.resources
 C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.Login.resources
 C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.Register.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.statsWindow.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.pwUpdatecs.resources

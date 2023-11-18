@@ -37,7 +37,7 @@ namespace Valorant_Datahub
             {
                 float damage = result.GetFloat(result.GetOrdinal("Damage"));
                 float fire_rate = result.GetFloat(result.GetOrdinal("fire_rate"));
-                float run_speed = result.GetFloat(result.GetOrdinal("run_speed"));
+                float run_speed = result.GetFloat(result.GetOrdinal("reload_speed"));
                 WeaponsInformation w = new WeaponsInformation(result["Weapon_Name"].ToString(), result["Weapon_Type"].ToString(),
                     result["Fire_Mode"].ToString(), (int)result["Capacity"], (int)result["Max_Range"],
                     damage, fire_rate, run_speed);

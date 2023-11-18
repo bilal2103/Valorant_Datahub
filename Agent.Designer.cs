@@ -105,9 +105,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(42, 130);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.Size = new System.Drawing.Size(39, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = " Category:";
+            this.label4.Text = "Role:";
             // 
             // label5
             // 
@@ -165,6 +165,7 @@
             this.agent_picture.Location = new System.Drawing.Point(405, 41);
             this.agent_picture.Name = "agent_picture";
             this.agent_picture.Size = new System.Drawing.Size(763, 452);
+            this.agent_picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.agent_picture.TabIndex = 14;
             this.agent_picture.TabStop = false;
             // 

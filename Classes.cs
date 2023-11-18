@@ -8,14 +8,13 @@ namespace Valorant_Datahub
 {
     public class MapInformation
     {
-        public string map_name, teleportation, suited_weapon, description, location;
+        public string map_name, suited_weapon, description, location;
         public int spikesites;
         public MapInformation() { }
-        public MapInformation(string a, int b, string c, string d, string e, string f)
+        public MapInformation(string a, int b, string d, string e, string f)
         {
             map_name = a;
             spikesites = b;
-            teleportation = c;
             suited_weapon = d;
             location = e;
             description = f;
