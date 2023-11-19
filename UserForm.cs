@@ -13,11 +13,6 @@ namespace Valorant_Datahub
 {
     public partial class UserForm : Form
     {
-        
-        
-        
-        
-        
         string uname;
         private int pid;
         

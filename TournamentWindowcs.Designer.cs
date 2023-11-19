@@ -50,7 +50,11 @@
             // 
             // Team1
             // 
+            this.Team1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team1.Location = new System.Drawing.Point(12, 10);
             this.Team1.Name = "Team1";
@@ -61,7 +65,11 @@
             // 
             // Team2
             // 
+            this.Team2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team2.Location = new System.Drawing.Point(12, 100);
             this.Team2.Name = "Team2";
@@ -72,7 +80,11 @@
             // 
             // Team3
             // 
+            this.Team3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team3.Location = new System.Drawing.Point(12, 210);
             this.Team3.Name = "Team3";
@@ -83,7 +95,11 @@
             // 
             // Team4
             // 
+            this.Team4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team4.Location = new System.Drawing.Point(12, 300);
             this.Team4.Name = "Team4";
@@ -94,7 +110,11 @@
             // 
             // Team5
             // 
+            this.Team5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team5.Location = new System.Drawing.Point(12, 410);
             this.Team5.Name = "Team5";
@@ -105,7 +125,11 @@
             // 
             // Team6
             // 
+            this.Team6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team6.Location = new System.Drawing.Point(12, 500);
             this.Team6.Name = "Team6";
@@ -116,7 +140,11 @@
             // 
             // Team8
             // 
+            this.Team8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team8.Location = new System.Drawing.Point(12, 685);
             this.Team8.Name = "Team8";
@@ -127,7 +155,11 @@
             // 
             // Team7
             // 
+            this.Team7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Team7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Team7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Team7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Team7.Location = new System.Drawing.Point(12, 595);
             this.Team7.Name = "Team7";
@@ -138,7 +170,11 @@
             // 
             // Winner4
             // 
+            this.Winner4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Winner4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Winner4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner4.Location = new System.Drawing.Point(314, 640);
             this.Winner4.Name = "Winner4";
@@ -149,7 +185,11 @@
             // 
             // Winner3
             // 
+            this.Winner3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Winner3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Winner3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner3.Location = new System.Drawing.Point(314, 455);
             this.Winner3.Name = "Winner3";
@@ -160,7 +200,11 @@
             // 
             // Winner1
             // 
+            this.Winner1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Winner1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Winner1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner1.Location = new System.Drawing.Point(314, 55);
             this.Winner1.Name = "Winner1";
@@ -171,7 +215,11 @@
             // 
             // Winner2
             // 
+            this.Winner2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Winner2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Winner2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner2.Location = new System.Drawing.Point(314, 255);
             this.Winner2.Name = "Winner2";
@@ -182,7 +230,11 @@
             // 
             // Winner6
             // 
+            this.Winner6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Winner6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Winner6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner6.Location = new System.Drawing.Point(614, 547);
             this.Winner6.Name = "Winner6";
@@ -193,7 +245,11 @@
             // 
             // Winner5
             // 
+            this.Winner5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Winner5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Winner5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner5.Location = new System.Drawing.Point(614, 155);
             this.Winner5.Name = "Winner5";
@@ -204,7 +260,11 @@
             // 
             // Winner
             // 
+            this.Winner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Winner.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Winner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Winner.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Winner.Location = new System.Drawing.Point(914, 351);
             this.Winner.Name = "Winner";

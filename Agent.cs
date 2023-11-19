@@ -38,22 +38,8 @@ namespace Valorant_Datahub
             About_tb.Text = obj.Description;
 
             string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub_GIT\\Valorant_Datahub\\Images\\";
-            switch (obj.agent_name)
-            {
-                case "Sage":
-                case "sage":
-                    image_path += "sage.jpg";
-                    break;
-                case "Jett":
-                case "jett":
-                    image_path += "jett.jpg";
-                    break;
-                case "Neon":
-                case "neon":
-                    image_path += "neon.jpg";
-                    break;
-            }
-            System.Drawing.Image im = System.Drawing.Image.FromFile(image_path);
+            
+            System.Drawing.Image im = System.Drawing.Image.FromFile(image_path + obj.agent_name + ".jpg");
             agent_picture.Image = im;
             agent_picture.SizeMode = PictureBoxSizeMode.Zoom;
 

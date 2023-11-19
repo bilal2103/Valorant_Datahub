@@ -24,6 +24,10 @@ namespace Valorant_Datahub
             location_tb.Text = minfo.location;
             weapon_tb.Text = minfo.suited_weapon;
             richTextBox1.Text = minfo.description;
+            string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub_GIT\\Valorant_Datahub\\Images\\";
+
+            System.Drawing.Image im = Image.FromFile(image_path + minfo.map_name + ".jpg");
+            pictureBox1.Image= im;
         }
     }
 }
