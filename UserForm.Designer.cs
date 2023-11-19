@@ -34,6 +34,8 @@
             this.Agents_btn = new System.Windows.Forms.Button();
             this.weaponary_btn = new System.Windows.Forms.Button();
             this.personal_btn = new System.Windows.Forms.Button();
+            this.welcome_lbl = new System.Windows.Forms.Label();
+            this.pw_update = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Leaderboards_btn
@@ -92,15 +94,37 @@
             this.personal_btn.Name = "personal_btn";
             this.personal_btn.Size = new System.Drawing.Size(152, 55);
             this.personal_btn.TabIndex = 10;
-            this.personal_btn.Text = "Personal Stats";
+            this.personal_btn.Text = "View Your Information";
             this.personal_btn.UseVisualStyleBackColor = true;
             this.personal_btn.Click += new System.EventHandler(this.personal_btn_Click);
+            // 
+            // welcome_lbl
+            // 
+            this.welcome_lbl.AutoSize = true;
+            this.welcome_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcome_lbl.Location = new System.Drawing.Point(13, 23);
+            this.welcome_lbl.Name = "welcome_lbl";
+            this.welcome_lbl.Size = new System.Drawing.Size(115, 29);
+            this.welcome_lbl.TabIndex = 11;
+            this.welcome_lbl.Text = "Welcome";
+            // 
+            // pw_update
+            // 
+            this.pw_update.Location = new System.Drawing.Point(636, 234);
+            this.pw_update.Name = "pw_update";
+            this.pw_update.Size = new System.Drawing.Size(152, 55);
+            this.pw_update.TabIndex = 12;
+            this.pw_update.Text = "Update Password";
+            this.pw_update.UseVisualStyleBackColor = true;
+            this.pw_update.Click += new System.EventHandler(this.pwUpdate_Click);
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pw_update);
+            this.Controls.Add(this.welcome_lbl);
             this.Controls.Add(this.personal_btn);
             this.Controls.Add(this.Leaderboards_btn);
             this.Controls.Add(this.Tournament_btn);
@@ -111,6 +135,7 @@
             this.Text = "UserForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserForm_FormClosing);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,5 +147,7 @@
         private System.Windows.Forms.Button Agents_btn;
         private System.Windows.Forms.Button weaponary_btn;
         private System.Windows.Forms.Button personal_btn;
+        private System.Windows.Forms.Label welcome_lbl;
+        private System.Windows.Forms.Button pw_update;
     }
 }

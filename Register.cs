@@ -25,87 +25,100 @@ namespace Valorant_Datahub
                 && age_tb.TextLength > 0 && gender_tb.TextLength > 0 && name_tb.TextLength > 0
                 && country_tb.TextLength > 0 && city_tb.TextLength > 0 && agent_tb.TextLength > 0)
             {
-                if (pw_tb.TextLength >= 8 && pw_tb.TextLength <= 10)
+                string query = "select * from users where username = '" + uname_tb.Text + "'";
+                string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+                SqlConnection con = new SqlConnection(connection);
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    string query = "select * from users where username = '" + uname_tb.Text + "'";
-                    string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-                    SqlConnection con = new SqlConnection(connection);
+                    MessageBox.Show("Username has already been taken");
+                }
+                else
+                {
+                    con.Close();
                     con.Open();
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    query = "select * from agents where agent_name = '" + agent_tb.Text + "'";
+                    cmd = new SqlCommand(query, con);
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows == false)
                     {
-                        MessageBox.Show("Username has already been taken");
+                        MessageBox.Show("Invalid agent name");
                     }
                     else
                     {
                         con.Close();
                         con.Open();
-                        query = "select * from agents where agent_name = '" + agent_tb.Text + "'";
+                        query = "select location_id from location where city = '" + city_tb.Text + "' and " +
+                            "country = '" + country_tb.Text + "' and Region = '" + region_tb.Text + "'";
                         cmd = new SqlCommand(query, con);
                         reader = cmd.ExecuteReader();
-                        if(reader.HasRows == false)
-                        {
-                            MessageBox.Show("Invalid agent name");
-                        }
-                        else
+                        int temp2;
+                        if (reader.HasRows == false)
                         {
                             con.Close();
                             con.Open();
-                            query = "select location_id from location where city = '" + city_tb.Text + "' and " +
-                                "country = '" + country_tb.Text + "' and Region = '" + region_tb.Text + "'";
-                            cmd = new SqlCommand(query, con);
-                            reader = cmd.ExecuteReader();
-                            int temp2;
-                            if (reader.HasRows == false)
-                            {
-                                con.Close();
-                                con.Open();
-                                query = "select TOP 1 location_id from location order by location_id desc;";
-                                cmd = new SqlCommand(query, con);
-                                reader = cmd.ExecuteReader();
-                                reader.Read();
-                                temp2 = Convert.ToInt32(reader["location_id"]) + 1;
-                                query = "insert into location values(" + temp2 + ",'" + country_tb.Text + "','" + region_tb.Text + "'" +
-                                    ",'" + city_tb.Text + "')";
-                                con.Close();
-                                con.Open();
-                                cmd = new SqlCommand(query, con);
-                                cmd.ExecuteNonQuery();
-                            }
-                            else
-                            {
-                                reader.Read();
-                                temp2 = Convert.ToInt32(reader["location_id"]);
-                            }
-                                
-                            query = "select top 1 pid from player order by pid desc";
-                            con.Close();
-                            con.Open();
+                            query = "select TOP 1 location_id from location order by location_id desc;";
                             cmd = new SqlCommand(query, con);
                             reader = cmd.ExecuteReader();
                             reader.Read();
-                            temp = Convert.ToInt32(reader["pid"]) + 1;
-                            query = "insert into player values(" + temp + ",'" + name_tb.Text + "',0," + temp2 + ",'" + agent_tb.Text + "'," +
-                                "'" + gender_tb.Text + "'," + Convert.ToInt32(age_tb.Text) + ")";
+                            temp2 = Convert.ToInt32(reader["location_id"]) + 1;
+                            query = "insert into location values(" + temp2 + ",'" + country_tb.Text + "','" + region_tb.Text + "'" +
+                                ",'" + city_tb.Text + "')";
                             con.Close();
                             con.Open();
                             cmd = new SqlCommand(query, con);
                             cmd.ExecuteNonQuery();
-                            query = "insert into users values('" + uname_tb.Text + "','"+pw_tb.Text+"',"+temp+")";
-                            con.Close();
+                        }
+                        else
+                        {
+                            Console.WriteLine("No need to add location");
+                            reader.Read();
+                            temp2 = Convert.ToInt32(reader["location_id"]);
+                        }
+
+                        query = "select top 1 pid from player order by pid desc";
+                        con.Close();
+                        con.Open();
+                        cmd = new SqlCommand(query, con);
+                        reader = cmd.ExecuteReader();
+                        reader.Read();
+                        temp = Convert.ToInt32(reader["pid"]) + 1;
+                        con.Close();
+                        con.Open();
+                        query = "insert into player values(" + temp + ",'" + name_tb.Text + "'," + temp2 + ",'" + agent_tb.Text + "'," +
+                            "'" + gender_tb.Text + "'," + Convert.ToInt32(age_tb.Text) + ",'Iron 1',0,0)";
+                        cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        try
+                        {
+
+                            query = "insert into users values('" + uname_tb.Text + "','" + pw_tb.Text + "'," + temp + ")";
                             con.Open();
                             cmd = new SqlCommand(query, con);
                             cmd.ExecuteNonQuery();
                             MessageBox.Show($"{name_tb.Text}, you have been registered successfully!. Your unique player_id is {temp}");
+                            this.Hide();
+                            Form1 f = new Form1();
+                            f.Show();
                         }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("The password should be 8 to 10 characters long and must " +
+                                "include a digit and a special character");
+                            query = "delete from player where pid = " + temp + "";
+                            con.Close();
+                            con.Open();
+                            cmd= new SqlCommand(query, con);
+                            cmd.ExecuteNonQuery();
+                        }
+
                     }
-                    con.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Password's length must be between 8 to 10 characters");
-                }
+                con.Close();
+
             }
             else MessageBox.Show("Please provide in all the required information");
         }
