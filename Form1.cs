@@ -25,21 +25,18 @@ namespace Valorant_Datahub
         
         private void GuestButton_Click(object sender, EventArgs e)
         {
-            
             UserForm u = new UserForm("guest");
             u.Show();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Login l = new Login();
             l.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Register r = new Register();
             r.Show();
         }

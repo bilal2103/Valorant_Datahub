@@ -249,7 +249,6 @@
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "TournamentWindow";
             this.Text = "TournamentWindow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TournamentWindow_FormClosing);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Tournament_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.trophy)).EndInit();
             this.ResumeLayout(false);

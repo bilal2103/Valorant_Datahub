@@ -142,7 +142,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Maps";
             this.Text = "Maps";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Maps_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

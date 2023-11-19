@@ -81,7 +81,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Before_TournamentWindow";
             this.Text = "Before_TournamentWindow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Before_TournamentWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

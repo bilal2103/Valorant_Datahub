@@ -13,14 +13,8 @@ namespace Valorant_Datahub
 {
     public partial class AgentsWindow : Form
     {
-        string view;
         public AgentsWindow()
         {
-            InitializeComponent();
-        }
-        public AgentsWindow(string str)
-        {
-            view = str;
             InitializeComponent();
         }
         public string agent_name;
@@ -41,29 +35,13 @@ namespace Valorant_Datahub
                 AgentInformation obj = new AgentInformation(result["Agent_name"].ToString(), pick_pct, win_pct,
                     result["Tier"].ToString(), result["Role"].ToString(), result["Suited_Weapon"].ToString(), result["Ultimate"].ToString(), result["Description"].ToString(),
                     result["Voiced_by"].ToString());
-                Agent a = new Agent(view, obj);
-                this.Hide();
+                Agent a = new Agent(obj);
                 a.Show();
             }
             else MessageBox.Show("Agent not found");
             con.Close();
 
-            
-        }
 
-        private void AgentsWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(view == "Guest")
-            {
-                GuestForm g = new GuestForm();
-                g.Show();
-            }
-            else
-            {
-                UserForm u = new UserForm();
-                u.Show();
-            }
-            this.Hide();
         }
     }
 }

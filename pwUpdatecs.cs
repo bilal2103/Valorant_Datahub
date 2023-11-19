@@ -45,9 +45,7 @@ namespace Valorant_Datahub
                     {
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Your password has been updated successfully");
-                        this.Hide();
-                        Login l = new Login();
-                        l.Show();
+                        this.Close();
                     }
                     catch (Exception ex)
                     {

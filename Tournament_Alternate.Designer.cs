@@ -171,7 +171,6 @@
             this.Controls.Add(this.richTextBox1);
             this.Name = "Tournament_Alternate";
             this.Text = "Tournament_Alternate";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Tournament_Alternate_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

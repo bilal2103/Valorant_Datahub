@@ -242,7 +242,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Register";
             this.Text = "Register";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

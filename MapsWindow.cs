@@ -12,15 +12,9 @@ namespace Valorant_Datahub
 {
     public partial class MapsWindow : Form
     {
-        string view;
         public MapsWindow()
         {
             InitializeComponent();
-        }
-        public MapsWindow(string str)
-        {
-            InitializeComponent();
-            view = str;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -37,29 +31,11 @@ namespace Valorant_Datahub
             {
                 MapInformation obj = new MapInformation(result["Map_name"].ToString(), (int)result["Spike_sites"]
                 , result["Suited_Weapon"].ToString(), result["country"].ToString(), result["Description"].ToString());
-                Maps map = new Maps(view, obj);
-                this.Hide();
-                map.Show();
+                Maps m = new Maps(obj);
+                m.Show();
             }
             else MessageBox.Show("Map not found");
             con.Close();
-        }
-
-        private void MapsWindow_FormClosing(object sender, FormClosingEventArgs e)
-        { 
-            if(e.CloseReason == CloseReason.UserClosing)
-            {
-                if(view == "Guest")
-                {
-                    GuestForm g = new GuestForm();
-                    g.Show();
-                }
-                else
-                {
-                    UserForm u = new UserForm();
-                    u.Show();
-                }
-            }
         }
     }
 }

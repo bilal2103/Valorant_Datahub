@@ -69,7 +69,6 @@
             this.Controls.Add(this.label1);
             this.Name = "MapsWindow";
             this.Text = "MapsWindow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MapsWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,19 +14,11 @@ namespace Valorant_Datahub
 {
     public partial class TournamentWindow : Form
     {
-        string Opened_by;
-        public TournamentWindow() { }
-        public TournamentWindow(string opened_by, Dictionary<string, List<MatchesInformation>> matches)
+        public TournamentWindow() { InitializeComponent(); }
+        public TournamentWindow(Dictionary<string, List<MatchesInformation>> matches)
         {
-            this.Opened_by = opened_by;
             InitializeComponent();
             DisplayMatches(matches);
-        }
-        public TournamentWindow(string str)
-        {
-            this.Opened_by = str;
-            InitializeComponent();
-            
         }
         public void DisplayMatches(Dictionary<string, List<MatchesInformation>> matches)
         {
@@ -146,17 +138,5 @@ namespace Valorant_Datahub
             e.Graphics.DrawLine(BlackPen, 630, 302, 700, 302);
         }
 
-
-        private void TournamentWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(e.CloseReason == CloseReason.UserClosing)
-            {
-                Before_TournamentWindow t = new Before_TournamentWindow(Opened_by);
-                t.Show();
-                this.Hide();
-
-
-            }
-        }
     }
 }

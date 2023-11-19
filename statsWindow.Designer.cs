@@ -280,7 +280,6 @@
             this.Controls.Add(this.label1);
             this.Name = "statsWindow";
             this.Text = "statsWindow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.statsWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

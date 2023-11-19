@@ -238,7 +238,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Agent";
             this.Text = "Agent";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Agent_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.agent_picture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

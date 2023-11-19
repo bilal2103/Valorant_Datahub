@@ -13,6 +13,11 @@ namespace Valorant_Datahub
 {
     public partial class UserForm : Form
     {
+        
+        
+        
+        
+        
         string uname;
         private int pid;
         
@@ -57,35 +62,31 @@ namespace Valorant_Datahub
         }
         private void weaponary_btn_Click(object sender, EventArgs e)
         {
-            WeaponaryWindow w = new WeaponaryWindow(uname);
+            WeaponaryWindow w = new WeaponaryWindow();
             w.Show();
         }
 
         private void Leaderboards_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Leaderboards l = new Leaderboards(pid);
             l.Show();
         }
 
         private void Agents_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AgentsWindow agents = new AgentsWindow("uname");
+            AgentsWindow agents = new AgentsWindow();
             agents.Show();
         }
 
         private void Tournament_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Before_TournamentWindow t = new Before_TournamentWindow("uname");
+            Before_TournamentWindow t = new Before_TournamentWindow();
             t.Show();
         }
 
         private void Maps_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MapsWindow maps = new MapsWindow("uname");
+            MapsWindow maps = new MapsWindow();
             maps.Show();
         }
 
@@ -93,13 +94,11 @@ namespace Valorant_Datahub
         {
             statsWindow s = new statsWindow(pid);
             s.Show();
-            this.Hide();
         }
 
 
         private void pwUpdate_Click(object sender, EventArgs e)
         {
-            this.Hide();
             pwUpdatecs p = new pwUpdatecs(pid);
             p.Show();
         }

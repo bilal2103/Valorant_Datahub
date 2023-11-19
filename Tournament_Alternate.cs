@@ -14,14 +14,8 @@ namespace Valorant_Datahub
 {
     public partial class Tournament_Alternate : Form
     {
-        string view;
         public Tournament_Alternate()
         {
-            InitializeComponent();
-        }
-        public Tournament_Alternate(string str)
-        {
-            this.view = str;
             InitializeComponent();
         }
         private void AddQuotes(ref string str)
@@ -95,12 +89,6 @@ namespace Valorant_Datahub
             
             con.Close();
             
-        }
-
-        private void Tournament_Alternate_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Before_TournamentWindow hehe = new Before_TournamentWindow(view);
-            hehe.Show();
         }
     }
 }

@@ -73,7 +73,6 @@
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Name = "AgentsWindow";
             this.Text = "AgentsWindow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AgentsWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

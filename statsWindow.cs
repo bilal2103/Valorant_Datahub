@@ -104,12 +104,5 @@ namespace Valorant_Datahub
             textBox9.Text = reader["agent_played"].ToString();
             con.Close();
         }
-
-        private void statsWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            UserForm u = new UserForm();
-            u.Show();
-        }
     }
 }

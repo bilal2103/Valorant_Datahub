@@ -122,12 +122,5 @@ namespace Valorant_Datahub
             }
             else MessageBox.Show("Please provide in all the required information");
         }
-
-        private void Register_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            Form1 f = new Form1();
-            f.Show();
-        }
     }
 }

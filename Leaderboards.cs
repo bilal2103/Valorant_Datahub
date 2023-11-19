@@ -23,8 +23,8 @@ namespace Valorant_Datahub
         public Leaderboards(int pid)
         {
             InitializeComponent();
-            displayLeaderboard();
             this.pid = pid;
+            displayLeaderboard();
         }
         private void displayLeaderboard()
         {
@@ -44,28 +44,5 @@ namespace Valorant_Datahub
             con.Close();
         }
 
-        private void Leaderboards_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(pid == -1)
-            {
-                GuestForm g = new GuestForm();
-                g.Show();
-                this.Hide();
-            }
-            else
-            {
-                string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-                string query = "select username from users where player_id = "+pid+"";
-                SqlConnection con = new SqlConnection(connection);
-                con.Open();
-                SqlCommand cmd = new SqlCommand(query, con);
-                SqlDataReader reader= cmd.ExecuteReader();
-                reader.Read();
-                UserForm u = new UserForm(reader["username"].ToString());
-                this.Hide();
-                con.Close();
-                u.Show();
-            }
-        }
     }
 }

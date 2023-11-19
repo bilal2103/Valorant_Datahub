@@ -32,7 +32,6 @@ namespace Valorant_Datahub
             SqlDataReader reader = cmd.ExecuteReader(); 
             if(reader.HasRows)
             {
-                this.Hide();
                 UserForm u = new UserForm(uname);
                 u.Show();
             }

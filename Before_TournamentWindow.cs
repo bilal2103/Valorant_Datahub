@@ -13,36 +13,14 @@ namespace Valorant_Datahub
 {
     public partial class Before_TournamentWindow : Form
     {
-        string view;
         public Before_TournamentWindow()
         {
             InitializeComponent();
         }
-        public Before_TournamentWindow(string str)
-        {
-            view = str;
-            InitializeComponent();
-        }
         private void alternate_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Tournament_Alternate t = new Tournament_Alternate(view);
+            Tournament_Alternate t = new Tournament_Alternate();
             t.Show();
-        }
-
-        private void Before_TournamentWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(view == "Guest")
-            {
-                GuestForm g = new GuestForm();
-                g.Show();
-            }
-            else
-            {
-                UserForm u = new UserForm();
-                u.Show();
-            }
-            this.Hide();
         }
 
         private void search_btn_Click(object sender, EventArgs e)
@@ -80,9 +58,8 @@ namespace Valorant_Datahub
                     i++;
                 }
                 con.Close();
-                TournamentWindow t = new TournamentWindow(view, MatchesDictionary);
+                TournamentWindow t = new TournamentWindow(MatchesDictionary);
                 t.Show();
-                this.Hide();
             }
             else MessageBox.Show("Tournament with this id not found");
             con.Close();

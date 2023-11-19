@@ -12,10 +12,14 @@ namespace Valorant_Datahub
 {
     public partial class Weapons : Form
     {
-        string view;
         public Weapons()
         {
             InitializeComponent();
+        }
+        public Weapons(WeaponsInformation w)
+        {
+            InitializeComponent();
+            Display(w);
         }
         public void Display(WeaponsInformation w)
         {
@@ -69,22 +73,6 @@ namespace Valorant_Datahub
             im = System.Drawing.Image.FromFile(image_path + $"{initial}3.jpg");
             pictureBox3.Image = im;
         }
-        public Weapons(string str,WeaponsInformation w)
-        {
-            view = str;
-            InitializeComponent();
-            Display(w);
-        }
-        private void Weapons_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(e.CloseReason == CloseReason.UserClosing)
-            {
-                Weapons w = new Weapons();
-                WeaponaryWindow hehe = new WeaponaryWindow(view);
-                hehe.Show();
-                w.Close();
-                
-            }
-        }
+        
     }
 }

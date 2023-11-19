@@ -14,17 +14,17 @@ namespace Valorant_Datahub
 {
     public partial class Agent : Form
     {
-        string view;
-        private void Agent_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(e.CloseReason == CloseReason.UserClosing)
-            {
-                AgentsWindow hehe = new AgentsWindow(view);
-                hehe.Show();
-            }
-        }
 
         int Location_id;
+        public Agent(AgentInformation obj)
+        {
+            InitializeComponent();
+            DisplayStats(obj);
+        }
+        public Agent()
+        {
+            InitializeComponent();
+        }
         public void DisplayStats(AgentInformation obj)
         {
             name_tb.Text = obj.agent_name;
@@ -58,16 +58,7 @@ namespace Valorant_Datahub
             agent_picture.SizeMode = PictureBoxSizeMode.Zoom;
 
         }
-        public Agent(string view,AgentInformation obj)
-        {
-            this.view = view;
-            InitializeComponent();
-            DisplayStats(obj);
-        }
-        public Agent()
-        {
-            InitializeComponent();
-        }
+        
 
 
     }

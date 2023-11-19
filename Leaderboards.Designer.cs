@@ -143,7 +143,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Leaderboards";
             this.Text = "Leaderboards";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Leaderboards_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

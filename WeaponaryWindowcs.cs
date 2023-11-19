@@ -13,15 +13,9 @@ namespace Valorant_Datahub
 {
     public partial class WeaponaryWindow : Form
     {
-        string uname;
         public WeaponaryWindow()
         {
             InitializeComponent();
-        }
-        public WeaponaryWindow(string uname)
-        {
-            InitializeComponent();
-            this.uname = uname;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -41,9 +35,8 @@ namespace Valorant_Datahub
                 WeaponsInformation w = new WeaponsInformation(result["Weapon_Name"].ToString(), result["Weapon_Type"].ToString(),
                     result["Fire_Mode"].ToString(), (int)result["Capacity"], (int)result["Max_Range"],
                     damage, fire_rate, reload_speed);
-                Weapons wWindow = new Weapons(uname, w);
+                Weapons wWindow = new Weapons(w);
                 wWindow.Show();
-                this.Hide();
                 
             }
             else MessageBox.Show("Weapon not found");
