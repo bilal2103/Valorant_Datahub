@@ -42,11 +42,5 @@ namespace Valorant_Datahub
             }
             con.Close();
         }
-        private void Login_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            Form1 f = new Form1();
-            f.Show();
-        }
     }
 }

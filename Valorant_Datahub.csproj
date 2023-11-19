@@ -64,6 +64,7 @@
     <Compile Include="Before_TournamentWindow.Designer.cs">
       <DependentUpon>Before_TournamentWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="EventManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +78,12 @@
       <DependentUpon>GuestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes.cs" />
+    <Compile Include="Leaderboards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leaderboards.Designer.cs">
+      <DependentUpon>Leaderboards.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GuestForm.resx">
       <DependentUpon>GuestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leaderboards.resx">
+      <DependentUpon>Leaderboards.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

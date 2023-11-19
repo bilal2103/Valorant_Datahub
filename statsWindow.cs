@@ -31,6 +31,15 @@ namespace Valorant_Datahub
             reader.Read();
             return reader;
         }
+        private string getRank(int MMR)
+        {
+            string str = "hehe";
+            switch(MMR)
+            {
+                
+            }
+            return str;
+        }
         private void DisplayInformation()
         {
             SqlConnection con = new SqlConnection("Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True");
@@ -43,7 +52,8 @@ namespace Valorant_Datahub
             kills_tb.Text = reader["kills"].ToString();
             double kd_ratio = Convert.ToDouble(reader["kills"]) / Convert.ToDouble(reader["deaths"]);
             kd_tb.Text = string.Format("{0:N3}", kd_ratio);
-            rank_tb.Text = reader["rank"].ToString();
+            mmr_tb.Text = reader["MMR"].ToString();
+            rank_tb.Text = getRank((int)reader["MMR"]);
             con.Close();
             con.Open();
             query = "select username from users where player_id = "+pid+"";
@@ -67,7 +77,7 @@ namespace Valorant_Datahub
             con.Open();
             query = "select count(1) as 'exists',team_id from PLAYER_TEAM where player_id = " + pid + " group by team_id";
             reader = ExecuteQuery(ref con, query);
-            if ((int)reader["exists"] > 0)
+            if (reader.HasRows)
             {
                 int TeamID = (int)reader["team_id"];
                 con.Close();
@@ -90,6 +100,7 @@ namespace Valorant_Datahub
                 "from solo_matches where player_id= "+pid+" group by agent_played) as SubqueryAlias);";
             con.Open();
             reader = ExecuteQuery(ref con, query);
+            if(reader.HasRows)
             textBox9.Text = reader["agent_played"].ToString();
             con.Close();
         }

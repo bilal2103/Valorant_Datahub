@@ -13,15 +13,15 @@ namespace Valorant_Datahub
 {
     public partial class WeaponaryWindow : Form
     {
-        string view;
+        string uname;
         public WeaponaryWindow()
         {
             InitializeComponent();
         }
-        public WeaponaryWindow(string str)
+        public WeaponaryWindow(string uname)
         {
-            view = str;
             InitializeComponent();
+            this.uname = uname;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -37,34 +37,17 @@ namespace Valorant_Datahub
             {
                 float damage = result.GetFloat(result.GetOrdinal("Damage"));
                 float fire_rate = result.GetFloat(result.GetOrdinal("fire_rate"));
-                float run_speed = result.GetFloat(result.GetOrdinal("reload_speed"));
+                float reload_speed = result.GetFloat(result.GetOrdinal("reload_speed"));
                 WeaponsInformation w = new WeaponsInformation(result["Weapon_Name"].ToString(), result["Weapon_Type"].ToString(),
                     result["Fire_Mode"].ToString(), (int)result["Capacity"], (int)result["Max_Range"],
-                    damage, fire_rate, run_speed);
-                Weapons wWindow = new Weapons(view, w);
+                    damage, fire_rate, reload_speed);
+                Weapons wWindow = new Weapons(uname, w);
                 wWindow.Show();
                 this.Hide();
                 
             }
             else MessageBox.Show("Weapon not found");
             con.Close();
-        }
-
-        private void WeaponaryWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if(e.CloseReason == CloseReason.UserClosing)
-            {
-                if(this.view == "Guest")
-                {
-                    GuestForm g = new GuestForm();
-                    g.Show();
-                }
-                else
-                {
-                    UserForm u = new UserForm();
-                    u.Show();
-                }
-            }
         }
     }
 }

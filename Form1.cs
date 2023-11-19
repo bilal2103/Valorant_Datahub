@@ -12,23 +12,22 @@ namespace Valorant_Datahub
     
     public partial class Form1 : Form
     {
-        
+        public static string getRank(int MMR)
+        {
+            string str = "hehe";
+            return str;
+        }
+
         public Form1()
         {
             InitializeComponent();
         }
-        Form1 f;
-        GuestForm g;
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            f = new Form1();
-            g = new GuestForm();
-        }
         
         private void GuestButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            g.Show();
+            
+            UserForm u = new UserForm("guest");
+            u.Show();
         }
 
         private void loginButton_Click(object sender, EventArgs e)

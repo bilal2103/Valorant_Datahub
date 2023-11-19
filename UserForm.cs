@@ -13,7 +13,9 @@ namespace Valorant_Datahub
 {
     public partial class UserForm : Form
     {
-        int pid;
+        string uname;
+        private int pid;
+        
         public UserForm()
         {
             InitializeComponent();
@@ -21,7 +23,14 @@ namespace Valorant_Datahub
         public UserForm(string uname)
         {
             InitializeComponent();
-            update_welcome_label(uname);
+            this.uname = uname;
+            if(uname != "guest")
+                update_welcome_label(uname);   
+            else
+            {
+                pw_update.Enabled= false;
+                personal_btn.Enabled= false;
+            }
         }
         private void update_welcome_label(string uname)
         {
@@ -48,34 +57,35 @@ namespace Valorant_Datahub
         }
         private void weaponary_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            WeaponaryWindow w = new WeaponaryWindow("User");
+            WeaponaryWindow w = new WeaponaryWindow(uname);
             w.Show();
         }
 
         private void Leaderboards_btn_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Leaderboards l = new Leaderboards(pid);
+            l.Show();
         }
 
         private void Agents_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AgentsWindow agents = new AgentsWindow("User");
+            AgentsWindow agents = new AgentsWindow("uname");
             agents.Show();
         }
 
         private void Tournament_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Before_TournamentWindow t = new Before_TournamentWindow("User");
+            Before_TournamentWindow t = new Before_TournamentWindow("uname");
             t.Show();
         }
 
         private void Maps_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MapsWindow maps = new MapsWindow("User");
+            MapsWindow maps = new MapsWindow("uname");
             maps.Show();
         }
 
@@ -86,12 +96,6 @@ namespace Valorant_Datahub
             this.Hide();
         }
 
-        private void UserForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            Form1 f = new Form1();
-            f.Show();
-        }
 
         private void pwUpdate_Click(object sender, EventArgs e)
         {

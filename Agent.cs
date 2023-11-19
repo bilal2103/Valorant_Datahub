@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Valorant_Datahub
 {
@@ -34,6 +36,26 @@ namespace Valorant_Datahub
             ult_tb.Text = obj.ultimate;
             weapon_tb.Text = obj.suited_weapon;
             About_tb.Text = obj.Description;
+
+            string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub_GIT\\Valorant_Datahub\\Images\\";
+            switch (obj.agent_name)
+            {
+                case "Sage":
+                case "sage":
+                    image_path += "sage.jpg";
+                    break;
+                case "Jett":
+                case "jett":
+                    image_path += "jett.jpg";
+                    break;
+                case "Neon":
+                case "neon":
+                    image_path += "neon.jpg";
+                    break;
+            }
+            System.Drawing.Image im = System.Drawing.Image.FromFile(image_path);
+            agent_picture.Image = im;
+            agent_picture.SizeMode = PictureBoxSizeMode.Zoom;
 
         }
         public Agent(string view,AgentInformation obj)

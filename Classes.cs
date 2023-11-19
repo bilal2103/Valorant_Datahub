@@ -102,9 +102,9 @@ namespace Valorant_Datahub
     {
         public string weapon_name, weapon_type, fire_mode;
         public int capacity, max_range;
-        public float damage, fire_rate, run_speed;
+        public float damage, fire_rate, reload_speed;
         public WeaponsInformation() { }
-        public WeaponsInformation(string weapon_name, string weapon_type, string fire_mode, int capacity, int max_range, float damage, float fire_rate, float run_speed)
+        public WeaponsInformation(string weapon_name, string weapon_type, string fire_mode, int capacity, int max_range, float damage, float fire_rate, float reload_speed)
         {
             this.weapon_name = weapon_name;
             this.weapon_type = weapon_type;
@@ -113,7 +113,7 @@ namespace Valorant_Datahub
             this.max_range = max_range;
             this.damage = damage;
             this.fire_rate = fire_rate;
-            this.run_speed = run_speed;
+            this.reload_speed = reload_speed;
         }
     }
 

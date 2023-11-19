@@ -88,7 +88,7 @@ namespace Valorant_Datahub
                 {
                     
                     DataGridViewRow row = new DataGridViewRow();
-                    row.CreateCells(dataGridView1, reader["Tid"], reader["Tournament_title"]);
+                    row.CreateCells(dataGridView1, reader["Tid"].ToString(), reader["Tournament_title"].ToString());
                     dataGridView1.Rows.Add(row);
                 }
             }

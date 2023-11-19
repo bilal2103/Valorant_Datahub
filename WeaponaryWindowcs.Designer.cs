@@ -69,7 +69,6 @@
             this.Controls.Add(this.label1);
             this.Name = "WeaponaryWindow";
             this.Text = "WeaponaryWindow";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WeaponaryWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

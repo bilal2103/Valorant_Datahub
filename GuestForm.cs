@@ -40,7 +40,9 @@ namespace Valorant_Datahub
 
         private void Leaderboards_btn_Click(object sender, EventArgs e)
         {
-
+            Leaderboards l = new Leaderboards(-1);
+            l.Show();
+            this.Hide();
         }
 
         private void Maps_btn_Click(object sender, EventArgs e)
