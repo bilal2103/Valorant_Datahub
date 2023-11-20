@@ -59,7 +59,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 140);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.Size = new System.Drawing.Size(118, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter Prize Pool: ";
             // 
@@ -68,7 +68,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 16);
+            this.label2.Size = new System.Drawing.Size(172, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Enter Tournament\'s Title: ";
             // 
@@ -77,7 +77,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 200);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(226, 16);
+            this.label3.Size = new System.Drawing.Size(243, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Enter Tournament\'s Hosting Location";
             // 
@@ -145,7 +145,7 @@
             this.Tournament_ID.MinimumWidth = 6;
             this.Tournament_ID.Name = "Tournament_ID";
             this.Tournament_ID.ReadOnly = true;
-            this.Tournament_ID.Width = 128;
+            this.Tournament_ID.Width = 135;
             // 
             // Tournament_Title
             // 
@@ -153,7 +153,7 @@
             this.Tournament_Title.MinimumWidth = 6;
             this.Tournament_Title.Name = "Tournament_Title";
             this.Tournament_Title.ReadOnly = true;
-            this.Tournament_Title.Width = 141;
+            this.Tournament_Title.Width = 149;
             // 
             // Tournament_Alternate
             // 

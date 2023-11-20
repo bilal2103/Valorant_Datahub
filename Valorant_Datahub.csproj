@@ -52,6 +52,12 @@
     <Compile Include="Agent.Designer.cs">
       <DependentUpon>Agent.cs</DependentUpon>
     </Compile>
+    <Compile Include="AgentsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgentsView.Designer.cs">
+      <DependentUpon>AgentsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgentsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes.cs" />
+    <Compile Include="AdminWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminWindow.Designer.cs">
+      <DependentUpon>AdminWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Leaderboards.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +160,9 @@
     <EmbeddedResource Include="Agent.resx">
       <DependentUpon>Agent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AgentsView.resx">
+      <DependentUpon>AgentsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AgentsWindow.resx">
       <DependentUpon>AgentsWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminWindow.resx">
+      <DependentUpon>AdminWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Leaderboards.resx">
       <DependentUpon>Leaderboards.cs</DependentUpon>
