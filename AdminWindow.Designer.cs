@@ -67,9 +67,8 @@ namespace Valorant_Datahub
             this.weaponrybtn.Name = "weaponrybtn";
             this.weaponrybtn.Size = new System.Drawing.Size(157, 55);
             this.weaponrybtn.TabIndex = 4;
-            this.weaponrybtn.Text = "Weaponary";
+            this.weaponrybtn.Text = "Weaponry";
             this.weaponrybtn.UseVisualStyleBackColor = true;
-            this.weaponrybtn.Click += new System.EventHandler(this.weaponrybtn_Click);
             // 
             // playersbtn
             // 
@@ -79,7 +78,6 @@ namespace Valorant_Datahub
             this.playersbtn.TabIndex = 5;
             this.playersbtn.Text = "Players";
             this.playersbtn.UseVisualStyleBackColor = true;
-            this.playersbtn.Click += new System.EventHandler(this.playersbtn_Click);
             // 
             // locationbtn
             // 

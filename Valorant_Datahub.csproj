@@ -89,6 +89,12 @@
     <Compile Include="Leaderboards.Designer.cs">
       <DependentUpon>Leaderboards.cs</DependentUpon>
     </Compile>
+    <Compile Include="LocationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocationView.Designer.cs">
+      <DependentUpon>LocationView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,17 +107,23 @@
     <Compile Include="Maps.Designer.cs">
       <DependentUpon>Maps.cs</DependentUpon>
     </Compile>
+    <Compile Include="MapsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MapsView.Designer.cs">
+      <DependentUpon>MapsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="MapsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MapsWindow.Designer.cs">
       <DependentUpon>MapsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlayerView.cs">
+    <Compile Include="MatchesView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PlayerView.Designer.cs">
-      <DependentUpon>PlayerView.cs</DependentUpon>
+    <Compile Include="MatchesView.Designer.cs">
+      <DependentUpon>MatchesView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +144,18 @@
     </Compile>
     <Compile Include="statsWindow.Designer.cs">
       <DependentUpon>statsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeamsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamsView.Designer.cs">
+      <DependentUpon>TeamsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TournamentsView.Designer.cs">
+      <DependentUpon>TournamentsView.cs</DependentUpon>
     </Compile>
     <Compile Include="TournamentWindowcs.cs">
       <SubType>Form</SubType>
@@ -163,12 +187,6 @@
     <Compile Include="Weapons.Designer.cs">
       <DependentUpon>Weapons.cs</DependentUpon>
     </Compile>
-    <Compile Include="WeaponsView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WeaponsView.Designer.cs">
-      <DependentUpon>WeaponsView.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Agent.resx">
       <DependentUpon>Agent.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,17 +208,23 @@
     <EmbeddedResource Include="Leaderboards.resx">
       <DependentUpon>Leaderboards.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LocationView.resx">
+      <DependentUpon>LocationView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maps.resx">
       <DependentUpon>Maps.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MapsView.resx">
+      <DependentUpon>MapsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MapsWindow.resx">
       <DependentUpon>MapsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlayerView.resx">
-      <DependentUpon>PlayerView.cs</DependentUpon>
+    <EmbeddedResource Include="MatchesView.resx">
+      <DependentUpon>MatchesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -220,6 +244,12 @@
     <EmbeddedResource Include="statsWindow.resx">
       <DependentUpon>statsWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TeamsView.resx">
+      <DependentUpon>TeamsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TournamentsView.resx">
+      <DependentUpon>TournamentsView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TournamentWindowcs.resx">
       <DependentUpon>TournamentWindowcs.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,9 +264,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Weapons.resx">
       <DependentUpon>Weapons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WeaponsView.resx">
-      <DependentUpon>WeaponsView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

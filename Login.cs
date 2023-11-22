@@ -23,7 +23,7 @@ namespace Valorant_Datahub
             string uname = textBox1.Text;
             string pw = textBox2.Text;
             string query = "select username from users where username = '"+uname+"' and password = '"+pw+"'";
-            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+            string connection = "Data Source=AIMANANANANA;Initial Catalog=Valo_Data;Integrated Security=True";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             
