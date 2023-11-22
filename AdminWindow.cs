@@ -51,6 +51,16 @@ namespace Valorant_Datahub
         {
             TournamentsView t = new TournamentsView();
             t.Show();
+        private void playersbtn_Click(object sender, EventArgs e)
+        {
+            PlayerView p = new PlayerView();
+            p.Show();
+        }
+
+        private void weaponrybtn_Click(object sender, EventArgs e)
+        {
+            WeaponsView w = new WeaponsView();
+            w.Show();
         }
     }
 }
