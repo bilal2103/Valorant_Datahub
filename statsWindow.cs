@@ -53,7 +53,11 @@ namespace Valorant_Datahub
             double kd_ratio = Convert.ToDouble(reader["kills"]) / Convert.ToDouble(reader["deaths"]);
             kd_tb.Text = string.Format("{0:N3}", kd_ratio);
             mmr_tb.Text = reader["MMR"].ToString();
-            rank_tb.Text = getRank((int)reader["MMR"]);
+            query = $"select dbo.GetRank({Convert.ToInt32(mmr_tb.Text)})";
+            con.Close();
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            rank_tb.Text = (string)cmd.ExecuteScalar();
             con.Close();
             con.Open();
             query = "select username from users where player_id = "+pid+"";
