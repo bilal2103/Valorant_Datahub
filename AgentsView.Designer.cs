@@ -30,6 +30,15 @@ namespace Valorant_Datahub
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pick_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.win_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suited_weapon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ultimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voiced_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nametxt = new System.Windows.Forms.TextBox();
             this.picktxt = new System.Windows.Forms.TextBox();
             this.wintxt = new System.Windows.Forms.TextBox();
@@ -51,15 +60,6 @@ namespace Valorant_Datahub
             this.insert_btn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.updatebtn = new System.Windows.Forms.Button();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pick_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.win_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suited_weapon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ultimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.voiced_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +84,69 @@ namespace Valorant_Datahub
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 125;
+            // 
+            // pick_pct
+            // 
+            this.pick_pct.HeaderText = "Pick Percentage";
+            this.pick_pct.MinimumWidth = 6;
+            this.pick_pct.Name = "pick_pct";
+            this.pick_pct.Width = 125;
+            // 
+            // win_pct
+            // 
+            this.win_pct.HeaderText = "Win Percentage";
+            this.win_pct.MinimumWidth = 6;
+            this.win_pct.Name = "win_pct";
+            this.win_pct.Width = 125;
+            // 
+            // tier
+            // 
+            this.tier.HeaderText = "Tier";
+            this.tier.MinimumWidth = 6;
+            this.tier.Name = "tier";
+            this.tier.Width = 125;
+            // 
+            // role
+            // 
+            this.role.HeaderText = "Role";
+            this.role.MinimumWidth = 6;
+            this.role.Name = "role";
+            this.role.Width = 125;
+            // 
+            // suited_weapon
+            // 
+            this.suited_weapon.HeaderText = "Suited Weapon";
+            this.suited_weapon.MinimumWidth = 6;
+            this.suited_weapon.Name = "suited_weapon";
+            this.suited_weapon.Width = 125;
+            // 
+            // ultimate
+            // 
+            this.ultimate.HeaderText = "Ultimate";
+            this.ultimate.MinimumWidth = 6;
+            this.ultimate.Name = "ultimate";
+            this.ultimate.Width = 125;
+            // 
+            // description
+            // 
+            this.description.HeaderText = "Description";
+            this.description.MinimumWidth = 6;
+            this.description.Name = "description";
+            this.description.Width = 125;
+            // 
+            // voiced_by
+            // 
+            this.voiced_by.HeaderText = "Voiced By";
+            this.voiced_by.MinimumWidth = 6;
+            this.voiced_by.Name = "voiced_by";
+            this.voiced_by.Width = 125;
             // 
             // nametxt
             // 
@@ -232,9 +295,9 @@ namespace Valorant_Datahub
             // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(86, 571);
+            this.insert_btn.Location = new System.Drawing.Point(35, 594);
             this.insert_btn.Name = "insert_btn";
-            this.insert_btn.Size = new System.Drawing.Size(170, 46);
+            this.insert_btn.Size = new System.Drawing.Size(179, 46);
             this.insert_btn.TabIndex = 20;
             this.insert_btn.Text = "Insert";
             this.insert_btn.UseVisualStyleBackColor = true;
@@ -242,9 +305,9 @@ namespace Valorant_Datahub
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(326, 571);
+            this.deletebtn.Location = new System.Drawing.Point(313, 594);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(170, 46);
+            this.deletebtn.Size = new System.Drawing.Size(183, 46);
             this.deletebtn.TabIndex = 21;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = true;
@@ -252,82 +315,19 @@ namespace Valorant_Datahub
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(576, 571);
+            this.updatebtn.Location = new System.Drawing.Point(607, 594);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(170, 46);
+            this.updatebtn.Size = new System.Drawing.Size(175, 46);
             this.updatebtn.TabIndex = 22;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = true;
             this.updatebtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 125;
-            // 
-            // pick_pct
-            // 
-            this.pick_pct.HeaderText = "Pick Percentage";
-            this.pick_pct.MinimumWidth = 6;
-            this.pick_pct.Name = "pick_pct";
-            this.pick_pct.Width = 125;
-            // 
-            // win_pct
-            // 
-            this.win_pct.HeaderText = "Win Percentage";
-            this.win_pct.MinimumWidth = 6;
-            this.win_pct.Name = "win_pct";
-            this.win_pct.Width = 125;
-            // 
-            // tier
-            // 
-            this.tier.HeaderText = "Tier";
-            this.tier.MinimumWidth = 6;
-            this.tier.Name = "tier";
-            this.tier.Width = 125;
-            // 
-            // role
-            // 
-            this.role.HeaderText = "Role";
-            this.role.MinimumWidth = 6;
-            this.role.Name = "role";
-            this.role.Width = 125;
-            // 
-            // suited_weapon
-            // 
-            this.suited_weapon.HeaderText = "Suited Weapon";
-            this.suited_weapon.MinimumWidth = 6;
-            this.suited_weapon.Name = "suited_weapon";
-            this.suited_weapon.Width = 125;
-            // 
-            // ultimate
-            // 
-            this.ultimate.HeaderText = "Ultimate";
-            this.ultimate.MinimumWidth = 6;
-            this.ultimate.Name = "ultimate";
-            this.ultimate.Width = 125;
-            // 
-            // description
-            // 
-            this.description.HeaderText = "Description";
-            this.description.MinimumWidth = 6;
-            this.description.Name = "description";
-            this.description.Width = 125;
-            // 
-            // voiced_by
-            // 
-            this.voiced_by.HeaderText = "Voiced By";
-            this.voiced_by.MinimumWidth = 6;
-            this.voiced_by.Name = "voiced_by";
-            this.voiced_by.Width = 125;
-            // 
             // AgentsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 652);
+            this.ClientSize = new System.Drawing.Size(822, 675);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.insert_btn);

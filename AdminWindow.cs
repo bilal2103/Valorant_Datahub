@@ -22,5 +22,35 @@ namespace Valorant_Datahub
             AgentsView a = new AgentsView();
             a.Show();
         }
+
+        private void mapsbtn_Click(object sender, EventArgs e)
+        {
+            MapsView maps = new MapsView();
+            maps.Show();
+        }
+
+        private void locationbtn_Click(object sender, EventArgs e)
+        {
+            LocationView location = new LocationView();
+            location.Show();
+        }
+
+        private void teamsbtn_Click(object sender, EventArgs e)
+        {
+            TeamsView team = new TeamsView();
+            team.Show();
+        }
+
+        private void matchesbtn_Click(object sender, EventArgs e)
+        {
+            MatchesView match = new MatchesView();
+            match.Show();
+        }
+
+        private void tournamentsbtn_Click(object sender, EventArgs e)
+        {
+            TournamentsView t = new TournamentsView();
+            t.Show();
+        }
     }
 }

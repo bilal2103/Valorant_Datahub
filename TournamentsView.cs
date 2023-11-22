@@ -11,19 +11,19 @@ using System.Data.SqlClient;
 
 namespace Valorant_Datahub
 {
-    public partial class AgentsView : Form
+    public partial class TournamentsView : Form
     {
         public string connection;
-        public AgentsView()
+        public TournamentsView()
         {
             InitializeComponent();
             connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
             displaytable();
-            
         }
+
         private void displaytable()
         {
-            string query = "select * from agents";
+            string query = "select * from tournaments";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
@@ -31,75 +31,52 @@ namespace Valorant_Datahub
             while (reader.Read())
             {
                 DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["Agent_name"].ToString(), reader["Pick_pct"].ToString(), reader["Win_pct"].ToString(),
-                    reader["Tier"].ToString(), reader["Role"].ToString(), reader["Suited_Weapon"].ToString(), reader["Ultimate"].ToString(),
-                     reader["Description"].ToString(), reader["Voiced_by"].ToString()); 
+                row.CreateCells(dataGridView1, reader["tid"].ToString(), reader["tournament_title"].ToString(),
+                    reader["prize_pool"].ToString(), reader["location_id"].ToString());
                 dataGridView1.Rows.Add(row);
             }
             con.Close();
-        }
-        private void AgentsView_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                // Get data from the selected row and fill textboxes
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                nametxt.Text = "";
-                picktxt.Text = ""; wintxt.Text = ""; tiertxt.Text = ""; roletxt.Text = "";
-                weapontxt.Text = ""; ultimatetxt.Text = ""; desctxt.Text = ""; voicetxt.Text = "";
-                nametxt.Text = selectedRow.Cells["name"].Value.ToString();
-                picktxt.Text = selectedRow.Cells["pick_pct"].Value.ToString();
-                wintxt.Text = selectedRow.Cells["win_pct"].Value.ToString();
-                tiertxt.Text = selectedRow.Cells["tier"].Value.ToString();
-                roletxt.Text = selectedRow.Cells["role"].Value.ToString();
-                weapontxt.Text = selectedRow.Cells["suited_weapon"].Value.ToString();
-                ultimatetxt.Text = selectedRow.Cells["ultimate"].Value.ToString();
-                desctxt.Text = selectedRow.Cells["description"].Value.ToString();
-                voicetxt.Text = selectedRow.Cells["voiced_by"].Value.ToString();
+                idtxt.Text = selectedRow.Cells["tid"].Value.ToString();
+                titletxt.Text = selectedRow.Cells["tournament_title"].Value.ToString();
+                prizetxt.Text = selectedRow.Cells["prize_pool"].Value.ToString();
+                locationtxt.Text = selectedRow.Cells["location_id"].Value.ToString();
             }
         }
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from agents where agent_name = '" + nametxt.Text + "'";
+            string query = "select * from tournaments where tid = '" + idtxt.Text + "'";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
-                MessageBox.Show("Agent Name has already been taken");
+                MessageBox.Show("Tournament with TID "+idtxt.Text+" already exists");
             }
             else
             {
                 con.Close();
                 con.Open();
-                query = "select * from weaponry where weapon_name = '" + weapontxt.Text + "'";
+                query = "select * from location where location_id = '" + locationtxt.Text + "'";
                 cmd = new SqlCommand(query, con);
                 reader = cmd.ExecuteReader();
                 if (!reader.HasRows)
                 {
-                    MessageBox.Show("Weapon with this name does not exist.");
+                    MessageBox.Show("Location with location id " + locationtxt.Text + " does not exist.");
                 }
                 else
                 {
+                    con.Close();
                     con.Open();
-                    query = "insert into agents values ('" + nametxt.Text + "', '" + picktxt.Text + "','" + wintxt.Text + "', '" + tiertxt.Text + "',  '" + roletxt.Text + "','" + weapontxt.Text + "','" + ultimatetxt.Text + "','" + desctxt.Text + "','" + voicetxt.Text + "')";
+                    query = "insert into tournaments values ('" + idtxt.Text + "', '" + prizetxt.Text + "','" + locationtxt.Text + "','" + titletxt.Text + "')";
                     cmd = new SqlCommand(query, con);
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -111,20 +88,20 @@ namespace Valorant_Datahub
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            string query = "select * from agents where agent_name = '" + nametxt.Text + "'";
+            string query = "select * from tournaments where tid = '" + idtxt.Text + "'";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (!reader.HasRows)
             {
-              MessageBox.Show("No agent with this name exists");
+                MessageBox.Show("No tournament with this TID exists");
             }
             else
             {
                 con.Close();
                 con.Open();
-                query = "delete from agents where agent_name = '" + nametxt.Text + "'"; 
+                query = "delete from tournaments where tid = '" + idtxt.Text + "'";
                 cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -133,9 +110,9 @@ namespace Valorant_Datahub
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void updatebtn_Click(object sender, EventArgs e)
         {
 
         }
-    }   
+    }
 }

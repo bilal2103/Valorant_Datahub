@@ -64,3 +64,8 @@ D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.exe
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.pdb
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.AgentsView.resources
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.AdminWindow.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.MapsView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.LocationView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.TeamsView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.MatchesView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.TournamentsView.resources

@@ -59,6 +59,7 @@ namespace Valorant_Datahub
             this.mapsbtn.TabIndex = 3;
             this.mapsbtn.Text = "Maps";
             this.mapsbtn.UseVisualStyleBackColor = true;
+            this.mapsbtn.Click += new System.EventHandler(this.mapsbtn_Click);
             // 
             // weaponrybtn
             // 
@@ -86,6 +87,7 @@ namespace Valorant_Datahub
             this.locationbtn.TabIndex = 6;
             this.locationbtn.Text = "Locations";
             this.locationbtn.UseVisualStyleBackColor = true;
+            this.locationbtn.Click += new System.EventHandler(this.locationbtn_Click);
             // 
             // teamsbtn
             // 
@@ -95,6 +97,7 @@ namespace Valorant_Datahub
             this.teamsbtn.TabIndex = 7;
             this.teamsbtn.Text = "Teams";
             this.teamsbtn.UseVisualStyleBackColor = true;
+            this.teamsbtn.Click += new System.EventHandler(this.teamsbtn_Click);
             // 
             // matchesbtn
             // 
@@ -104,6 +107,7 @@ namespace Valorant_Datahub
             this.matchesbtn.TabIndex = 8;
             this.matchesbtn.Text = "Matches";
             this.matchesbtn.UseVisualStyleBackColor = true;
+            this.matchesbtn.Click += new System.EventHandler(this.matchesbtn_Click);
             // 
             // tournamentsbtn
             // 
@@ -113,6 +117,7 @@ namespace Valorant_Datahub
             this.tournamentsbtn.TabIndex = 9;
             this.tournamentsbtn.Text = "Tournaments";
             this.tournamentsbtn.UseVisualStyleBackColor = true;
+            this.tournamentsbtn.Click += new System.EventHandler(this.tournamentsbtn_Click);
             // 
             // THbtn
             // 
