@@ -13,11 +13,11 @@ namespace Valorant_Datahub
 {
     public partial class AgentsView : Form
     {
-        private string connection,last_Agent_clicked;
+        public string connection, last_Agent_clicked;
         public AgentsView()
         {
             InitializeComponent();
-            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
             displaytable();
             
         }
@@ -38,7 +38,20 @@ namespace Valorant_Datahub
             }
             con.Close();
         }
+        private void AgentsView_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -114,25 +127,19 @@ namespace Valorant_Datahub
                 con.Open();
                 query = "delete from agents where agent_name = '" + nametxt.Text + "'"; 
                 cmd = new SqlCommand(query, con);
-                try
-                { 
-                    cmd.ExecuteNonQuery();
-                }
-                catch
-                {
-                    MessageBox.Show("Deleting this agent would violate referential integrity constraint. Hence, the operation has been blocked");
-                }
+                cmd.ExecuteNonQuery();
                 con.Close();
                 dataGridView1.Rows.Clear();
                 displaytable();
             }
         }
 
+
         private void updatebtn_Click(object sender, EventArgs e)
         {
-            string query = "update agents set agent_name = '" + nametxt.Text + "',pick_pct = '"+picktxt.Text+"'," +
-                "win_pct = '"+wintxt.Text+"',tier = '"+tiertxt.Text+"',Role='"+roletxt.Text+"',Suited_weapon='"+weapontxt.Text+"'," +
-                "Description = '"+desctxt.Text+"',Voiced_by = '"+voicetxt.Text+"' where agent_name = '"+last_Agent_clicked+"'";
+            string query = "update agents set agent_name = '" + nametxt.Text + "',pick_pct = '" + picktxt.Text + "'," +
+                "win_pct = '" + wintxt.Text + "',tier = '" + tiertxt.Text + "',Role='" + roletxt.Text + "',Suited_weapon='" + weapontxt.Text + "'," +
+                "Description = '" + desctxt.Text + "',Voiced_by = '" + voicetxt.Text + "' where agent_name = '" + last_Agent_clicked + "'";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
@@ -140,7 +147,7 @@ namespace Valorant_Datahub
             {
                 cmd.ExecuteNonQuery();
             }
-            catch(SqlException E)
+            catch (SqlException E)
             {
                 MessageBox.Show(E.Message);
             }

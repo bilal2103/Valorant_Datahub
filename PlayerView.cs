@@ -13,7 +13,7 @@ namespace Valorant_Datahub
 {
     public partial class PlayerView : Form
     {
-        private string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+        private string connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
         private int last_pid;
         public PlayerView()
         {

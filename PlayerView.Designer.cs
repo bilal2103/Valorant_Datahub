@@ -44,14 +44,6 @@
             this.unametxt = new System.Windows.Forms.TextBox();
             this.idtxt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.mmrtxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.killstxt = new System.Windows.Forms.TextBox();
-            this.deathstxt = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.locationtxt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +55,14 @@
             this.kills = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deaths = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.location = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.mmrtxt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.killstxt = new System.Windows.Forms.TextBox();
+            this.deathstxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.locationtxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tidtxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -103,7 +103,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(820, 432);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 16);
+            this.label3.Size = new System.Drawing.Size(100, 17);
             this.label3.TabIndex = 36;
             this.label3.Text = "Favorite Agent";
             // 
@@ -112,7 +112,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(720, 432);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 16);
+            this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 35;
             this.label2.Text = "Age";
             // 
@@ -121,7 +121,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(609, 432);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 34;
             this.label1.Text = "Gender";
             // 
@@ -151,7 +151,7 @@
             this.winlbl.AutoSize = true;
             this.winlbl.Location = new System.Drawing.Point(314, 432);
             this.winlbl.Name = "winlbl";
-            this.winlbl.Size = new System.Drawing.Size(44, 16);
+            this.winlbl.Size = new System.Drawing.Size(45, 17);
             this.winlbl.TabIndex = 29;
             this.winlbl.Text = "Name";
             // 
@@ -160,7 +160,7 @@
             this.uname.AutoSize = true;
             this.uname.Location = new System.Drawing.Point(116, 432);
             this.uname.Name = "uname";
-            this.uname.Size = new System.Drawing.Size(70, 16);
+            this.uname.Size = new System.Drawing.Size(73, 17);
             this.uname.TabIndex = 28;
             this.uname.Text = "Username";
             // 
@@ -169,7 +169,7 @@
             this.namelbl.AutoSize = true;
             this.namelbl.Location = new System.Drawing.Point(27, 433);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(62, 16);
+            this.namelbl.Size = new System.Drawing.Size(65, 17);
             this.namelbl.TabIndex = 27;
             this.namelbl.Text = "Player ID";
             // 
@@ -191,7 +191,7 @@
             // 
             this.idtxt.Location = new System.Drawing.Point(30, 452);
             this.idtxt.Name = "idtxt";
-            this.idtxt.Size = new System.Drawing.Size(40, 22);
+            this.idtxt.Size = new System.Drawing.Size(62, 22);
             this.idtxt.TabIndex = 24;
             // 
             // dataGridView1
@@ -219,12 +219,90 @@
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // id
+            // 
+            this.id.HeaderText = "Player ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.Width = 94;
+            // 
+            // username
+            // 
+            this.username.HeaderText = "Username";
+            this.username.MinimumWidth = 6;
+            this.username.Name = "username";
+            this.username.Width = 102;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Full Name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            // 
+            // team
+            // 
+            this.team.HeaderText = "Team ID";
+            this.team.MinimumWidth = 6;
+            this.team.Name = "team";
+            this.team.ReadOnly = true;
+            this.team.Width = 90;
+            // 
+            // gender
+            // 
+            this.gender.HeaderText = "Gender";
+            this.gender.MinimumWidth = 6;
+            this.gender.Name = "gender";
+            this.gender.Width = 85;
+            // 
+            // age
+            // 
+            this.age.HeaderText = "Age";
+            this.age.MinimumWidth = 6;
+            this.age.Name = "age";
+            this.age.Width = 62;
+            // 
+            // agent
+            // 
+            this.agent.HeaderText = "Favorite Agent";
+            this.agent.MinimumWidth = 6;
+            this.agent.Name = "agent";
+            this.agent.Width = 129;
+            // 
+            // mmr
+            // 
+            this.mmr.HeaderText = "MMR";
+            this.mmr.MinimumWidth = 6;
+            this.mmr.Name = "mmr";
+            this.mmr.Width = 69;
+            // 
+            // kills
+            // 
+            this.kills.HeaderText = "Kills";
+            this.kills.MinimumWidth = 6;
+            this.kills.Name = "kills";
+            this.kills.Width = 62;
+            // 
+            // deaths
+            // 
+            this.deaths.HeaderText = "Deaths";
+            this.deaths.MinimumWidth = 6;
+            this.deaths.Name = "deaths";
+            this.deaths.Width = 82;
+            // 
+            // location
+            // 
+            this.location.HeaderText = "Location ID";
+            this.location.MinimumWidth = 6;
+            this.location.Name = "location";
+            this.location.ReadOnly = true;
+            this.location.Width = 108;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(27, 491);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 16);
+            this.label7.Size = new System.Drawing.Size(40, 17);
             this.label7.TabIndex = 45;
             this.label7.Text = "MMR";
             // 
@@ -240,7 +318,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(114, 491);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 16);
+            this.label8.Size = new System.Drawing.Size(33, 17);
             this.label8.TabIndex = 47;
             this.label8.Text = "Kills";
             // 
@@ -263,7 +341,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(202, 491);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 16);
+            this.label4.Size = new System.Drawing.Size(53, 17);
             this.label4.TabIndex = 49;
             this.label4.Text = "Deaths";
             // 
@@ -279,95 +357,16 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(299, 491);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 16);
+            this.label5.Size = new System.Drawing.Size(79, 17);
             this.label5.TabIndex = 51;
             this.label5.Text = "Location ID";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Player ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.Width = 91;
-            // 
-            // username
-            // 
-            this.username.HeaderText = "Username";
-            this.username.MinimumWidth = 6;
-            this.username.Name = "username";
-            this.username.Width = 99;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Full Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 97;
-            // 
-            // team
-            // 
-            this.team.HeaderText = "Team ID";
-            this.team.MinimumWidth = 6;
-            this.team.Name = "team";
-            this.team.ReadOnly = true;
-            this.team.Width = 88;
-            // 
-            // gender
-            // 
-            this.gender.HeaderText = "Gender";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.Width = 81;
-            // 
-            // age
-            // 
-            this.age.HeaderText = "Age";
-            this.age.MinimumWidth = 6;
-            this.age.Name = "age";
-            this.age.Width = 61;
-            // 
-            // agent
-            // 
-            this.agent.HeaderText = "Favorite Agent";
-            this.agent.MinimumWidth = 6;
-            this.agent.Name = "agent";
-            this.agent.Width = 123;
-            // 
-            // mmr
-            // 
-            this.mmr.HeaderText = "MMR";
-            this.mmr.MinimumWidth = 6;
-            this.mmr.Name = "mmr";
-            this.mmr.Width = 68;
-            // 
-            // kills
-            // 
-            this.kills.HeaderText = "Kills";
-            this.kills.MinimumWidth = 6;
-            this.kills.Name = "kills";
-            this.kills.Width = 60;
-            // 
-            // deaths
-            // 
-            this.deaths.HeaderText = "Deaths";
-            this.deaths.MinimumWidth = 6;
-            this.deaths.Name = "deaths";
-            this.deaths.Width = 79;
-            // 
-            // location
-            // 
-            this.location.HeaderText = "Location ID";
-            this.location.MinimumWidth = 6;
-            this.location.Name = "location";
-            this.location.ReadOnly = true;
-            this.location.Width = 103;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(491, 432);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 16);
+            this.label6.Size = new System.Drawing.Size(61, 17);
             this.label6.TabIndex = 54;
             this.label6.Text = "Team ID";
             // 

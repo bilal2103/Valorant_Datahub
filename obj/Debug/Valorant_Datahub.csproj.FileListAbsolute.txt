@@ -64,7 +64,42 @@ D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.exe
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.pdb
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.AgentsView.resources
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.AdminWindow.resources
-C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.AgentsView.resources
-C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.AdminWindow.resources
-C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.PlayerView.resources
-C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.WeaponsView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.MapsView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.LocationView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.TeamsView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.MatchesView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.TournamentsView.resources
+C:\Users\Hp\Downloads\New folder\bin\Debug\Valorant_Datahub.exe.config
+C:\Users\Hp\Downloads\New folder\bin\Debug\Valorant_Datahub.exe
+C:\Users\Hp\Downloads\New folder\bin\Debug\Valorant_Datahub.pdb
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.csproj.AssemblyReference.cache
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Agent.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.AgentsView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.AgentsWindow.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Before_TournamentWindow.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Form1.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.AdminWindow.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Leaderboards.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.LocationView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Login.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Maps.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.MapsView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.MapsWindow.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.MatchesView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.PlayerView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Properties.Resources.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.pwUpdatecs.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Register.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.statsWindow.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.TeamsView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.TournamentsView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.TournamentWindow.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Tournament_Alternate.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.UserForm.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.WeaponaryWindow.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.Weapons.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.WeaponsView.resources
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.csproj.GenerateResource.cache
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.exe
+C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.pdb
