@@ -64,3 +64,7 @@ D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.exe
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.pdb
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.AgentsView.resources
 D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.AdminWindow.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.AgentsView.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.AdminWindow.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.PlayerView.resources
+C:\Users\Dell\OneDrive\Desktop\Valorant_Datahub_GIT\Valorant_Datahub\obj\Debug\Valorant_Datahub.WeaponsView.resources

@@ -13,11 +13,11 @@ namespace Valorant_Datahub
 {
     public partial class AgentsView : Form
     {
-        public string connection;
+        private string connection,last_Agent_clicked;
         public AgentsView()
         {
             InitializeComponent();
-            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
             
         }
@@ -38,20 +38,7 @@ namespace Valorant_Datahub
             }
             con.Close();
         }
-        private void AgentsView_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -71,6 +58,7 @@ namespace Valorant_Datahub
                 ultimatetxt.Text = selectedRow.Cells["ultimate"].Value.ToString();
                 desctxt.Text = selectedRow.Cells["description"].Value.ToString();
                 voicetxt.Text = selectedRow.Cells["voiced_by"].Value.ToString();
+                last_Agent_clicked = nametxt.Text;
             }
         }
 
@@ -115,16 +103,39 @@ namespace Valorant_Datahub
                 con.Open();
                 query = "delete from agents where agent_name = '" + nametxt.Text + "'"; 
                 cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
+                try
+                { 
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show("Deleting this agent would violate referential integrity constraint. Hence, the operation has been blocked");
+                }
                 con.Close();
                 dataGridView1.Rows.Clear();
                 displaytable();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void updatebtn_Click(object sender, EventArgs e)
         {
-
+            string query = "update agents set agent_name = '" + nametxt.Text + "',pick_pct = '"+picktxt.Text+"'," +
+                "win_pct = '"+wintxt.Text+"',tier = '"+tiertxt.Text+"',Role='"+roletxt.Text+"',Suited_weapon='"+weapontxt.Text+"'," +
+                "Description = '"+desctxt.Text+"',Voiced_by = '"+voicetxt.Text+"' where agent_name = '"+last_Agent_clicked+"'";
+            SqlConnection con = new SqlConnection(connection);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch(SqlException E)
+            {
+                MessageBox.Show(E.Message);
+            }
+            con.Close();
+            dataGridView1.Rows.Clear();
+            displaytable();
         }
     }   
 }

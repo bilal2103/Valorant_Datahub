@@ -22,5 +22,17 @@ namespace Valorant_Datahub
             AgentsView a = new AgentsView();
             a.Show();
         }
+
+        private void playersbtn_Click(object sender, EventArgs e)
+        {
+            PlayerView p = new PlayerView();
+            p.Show();
+        }
+
+        private void weaponrybtn_Click(object sender, EventArgs e)
+        {
+            WeaponsView w = new WeaponsView();
+            w.Show();
+        }
     }
 }
