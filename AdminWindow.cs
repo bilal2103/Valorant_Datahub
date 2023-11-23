@@ -64,5 +64,17 @@ namespace Valorant_Datahub
             PlayerView p = new PlayerView();
             p.Show();
         }
+
+        private void solobtn_Click(object sender, EventArgs e)
+        {
+            SoloMatchesView solo = new SoloMatchesView();
+            solo.Show();
+        }
+
+        private void THbtn_Click(object sender, EventArgs e)
+        {
+            TournamentHistoryView th = new TournamentHistoryView();
+            th.Show();
+        }
     }
 }

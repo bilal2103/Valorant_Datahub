@@ -129,6 +129,7 @@ namespace Valorant_Datahub
             this.THbtn.TabIndex = 10;
             this.THbtn.Text = "Tournaments History";
             this.THbtn.UseVisualStyleBackColor = true;
+            this.THbtn.Click += new System.EventHandler(this.THbtn_Click);
             // 
             // solobtn
             // 
@@ -138,6 +139,7 @@ namespace Valorant_Datahub
             this.solobtn.TabIndex = 11;
             this.solobtn.Text = "Solo Matches";
             this.solobtn.UseVisualStyleBackColor = true;
+            this.solobtn.Click += new System.EventHandler(this.solobtn_Click);
             // 
             // AdminWindow
             // 

@@ -145,6 +145,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="SoloMatchesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoloMatchesView.Designer.cs">
+      <DependentUpon>SoloMatchesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="statsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,12 @@
     </Compile>
     <Compile Include="TeamsView.Designer.cs">
       <DependentUpon>TeamsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TournamentHistoryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TournamentHistoryView.Designer.cs">
+      <DependentUpon>TournamentHistoryView.cs</DependentUpon>
     </Compile>
     <Compile Include="TournamentsView.cs">
       <SubType>Form</SubType>
@@ -256,11 +268,17 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SoloMatchesView.resx">
+      <DependentUpon>SoloMatchesView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="statsWindow.resx">
       <DependentUpon>statsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeamsView.resx">
       <DependentUpon>TeamsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TournamentHistoryView.resx">
+      <DependentUpon>TournamentHistoryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TournamentsView.resx">
       <DependentUpon>TournamentsView.cs</DependentUpon>

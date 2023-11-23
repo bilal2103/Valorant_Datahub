@@ -57,33 +57,40 @@ namespace Valorant_Datahub
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                MessageBox.Show("Tournament with TID "+idtxt.Text+" already exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "select * from location where location_id = '" + locationtxt.Text + "'";
-                cmd = new SqlCommand(query, con);
-                reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
+                if (reader.HasRows)
                 {
-                    MessageBox.Show("Location with location id " + locationtxt.Text + " does not exist.");
+                    MessageBox.Show("Tournament with TID " + idtxt.Text + " already exists");
                 }
                 else
                 {
                     con.Close();
                     con.Open();
-                    query = "insert into tournaments values ('" + idtxt.Text + "', '" + prizetxt.Text + "','" + locationtxt.Text + "','" + titletxt.Text + "')";
+                    query = "select * from location where location_id = '" + locationtxt.Text + "'";
                     cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    dataGridView1.Rows.Clear();
-                    displaytable();
+                    reader = cmd.ExecuteReader();
+                    if (!reader.HasRows)
+                    {
+                        MessageBox.Show("Location with location id " + locationtxt.Text + " does not exist.");
+                    }
+                    else
+                    {
+                        con.Close();
+                        con.Open();
+                        query = "insert into tournaments values ('" + idtxt.Text + "', '" + prizetxt.Text + "','" + locationtxt.Text + "','" + titletxt.Text + "')";
+                        cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                    }
                 }
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)

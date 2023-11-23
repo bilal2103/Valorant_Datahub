@@ -82,32 +82,39 @@ namespace Valorant_Datahub
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                MessageBox.Show("Agent Name has already been taken");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "select * from weaponry where weapon_name = '" + weapontxt.Text + "'";
-                cmd = new SqlCommand(query, con);
-                reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
+                if (reader.HasRows)
                 {
-                    MessageBox.Show("Weapon with this name does not exist.");
+                    MessageBox.Show("Agent Name has already been taken");
                 }
                 else
                 {
-                    con.Open();
-                    query = "insert into agents values ('" + nametxt.Text + "', '" + picktxt.Text + "','" + wintxt.Text + "', '" + tiertxt.Text + "',  '" + roletxt.Text + "','" + weapontxt.Text + "','" + ultimatetxt.Text + "','" + desctxt.Text + "','" + voicetxt.Text + "')";
-                    cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
                     con.Close();
-                    dataGridView1.Rows.Clear();
-                    displaytable();
+                    con.Open();
+                    query = "select * from weaponry where weapon_name = '" + weapontxt.Text + "'";
+                    cmd = new SqlCommand(query, con);
+                    reader = cmd.ExecuteReader();
+                    if (!reader.HasRows)
+                    {
+                        MessageBox.Show("Weapon with this name does not exist.");
+                    }
+                    else
+                    {
+                        con.Open();
+                        query = "insert into agents values ('" + nametxt.Text + "', '" + picktxt.Text + "','" + wintxt.Text + "', '" + tiertxt.Text + "',  '" + roletxt.Text + "','" + weapontxt.Text + "','" + ultimatetxt.Text + "','" + desctxt.Text + "','" + voicetxt.Text + "')";
+                        cmd = new SqlCommand(query, con);
+                        cmd.ExecuteNonQuery();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                    }
                 }
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
@@ -134,6 +141,90 @@ namespace Valorant_Datahub
             }
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void voicetxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void desctxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ultimatetxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void weapontxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roletxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tiertxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void winlbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picklbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void namelbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void wintxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picktxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nametxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void updatebtn_Click(object sender, EventArgs e)
         {

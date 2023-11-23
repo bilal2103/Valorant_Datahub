@@ -103,3 +103,7 @@ C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.csproj.GenerateResou
 C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.csproj.CoreCompileInputs.cache
 C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.exe
 C:\Users\Hp\Downloads\New folder\obj\Debug\Valorant_Datahub.pdb
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.PlayerView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.WeaponsView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.SoloMatchesView.resources
+D:\GitHub\Valorant_Datahub\obj\Debug\Valorant_Datahub.TournamentHistoryView.resources

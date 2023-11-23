@@ -46,21 +46,28 @@ namespace Valorant_Datahub
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                MessageBox.Show("Team ID has already been taken");
+                if (reader.HasRows)
+                {
+                    MessageBox.Show("Team ID has already been taken");
+                }
+                else
+                {
+                    con.Close();
+                    con.Open();
+                    query = "insert into teams values ('" + idtxt.Text + "', '" + nametxt.Text + "','" + mwontxt.Text + "','" + mplayedtxt.Text + "','" + twontxt.Text + "','" + tplayedtxt.Text + "')";
+                    cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
             }
-            else
+            catch (SqlException ex)
             {
-                con.Close();
-                con.Open();
-                query = "insert into teams values ('" + idtxt.Text + "', '" + nametxt.Text + "','" + mwontxt.Text + "','" + mplayedtxt.Text + "','" + twontxt.Text + "','" + tplayedtxt.Text + "')";
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
+                MessageBox.Show(ex.Message);
             }
+            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)

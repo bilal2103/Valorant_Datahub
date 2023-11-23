@@ -11,18 +11,19 @@ using System.Data.SqlClient;
 
 namespace Valorant_Datahub
 {
-    public partial class MapsView : Form
+    public partial class SoloMatchesView : Form
     {
         public string connection;
-        public MapsView()
+        public SoloMatchesView()
         {
             InitializeComponent();
             connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
             displaytable();
         }
+
         private void displaytable()
         {
-            string query = "select * from maps";
+            string query = "select * from solo_matches";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
@@ -30,22 +31,16 @@ namespace Valorant_Datahub
             while (reader.Read())
             {
                 DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["Map_name"].ToString(), reader["Spike_sites"].ToString(), 
-                    reader["Suited_Weapon"].ToString(), reader["Location_id"].ToString(),
-                     reader["Description"].ToString());
+                row.CreateCells(dataGridView1, reader["Match_ID"].ToString(), reader["Kills"].ToString(), reader["Deaths"].ToString(),
+                    reader["Result"].ToString(), reader["Agent_Played"].ToString(), reader["Map_Name"].ToString(), reader["Player_ID"].ToString());
                 dataGridView1.Rows.Add(row);
             }
             con.Close();
         }
 
-        private void weapontxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from maps where map_name = '" + nametxt.Text + "'";
+            string query = "select * from solo_matches where match_id = '" + midtxt.Text + "'";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
@@ -54,39 +49,51 @@ namespace Valorant_Datahub
             {
                 if (reader.HasRows)
                 {
-                    MessageBox.Show("Map Name has already been taken");
+                    MessageBox.Show("Match with this ID already exists");
                 }
                 else
                 {
                     con.Close();
                     con.Open();
-                    query = "select * from weaponry where weapon_name = '" + weapontxt.Text + "'";
+                    query = "select * from agents where agent_name = '" + agenttxt.Text + "'";
                     cmd = new SqlCommand(query, con);
                     reader = cmd.ExecuteReader();
                     if (!reader.HasRows)
                     {
-                        MessageBox.Show("Weapon with this name does not exist.");
+                        MessageBox.Show("Agent with this name does not exist.");
                     }
                     else
                     {
                         con.Close();
                         con.Open();
-                        query = "select * from location where location_id = '" + locationtxt.Text + "'";
+                        query = "select * from player where pid = '" + pidtxt.Text + "'";
                         cmd = new SqlCommand(query, con);
                         reader = cmd.ExecuteReader();
                         if (!reader.HasRows)
                         {
-                            MessageBox.Show("Location with location id " + locationtxt.Text + " does not exist.");
+                            MessageBox.Show("Player with this ID does not exist.");
                         }
                         else
                         {
                             con.Close();
                             con.Open();
-                            query = "insert into maps values ('" + nametxt.Text + "', '" + sitestxt.Text + "','" + weapontxt.Text + "','" + locationtxt.Text + "','" + desctxt.Text + "')";
+                            query = "select * from maps where map_name = '" + maptxt.Text + "'";
                             cmd = new SqlCommand(query, con);
-                            cmd.ExecuteNonQuery();
-                            dataGridView1.Rows.Clear();
-                            displaytable();
+                            reader = cmd.ExecuteReader();
+                            if (!reader.HasRows)
+                            {
+                                MessageBox.Show("Map with this name does not exist.");
+                            }
+                            else
+                            {
+                                con.Close();
+                                con.Open();
+                                query = "insert into solo_matches values ('" + midtxt.Text + "', '" + killstxt.Text + "','" + deathstxt.Text + "', '" + resulttxt.Text + "',  '" + agenttxt.Text + "','" + maptxt.Text + "','" + pidtxt.Text + "')";
+                                cmd = new SqlCommand(query, con);
+                                cmd.ExecuteNonQuery();
+                                dataGridView1.Rows.Clear();
+                                displaytable();
+                            }
                         }
                     }
                 }
@@ -102,39 +109,25 @@ namespace Valorant_Datahub
         {
             if (e.RowIndex >= 0)
             {
-                // Get data from the selected row and fill textboxes
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                
-                nametxt.Text = selectedRow.Cells["name"].Value.ToString();
-                sitestxt.Text = selectedRow.Cells["spike_sites"].Value.ToString();
-                weapontxt.Text = selectedRow.Cells["suited_weapon"].Value.ToString();
-                locationtxt.Text = selectedRow.Cells["location_id"].Value.ToString();
-                desctxt.Text = selectedRow.Cells["description"].Value.ToString();
+                midtxt.Text = selectedRow.Cells["match_id"].Value.ToString();
+                killstxt.Text = selectedRow.Cells["kills"].Value.ToString();
+                deathstxt.Text = selectedRow.Cells["deaths"].Value.ToString();
+                resulttxt.Text = selectedRow.Cells["result"].Value.ToString();
+                agenttxt.Text = selectedRow.Cells["agent_played"].Value.ToString();
+                maptxt.Text = selectedRow.Cells["map_name"].Value.ToString();
+                pidtxt.Text = selectedRow.Cells["player_id"].Value.ToString();
             }
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            string query = "select * from maps where map_name = '" + nametxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (!reader.HasRows)
-            {
-                MessageBox.Show("No map with this name exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "delete from maps where map_name = '" + nametxt.Text + "'";
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
-            }
+            
+        }
+
+        private void updatebtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

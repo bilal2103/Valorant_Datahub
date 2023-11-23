@@ -154,6 +154,7 @@ namespace Valorant_Datahub
             this.nametxt.Name = "nametxt";
             this.nametxt.Size = new System.Drawing.Size(100, 22);
             this.nametxt.TabIndex = 1;
+            this.nametxt.TextChanged += new System.EventHandler(this.nametxt_TextChanged);
             // 
             // picktxt
             // 
@@ -161,6 +162,7 @@ namespace Valorant_Datahub
             this.picktxt.Name = "picktxt";
             this.picktxt.Size = new System.Drawing.Size(100, 22);
             this.picktxt.TabIndex = 3;
+            this.picktxt.TextChanged += new System.EventHandler(this.picktxt_TextChanged);
             // 
             // wintxt
             // 
@@ -168,6 +170,7 @@ namespace Valorant_Datahub
             this.wintxt.Name = "wintxt";
             this.wintxt.Size = new System.Drawing.Size(100, 22);
             this.wintxt.TabIndex = 4;
+            this.wintxt.TextChanged += new System.EventHandler(this.wintxt_TextChanged);
             // 
             // namelbl
             // 
@@ -177,6 +180,7 @@ namespace Valorant_Datahub
             this.namelbl.Size = new System.Drawing.Size(49, 17);
             this.namelbl.TabIndex = 5;
             this.namelbl.Text = "Name:";
+            this.namelbl.Click += new System.EventHandler(this.namelbl_Click);
             // 
             // picklbl
             // 
@@ -186,6 +190,7 @@ namespace Valorant_Datahub
             this.picklbl.Size = new System.Drawing.Size(61, 17);
             this.picklbl.TabIndex = 6;
             this.picklbl.Text = "Pick pct:";
+            this.picklbl.Click += new System.EventHandler(this.picklbl_Click);
             // 
             // winlbl
             // 
@@ -195,6 +200,7 @@ namespace Valorant_Datahub
             this.winlbl.Size = new System.Drawing.Size(59, 17);
             this.winlbl.TabIndex = 7;
             this.winlbl.Text = "Win pct:";
+            this.winlbl.Click += new System.EventHandler(this.winlbl_Click);
             // 
             // tiertxt
             // 
@@ -202,6 +208,7 @@ namespace Valorant_Datahub
             this.tiertxt.Name = "tiertxt";
             this.tiertxt.Size = new System.Drawing.Size(100, 22);
             this.tiertxt.TabIndex = 8;
+            this.tiertxt.TextChanged += new System.EventHandler(this.tiertxt_TextChanged);
             // 
             // roletxt
             // 
@@ -209,6 +216,7 @@ namespace Valorant_Datahub
             this.roletxt.Name = "roletxt";
             this.roletxt.Size = new System.Drawing.Size(100, 22);
             this.roletxt.TabIndex = 9;
+            this.roletxt.TextChanged += new System.EventHandler(this.roletxt_TextChanged);
             // 
             // weapontxt
             // 
@@ -216,6 +224,7 @@ namespace Valorant_Datahub
             this.weapontxt.Name = "weapontxt";
             this.weapontxt.Size = new System.Drawing.Size(142, 22);
             this.weapontxt.TabIndex = 10;
+            this.weapontxt.TextChanged += new System.EventHandler(this.weapontxt_TextChanged);
             // 
             // ultimatetxt
             // 
@@ -223,6 +232,7 @@ namespace Valorant_Datahub
             this.ultimatetxt.Name = "ultimatetxt";
             this.ultimatetxt.Size = new System.Drawing.Size(100, 22);
             this.ultimatetxt.TabIndex = 11;
+            this.ultimatetxt.TextChanged += new System.EventHandler(this.ultimatetxt_TextChanged);
             // 
             // label1
             // 
@@ -242,6 +252,7 @@ namespace Valorant_Datahub
             this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "Role:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -251,6 +262,7 @@ namespace Valorant_Datahub
             this.label3.Size = new System.Drawing.Size(109, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "Suited Weapon:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -260,6 +272,7 @@ namespace Valorant_Datahub
             this.label4.Size = new System.Drawing.Size(63, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "Ultimate:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // desctxt
             // 
@@ -267,6 +280,7 @@ namespace Valorant_Datahub
             this.desctxt.Name = "desctxt";
             this.desctxt.Size = new System.Drawing.Size(461, 22);
             this.desctxt.TabIndex = 16;
+            this.desctxt.TextChanged += new System.EventHandler(this.desctxt_TextChanged);
             // 
             // label5
             // 
@@ -276,6 +290,7 @@ namespace Valorant_Datahub
             this.label5.Size = new System.Drawing.Size(83, 17);
             this.label5.TabIndex = 17;
             this.label5.Text = "Description:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // voicetxt
             // 
@@ -283,6 +298,7 @@ namespace Valorant_Datahub
             this.voicetxt.Name = "voicetxt";
             this.voicetxt.Size = new System.Drawing.Size(142, 22);
             this.voicetxt.TabIndex = 18;
+            this.voicetxt.TextChanged += new System.EventHandler(this.voicetxt_TextChanged);
             // 
             // label6
             // 
@@ -292,6 +308,7 @@ namespace Valorant_Datahub
             this.label6.Size = new System.Drawing.Size(75, 17);
             this.label6.TabIndex = 19;
             this.label6.Text = "Voiced By:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // insert_btn
             // 

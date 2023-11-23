@@ -63,58 +63,65 @@ namespace Valorant_Datahub
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                MessageBox.Show("Match with this match ID already exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "select * from teams where team_id = '" + team1txt.Text + "'";
-                cmd = new SqlCommand(query, con);
-                reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
+                if (reader.HasRows)
                 {
-                    MessageBox.Show("Team with ID " + team1txt + " does not exist.");
+                    MessageBox.Show("Match with this match ID already exists");
                 }
                 else
                 {
                     con.Close();
                     con.Open();
-                    query = "select * from teams where team_id = '" + team2txt.Text + "'";
+                    query = "select * from teams where team_id = '" + team1txt.Text + "'";
                     cmd = new SqlCommand(query, con);
                     reader = cmd.ExecuteReader();
                     if (!reader.HasRows)
                     {
-                        MessageBox.Show("Team with ID " + team2txt + " does not exist.");
+                        MessageBox.Show("Team with ID " + team1txt + " does not exist.");
                     }
                     else
                     {
                         con.Close();
                         con.Open();
-                        query = "select * from maps where map_name = '" + maptxt.Text + "'";
+                        query = "select * from teams where team_id = '" + team2txt.Text + "'";
                         cmd = new SqlCommand(query, con);
                         reader = cmd.ExecuteReader();
                         if (!reader.HasRows)
                         {
-                            MessageBox.Show("Map with this name does not exist.");
+                            MessageBox.Show("Team with ID " + team2txt + " does not exist.");
                         }
                         else
                         {
                             con.Close();
-                            con.Open(); 
-                            query = "insert into matches values ('" + idtxt.Text + "', '" + team1txt.Text + "','" + team2txt.Text + "','" + winnertxt.Text + "','" + maptxt.Text + "')";
+                            con.Open();
+                            query = "select * from maps where map_name = '" + maptxt.Text + "'";
                             cmd = new SqlCommand(query, con);
-                            Console.WriteLine(cmd.CommandText);
-                            cmd.ExecuteNonQuery();
-                            con.Close();
-                            dataGridView1.Rows.Clear();
-                            displaytable();
+                            reader = cmd.ExecuteReader();
+                            if (!reader.HasRows)
+                            {
+                                MessageBox.Show("Map with this name does not exist.");
+                            }
+                            else
+                            {
+                                con.Close();
+                                con.Open();
+                                query = "insert into matches values ('" + idtxt.Text + "', '" + team1txt.Text + "','" + team2txt.Text + "','" + winnertxt.Text + "','" + maptxt.Text + "')";
+                                cmd = new SqlCommand(query, con);
+                                Console.WriteLine(cmd.CommandText);
+                                cmd.ExecuteNonQuery();
+                                dataGridView1.Rows.Clear();
+                                displaytable();
+                            }
                         }
                     }
                 }
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)

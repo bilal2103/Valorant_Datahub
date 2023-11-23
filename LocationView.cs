@@ -45,21 +45,28 @@ namespace Valorant_Datahub
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                MessageBox.Show("Location with location id " +locationtxt.Text+" already exists");
+                if (reader.HasRows)
+                {
+                    MessageBox.Show("Location with location id " + locationtxt.Text + " already exists");
+                }
+                else
+                {
+                    con.Close();
+                    con.Open();
+                    query = "insert into location values ('" + locationtxt.Text + "', '" + countrytxt.Text + "','" + regiontxt.Text + "','" + citytxt.Text + "')";
+                    cmd = new SqlCommand(query, con);
+                    cmd.ExecuteNonQuery();
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
             }
-            else
+            catch (SqlException ex)
             {
-                con.Close();
-                con.Open();
-                query = "insert into location values ('" + locationtxt.Text + "', '" + countrytxt.Text + "','" + regiontxt.Text + "','" + citytxt.Text + "')";
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
+                MessageBox.Show(ex.Message);
             }
+            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
