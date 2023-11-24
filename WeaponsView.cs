@@ -17,7 +17,7 @@ namespace Valorant_Datahub
         public WeaponsView()
         {
             InitializeComponent();
-            this.connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            this.connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
 
         }

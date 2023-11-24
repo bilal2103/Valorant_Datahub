@@ -17,13 +17,13 @@ namespace Valorant_Datahub
         public SoloMatchesView()
         {
             InitializeComponent();
-            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
         }
 
         private void displaytable()
         {
-            string query = "select * from solo_matches";
+            string query = "select * from solo_matches order by match_id";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);

@@ -17,7 +17,7 @@ namespace Valorant_Datahub
         public AgentsView()
         {
             InitializeComponent();
-            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
             
         }
@@ -92,7 +92,7 @@ namespace Valorant_Datahub
                 {
                     con.Close();
                     con.Open();
-                    query = "select * from weaponry where weapon_name = '" + weapontxt.Text + "'";
+                    query = "select * from weaponary where weapon_name = '" + weapontxt.Text + "'";
                     cmd = new SqlCommand(query, con);
                     reader = cmd.ExecuteReader();
                     if (!reader.HasRows)
@@ -101,6 +101,7 @@ namespace Valorant_Datahub
                     }
                     else
                     {
+                        con.Close();
                         con.Open();
                         query = "insert into agents values ('" + nametxt.Text + "', '" + picktxt.Text + "','" + wintxt.Text + "', '" + tiertxt.Text + "',  '" + roletxt.Text + "','" + weapontxt.Text + "','" + ultimatetxt.Text + "','" + desctxt.Text + "','" + voicetxt.Text + "')";
                         cmd = new SqlCommand(query, con);
@@ -108,6 +109,7 @@ namespace Valorant_Datahub
                         dataGridView1.Rows.Clear();
                         displaytable();
                     }
+                    con.Close();
                 }
             }
             catch (SqlException ex)
@@ -228,7 +230,7 @@ namespace Valorant_Datahub
 
         private void updatebtn_Click(object sender, EventArgs e)
         {
-            string query = "update agents set agent_name = '" + nametxt.Text + "',pick_pct = '" + picktxt.Text + "'," +
+            string query = "update agents set pick_pct = '" + picktxt.Text + "'," +
                 "win_pct = '" + wintxt.Text + "',tier = '" + tiertxt.Text + "',Role='" + roletxt.Text + "',Suited_weapon='" + weapontxt.Text + "'," +
                 "Description = '" + desctxt.Text + "',Voiced_by = '" + voicetxt.Text + "' where agent_name = '" + last_Agent_clicked + "'";
             SqlConnection con = new SqlConnection(connection);

@@ -17,7 +17,7 @@ namespace Valorant_Datahub
         public TournamentHistoryView()
         {
             InitializeComponent();
-            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
         }
 
@@ -134,42 +134,6 @@ namespace Valorant_Datahub
                 tagtxt.Text = selectedRow.Cells["match_tag"].Value.ToString();
                 last_clicked_match = midtxt.Text;
                 last_clicked_tournament = tidtxt.Text;
-            }
-        }
-
-        private void deletebtn_Click(object sender, EventArgs e)
-        {
-            string query = "select * from tournament_history where match_id = '" + midtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (!reader.HasRows)
-            {
-                MessageBox.Show("No match with this ID exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "select * from tournament_history where tournament_id = '" + tidtxt.Text + "'";
-                cmd = new SqlCommand(query, con);
-                reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
-                {
-                    MessageBox.Show("No tournament with this ID exists");
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    query = "delete from solo_matches where match_id = '" + midtxt.Text + "' and tournament_id = '"+tidtxt.Text+"'";
-                    cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    dataGridView1.Rows.Clear();
-                    displaytable();
-                }
             }
         }
 

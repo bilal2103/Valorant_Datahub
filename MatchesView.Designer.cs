@@ -32,8 +32,6 @@ namespace Valorant_Datahub
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.maptxt = new System.Windows.Forms.TextBox();
-            this.updatebtn = new System.Windows.Forms.Button();
-            this.deletebtn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,12 +42,12 @@ namespace Valorant_Datahub
             this.team1txt = new System.Windows.Forms.TextBox();
             this.idtxt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
             this.match_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.team1_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.team2_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.winner_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.map_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +56,7 @@ namespace Valorant_Datahub
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(560, 427);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 17);
+            this.label5.Size = new System.Drawing.Size(77, 16);
             this.label5.TabIndex = 94;
             this.label5.Text = "Map Name:";
             // 
@@ -67,7 +65,7 @@ namespace Valorant_Datahub
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(812, 407);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 17);
+            this.label6.Size = new System.Drawing.Size(0, 16);
             this.label6.TabIndex = 93;
             // 
             // maptxt
@@ -77,29 +75,9 @@ namespace Valorant_Datahub
             this.maptxt.Size = new System.Drawing.Size(163, 22);
             this.maptxt.TabIndex = 91;
             // 
-            // updatebtn
-            // 
-            this.updatebtn.Location = new System.Drawing.Point(548, 502);
-            this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(172, 46);
-            this.updatebtn.TabIndex = 90;
-            this.updatebtn.Text = "Update";
-            this.updatebtn.UseVisualStyleBackColor = true;
-            this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
-            // 
-            // deletebtn
-            // 
-            this.deletebtn.Location = new System.Drawing.Point(293, 502);
-            this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(172, 46);
-            this.deletebtn.TabIndex = 89;
-            this.deletebtn.Text = "Delete";
-            this.deletebtn.UseVisualStyleBackColor = true;
-            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
-            // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(46, 502);
+            this.insert_btn.Location = new System.Drawing.Point(284, 507);
             this.insert_btn.Name = "insert_btn";
             this.insert_btn.Size = new System.Drawing.Size(172, 46);
             this.insert_btn.TabIndex = 88;
@@ -112,7 +90,7 @@ namespace Valorant_Datahub
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(415, 427);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 17);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 87;
             this.label4.Text = "Winner ID:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -122,7 +100,7 @@ namespace Valorant_Datahub
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(524, 427);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 85;
             // 
             // winnertxt
@@ -144,7 +122,7 @@ namespace Valorant_Datahub
             this.picklbl.AutoSize = true;
             this.picklbl.Location = new System.Drawing.Point(169, 427);
             this.picklbl.Name = "picklbl";
-            this.picklbl.Size = new System.Drawing.Size(77, 17);
+            this.picklbl.Size = new System.Drawing.Size(72, 16);
             this.picklbl.TabIndex = 82;
             this.picklbl.Text = "Team 1 ID:";
             // 
@@ -153,7 +131,7 @@ namespace Valorant_Datahub
             this.namelbl.AutoSize = true;
             this.namelbl.Location = new System.Drawing.Point(46, 427);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(67, 17);
+            this.namelbl.Size = new System.Drawing.Size(62, 16);
             this.namelbl.TabIndex = 81;
             this.namelbl.Text = "Match ID:";
             // 
@@ -187,15 +165,6 @@ namespace Valorant_Datahub
             this.dataGridView1.Size = new System.Drawing.Size(674, 356);
             this.dataGridView1.TabIndex = 78;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(293, 427);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 17);
-            this.label7.TabIndex = 96;
-            this.label7.Text = "Team 2 ID:";
             // 
             // match_id
             // 
@@ -232,6 +201,15 @@ namespace Valorant_Datahub
             this.map_name.Name = "map_name";
             this.map_name.Width = 125;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(293, 427);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 16);
+            this.label7.TabIndex = 96;
+            this.label7.Text = "Team 2 ID:";
+            // 
             // MatchesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,8 +219,6 @@ namespace Valorant_Datahub
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.maptxt);
-            this.Controls.Add(this.updatebtn);
-            this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -265,8 +241,6 @@ namespace Valorant_Datahub
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox maptxt;
-        private System.Windows.Forms.Button updatebtn;
-        private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;

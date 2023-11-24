@@ -17,12 +17,20 @@ namespace Valorant_Datahub
         public TeamsView()
         {
             InitializeComponent();
-            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
         }
-
+        private void ResetTextboxes()
+        {
+            foreach (Control ctr in this.Controls)
+            {
+                if (ctr is TextBox)
+                    ctr.Text = "";
+            }
+        }
         private void displaytable()
         {
+            ResetTextboxes();
             string query = "select * from teams";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
@@ -96,7 +104,21 @@ namespace Valorant_Datahub
 
         private void updatebtn_Click(object sender, EventArgs e)
         {
-
+            string query = $"update teams set team_name = '{nametxt.Text}',matches_played = {mplayedtxt.Text},matches_won = {mwontxt.Text}," +
+                $"tournaments_won = {twontxt.Text},tournaments_played = {tplayedtxt.Text} where team_id = {idtxt.Text}";
+            SqlConnection con = new SqlConnection(connection);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("The data that you tried updating doesn't exist in matches and tournaments history table.");
+            }
+            dataGridView1.Rows.Clear();
+            displaytable();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

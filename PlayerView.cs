@@ -13,7 +13,7 @@ namespace Valorant_Datahub
 {
     public partial class PlayerView : Form
     {
-        private string connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+        private string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
         private int last_pid;
         public PlayerView()
         {
@@ -186,9 +186,43 @@ namespace Valorant_Datahub
             con.Open();
             cmd = new SqlCommand(query, con);
             SqlDataReader reader= cmd.ExecuteReader();
-            if(reader.HasRows)
+            if (reader.HasRows)
             {
-                
+                if(tidtxt.Text == "-")
+                    query = $"delete from player_team where player_id = {last_pid}";
+                else
+                    query = $"update player_team set team_id = {tidtxt.Text} where player_id = {last_pid}";
+                con.Close();
+                con.Open();
+                cmd = new SqlCommand(query, con);
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch(SqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                con.Close();
+            }
+            else
+            {
+                query = $"insert into player_team values({last_pid},{tidtxt.Text})";
+                if(tidtxt.Text != "-")
+                {
+                    con.Close();
+                    con.Open();
+                    cmd = new SqlCommand(query, con);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch(SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    con.Close();
+                }
             }
             dataGridView1.Rows.Clear();
             reset_textboxes(); displaytable();

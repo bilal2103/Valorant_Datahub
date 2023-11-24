@@ -17,7 +17,7 @@ namespace Valorant_Datahub
         public MatchesView()
         {
             InitializeComponent();
-            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
         }
 
@@ -122,35 +122,6 @@ namespace Valorant_Datahub
                 MessageBox.Show(ex.Message);
             }
             con.Close();
-        }
-
-        private void deletebtn_Click(object sender, EventArgs e)
-        {
-            string query = "select * from matches where match_id = '" + idtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (!reader.HasRows)
-            {
-                MessageBox.Show("No match with this match ID exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "delete from matches where match_id = '" + idtxt.Text + "'";
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
-            }
-        }
-
-        private void updatebtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -15,36 +15,68 @@ namespace Valorant_Datahub
     public partial class Leaderboards : Form
     {
         int pid;
+        string username;
         public Leaderboards()
         {
             InitializeComponent();
             displayLeaderboard();
         }
-        public Leaderboards(int pid)
+        public Leaderboards(int pid,string username)
         {
             InitializeComponent();
             this.pid = pid;
+            this.username = username;
             displayLeaderboard();
         }
-        private void displayLeaderboard()
+        private string getRank(int mmr)
         {
-            string query = "select * from player_leaderboard_users order by mmr desc,kd_ratio desc";
+            string query = $"select dbo.getRank({mmr})";
             string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader= cmd.ExecuteReader();
+            SqlCommand cmd = new SqlCommand(query,con);
+            string res =  cmd.ExecuteScalar().ToString();
+            con.Close();
+            return res;
+        }
+        private void displayLeaderboard()
+        {
+            string query = "";
+            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+            SqlCommand cmd;
+            SqlDataReader reader;
+            SqlConnection con = new SqlConnection(connection);
+            if (pid == -1)
+            {
+                label2.Text = "Get registered today to see yourself in the table below!";
+            }
+            query = "select * from player_leaderboard_users order by mmr desc,kd_ratio desc";
+            con.Open();
+            cmd = new SqlCommand(query, con);
+            reader= cmd.ExecuteReader();
+            int index = 1;
             while(reader.Read())
             {
                 DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["username"].ToString(), reader["Pname"].ToString(), Form1.getRank((int)reader["MMR"]),
+                
+                row.CreateCells(dataGridView1, reader["username"].ToString(), reader["Pname"].ToString(), getRank((int)reader["MMR"]),
                     reader["fav_agent"].ToString(), string.Format("{0:N3}", Convert.ToDouble(reader["kd_ratio"])), reader["Country"]);
+                if (reader["username"].ToString() == this.username)
+                {
+                    label2.Text = $"{username}, you are currently ranked number {index}!";
+                }
                 dataGridView1.Rows.Add(row);
+                index++;
             }
             con.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Leaderboards_Load(object sender, EventArgs e)
         {
 
         }

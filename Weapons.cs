@@ -35,7 +35,7 @@ namespace Valorant_Datahub
         }
         private void set_image(string initial)
         {
-            string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub_GIT\\Valorant_Datahub\\Images\\";
+            string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
             System.Drawing.Image im;
             im = System.Drawing.Image.FromFile(image_path + $"{initial}1.jpg");
             pictureBox1.Image = im;

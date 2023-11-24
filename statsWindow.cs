@@ -34,10 +34,12 @@ namespace Valorant_Datahub
         private string getRank(int MMR)
         {
             string str = "hehe";
-            switch(MMR)
-            {
-                
-            }
+            string query = $"select dbo.GetRank({MMR})";
+            SqlConnection con = new SqlConnection("Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            str = cmd.ExecuteScalar().ToString();
+            con.Close();
             return str;
         }
         private void DisplayInformation()

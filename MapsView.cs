@@ -17,7 +17,7 @@ namespace Valorant_Datahub
         public MapsView()
         {
             InitializeComponent();
-            connection = "Data Source = AIMANANANANA; Initial Catalog = Valo_Data; Integrated Security = True";
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             displaytable();
         }
         private void displaytable()
@@ -60,7 +60,7 @@ namespace Valorant_Datahub
                 {
                     con.Close();
                     con.Open();
-                    query = "select * from weaponry where weapon_name = '" + weapontxt.Text + "'";
+                    query = "select * from weaponary where weapon_name = '" + weapontxt.Text + "'";
                     cmd = new SqlCommand(query, con);
                     reader = cmd.ExecuteReader();
                     if (!reader.HasRows)
@@ -135,6 +135,26 @@ namespace Valorant_Datahub
                 dataGridView1.Rows.Clear();
                 displaytable();
             }
+        }
+
+        private void updatebtn_Click(object sender, EventArgs e)
+        {
+            string query = $"update maps set spike_sites = '{sitestxt.Text}',suited_weapon = '{weapontxt.Text}'," +
+                $"location_id = {locationtxt.Text},Description = '{desctxt.Text}' where map_name = '{nametxt.Text}'";
+            SqlConnection con = new SqlConnection(connection);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            try
+            {
+                cmd.ExecuteNonQuery(); 
+            }
+            catch(SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            con.Close();
+            dataGridView1.Rows.Clear();
+            displaytable();
         }
     }
 }

@@ -29,8 +29,6 @@ namespace Valorant_Datahub
         /// </summary>
         private void InitializeComponent()
         {
-            this.updatebtn = new System.Windows.Forms.Button();
-            this.deletebtn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,29 +44,9 @@ namespace Valorant_Datahub
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // updatebtn
-            // 
-            this.updatebtn.Location = new System.Drawing.Point(532, 491);
-            this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(195, 46);
-            this.updatebtn.TabIndex = 103;
-            this.updatebtn.Text = "Update";
-            this.updatebtn.UseVisualStyleBackColor = true;
-            this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
-            // 
-            // deletebtn
-            // 
-            this.deletebtn.Location = new System.Drawing.Point(284, 491);
-            this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(208, 46);
-            this.deletebtn.TabIndex = 102;
-            this.deletebtn.Text = "Delete";
-            this.deletebtn.UseVisualStyleBackColor = true;
-            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
-            // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(51, 491);
+            this.insert_btn.Location = new System.Drawing.Point(291, 519);
             this.insert_btn.Name = "insert_btn";
             this.insert_btn.Size = new System.Drawing.Size(203, 46);
             this.insert_btn.TabIndex = 101;
@@ -81,7 +59,7 @@ namespace Valorant_Datahub
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(548, 416);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 17);
+            this.label4.Size = new System.Drawing.Size(74, 16);
             this.label4.TabIndex = 100;
             this.label4.Text = "Match Tag:";
             // 
@@ -90,7 +68,7 @@ namespace Valorant_Datahub
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(529, 416);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 98;
             // 
             // tagtxt
@@ -112,7 +90,7 @@ namespace Valorant_Datahub
             this.picklbl.AutoSize = true;
             this.picklbl.Location = new System.Drawing.Point(288, 416);
             this.picklbl.Name = "picklbl";
-            this.picklbl.Size = new System.Drawing.Size(67, 17);
+            this.picklbl.Size = new System.Drawing.Size(62, 16);
             this.picklbl.TabIndex = 95;
             this.picklbl.Text = "Match ID:";
             // 
@@ -121,7 +99,7 @@ namespace Valorant_Datahub
             this.namelbl.AutoSize = true;
             this.namelbl.Location = new System.Drawing.Point(59, 416);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(34, 17);
+            this.namelbl.Size = new System.Drawing.Size(32, 16);
             this.namelbl.TabIndex = 94;
             this.namelbl.Text = "TID:";
             // 
@@ -173,8 +151,6 @@ namespace Valorant_Datahub
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 669);
-            this.Controls.Add(this.updatebtn);
-            this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -193,9 +169,6 @@ namespace Valorant_Datahub
         }
 
         #endregion
-
-        private System.Windows.Forms.Button updatebtn;
-        private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;

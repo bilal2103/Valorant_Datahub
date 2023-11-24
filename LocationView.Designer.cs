@@ -51,7 +51,7 @@ namespace Valorant_Datahub
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(444, 491);
+            this.updatebtn.Location = new System.Drawing.Point(581, 491);
             this.updatebtn.Name = "updatebtn";
             this.updatebtn.Size = new System.Drawing.Size(148, 46);
             this.updatebtn.TabIndex = 59;
@@ -61,7 +61,7 @@ namespace Valorant_Datahub
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(242, 491);
+            this.deletebtn.Location = new System.Drawing.Point(328, 491);
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(156, 46);
             this.deletebtn.TabIndex = 58;
@@ -71,7 +71,7 @@ namespace Valorant_Datahub
             // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(41, 491);
+            this.insert_btn.Location = new System.Drawing.Point(91, 491);
             this.insert_btn.Name = "insert_btn";
             this.insert_btn.Size = new System.Drawing.Size(154, 46);
             this.insert_btn.TabIndex = 57;
@@ -82,39 +82,39 @@ namespace Valorant_Datahub
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(478, 416);
+            this.label4.Location = new System.Drawing.Point(587, 416);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 17);
+            this.label4.Size = new System.Drawing.Size(32, 16);
             this.label4.TabIndex = 54;
             this.label4.Text = "City:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(324, 416);
+            this.label3.Location = new System.Drawing.Point(382, 416);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 17);
+            this.label3.Size = new System.Drawing.Size(54, 16);
             this.label3.TabIndex = 53;
             this.label3.Text = "Region:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(519, 416);
+            this.label2.Location = new System.Drawing.Point(628, 416);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 17);
+            this.label2.Size = new System.Drawing.Size(0, 16);
             this.label2.TabIndex = 52;
             // 
             // citytxt
             // 
-            this.citytxt.Location = new System.Drawing.Point(475, 436);
+            this.citytxt.Location = new System.Drawing.Point(584, 436);
             this.citytxt.Name = "citytxt";
             this.citytxt.Size = new System.Drawing.Size(117, 22);
             this.citytxt.TabIndex = 51;
             // 
             // regiontxt
             // 
-            this.regiontxt.Location = new System.Drawing.Point(318, 436);
+            this.regiontxt.Location = new System.Drawing.Point(376, 436);
             this.regiontxt.Name = "regiontxt";
             this.regiontxt.Size = new System.Drawing.Size(129, 22);
             this.regiontxt.TabIndex = 50;
@@ -122,9 +122,9 @@ namespace Valorant_Datahub
             // picklbl
             // 
             this.picklbl.AutoSize = true;
-            this.picklbl.Location = new System.Drawing.Point(170, 416);
+            this.picklbl.Location = new System.Drawing.Point(192, 416);
             this.picklbl.Name = "picklbl";
-            this.picklbl.Size = new System.Drawing.Size(61, 17);
+            this.picklbl.Size = new System.Drawing.Size(55, 16);
             this.picklbl.TabIndex = 49;
             this.picklbl.Text = "Country:";
             // 
@@ -133,13 +133,13 @@ namespace Valorant_Datahub
             this.namelbl.AutoSize = true;
             this.namelbl.Location = new System.Drawing.Point(38, 416);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(83, 17);
+            this.namelbl.Size = new System.Drawing.Size(77, 16);
             this.namelbl.TabIndex = 48;
             this.namelbl.Text = "Location ID:";
             // 
             // countrytxt
             // 
-            this.countrytxt.Location = new System.Drawing.Point(163, 436);
+            this.countrytxt.Location = new System.Drawing.Point(185, 436);
             this.countrytxt.Name = "countrytxt";
             this.countrytxt.Size = new System.Drawing.Size(124, 22);
             this.countrytxt.TabIndex = 47;
@@ -163,7 +163,7 @@ namespace Valorant_Datahub
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(551, 356);
+            this.dataGridView1.Size = new System.Drawing.Size(724, 354);
             this.dataGridView1.TabIndex = 45;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -199,7 +199,7 @@ namespace Valorant_Datahub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 587);
+            this.ClientSize = new System.Drawing.Size(867, 584);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.insert_btn);

@@ -30,6 +30,7 @@ namespace Valorant_Datahub
             {
                 pw_update.Enabled= false;
                 personal_btn.Enabled= false;
+                pid = -1;
             }
         }
         private void update_welcome_label(string uname)
@@ -63,7 +64,7 @@ namespace Valorant_Datahub
 
         private void Leaderboards_btn_Click(object sender, EventArgs e)
         {
-            Leaderboards l = new Leaderboards(pid);
+            Leaderboards l = new Leaderboards(pid,uname);
             l.Show();
         }
 
