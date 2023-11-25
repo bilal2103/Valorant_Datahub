@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace Valorant_Datahub
 {
@@ -15,7 +17,17 @@ namespace Valorant_Datahub
     {
         public Login()
         {
+            
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            foreach (Control ctl in Controls)
+            {
+                if(ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,6 +56,16 @@ namespace Valorant_Datahub
                 MessageBox.Show("Username or password is incorrect");
             }
             con.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

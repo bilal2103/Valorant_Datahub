@@ -16,15 +16,27 @@ namespace Valorant_Datahub
         public Register()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#000000");
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                    ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int temp;
-            if (uname_tb.TextLength > 0 && pw_tb.TextLength > 0 && region_tb.TextLength > 0
+            if (uname_tb.TextLength > 0 && pw_tb.TextLength > 0
                 && age_tb.TextLength > 0 && gender_tb.TextLength > 0 && name_tb.TextLength > 0
-                && country_tb.TextLength > 0 && city_tb.TextLength > 0 && agent_tb.TextLength > 0)
+                && country_tb.TextLength > 0 && city_tb.TextLength > 0)
             {
+                if (region_tb.TextLength == 0) region_tb.Text = "Unkown";
+                if (agent_tb.TextLength == 0) agent_tb.Text = "Sage";
                 string query = "select * from users where username = '" + uname_tb.Text + "'";
                 string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
                 SqlConnection con = new SqlConnection(connection);
@@ -88,7 +100,7 @@ namespace Valorant_Datahub
                         con.Close();
                         con.Open();
                         query = "insert into player values(" + temp + ",'" + name_tb.Text + "'," + temp2 + ",'" + agent_tb.Text + "'," +
-                            "'" + gender_tb.Text + "'," + Convert.ToInt32(age_tb.Text) + ",'Iron 1',0,0)";
+                            "'" + gender_tb.Text + "'," + Convert.ToInt32(age_tb.Text) + ",0,0,0)";
                         cmd = new SqlCommand(query, con);
                         cmd.ExecuteNonQuery();
                         con.Close();
@@ -100,9 +112,7 @@ namespace Valorant_Datahub
                             cmd = new SqlCommand(query, con);
                             cmd.ExecuteNonQuery();
                             MessageBox.Show($"{name_tb.Text}, you have been registered successfully!. Your unique player_id is {temp}");
-                            this.Hide();
-                            Form1 f = new Form1();
-                            f.Show();
+                            this.Close();
                         }
                         catch (SqlException ex)
                         {

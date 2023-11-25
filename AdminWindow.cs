@@ -15,6 +15,16 @@ namespace Valorant_Datahub
         public AdminWindow()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                    ctl.ForeColor = ColorTranslator.FromHtml("#E2D1F9");
+                }
+            }
         }
 
         private void agentsbtn_Click(object sender, EventArgs e)

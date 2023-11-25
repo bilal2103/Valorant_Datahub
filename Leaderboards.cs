@@ -19,6 +19,9 @@ namespace Valorant_Datahub
         public Leaderboards()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            dataGridView1.BackgroundColor = ColorTranslator.FromHtml("#E2D1F9");
             displayLeaderboard();
         }
         public Leaderboards(int pid,string username)
@@ -26,6 +29,9 @@ namespace Valorant_Datahub
             InitializeComponent();
             this.pid = pid;
             this.username = username;
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            dataGridView1.BackgroundColor = ColorTranslator.FromHtml("#E2D1F9");
             displayLeaderboard();
         }
         private string getRank(int mmr)

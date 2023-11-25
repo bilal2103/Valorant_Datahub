@@ -12,15 +12,12 @@ namespace Valorant_Datahub
     
     public partial class Form1 : Form
     {
-        public static string getRank(int MMR)
-        {
-            string str = "hehe";
-            return str;
-        }
 
         public Form1()
         {
             InitializeComponent();
+            
+            pictureBox1.SendToBack();
         }
         
         private void GuestButton_Click(object sender, EventArgs e)

@@ -22,6 +22,15 @@ namespace Valorant_Datahub
         {
             InitializeComponent();
             this.pid = pid;
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                }
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {

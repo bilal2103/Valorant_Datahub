@@ -15,6 +15,15 @@ namespace Valorant_Datahub
         public MapsWindow()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                }
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -22,10 +31,11 @@ namespace Valorant_Datahub
             string Connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             SqlConnection con = new SqlConnection(Connection);
             con.Open();
-            string Query = "Select map_name,spike_sites,suited_weapon,country,description" +
-                " from maps join location on(maps.Location_id = location.Location_id) where map_name=@map_name";
+            string Query = $"Select map_name,spike_sites,suited_weapon,country,description" +
+                $" from maps join location on(maps.Location_id = location.Location_id) where map_name='{map_name}'";
             SqlCommand cmd = new SqlCommand(Query, con);
-            cmd.Parameters.AddWithValue("@map_name", map_name);
+            Console.WriteLine(map_name);
+            Console.WriteLine(cmd.CommandText);
             SqlDataReader result = cmd.ExecuteReader();
             if (result.Read())
             {

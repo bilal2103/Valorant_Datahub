@@ -22,6 +22,15 @@ namespace Valorant_Datahub
         {
             InitializeComponent();
             this.pid = pid;
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                }
+            }
             DisplayInformation();
         }
         SqlDataReader ExecuteQuery(ref SqlConnection con,string query)
@@ -102,8 +111,9 @@ namespace Valorant_Datahub
                 "from solo_matches where player_id= "+pid+" group by agent_played) as SubqueryAlias);";
             con.Open();
             reader = ExecuteQuery(ref con, query);
-            if(reader.HasRows)
-            textBox9.Text = reader["agent_played"].ToString();
+            string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
+            Image im = Image.FromFile(image_path + reader["agent_played"].ToString() + ".jpg");
+            pictureBox1.Image = im;
             con.Close();
         }
     }

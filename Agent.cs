@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Valorant_Datahub
@@ -19,7 +18,19 @@ namespace Valorant_Datahub
         public Agent(AgentInformation obj)
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                    ctl.ForeColor = ColorTranslator.FromHtml("#E2D1F9");
+                }
+            }
+            About_tb.BackColor = ColorTranslator.FromHtml("#E2D1F9");
             DisplayStats(obj);
+
         }
         public Agent()
         {

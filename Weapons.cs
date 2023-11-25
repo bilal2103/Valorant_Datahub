@@ -19,6 +19,15 @@ namespace Valorant_Datahub
         public Weapons(WeaponsInformation w)
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
+            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox || ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                }
+            }
             Display(w);
         }
         public void Display(WeaponsInformation w)
@@ -44,6 +53,10 @@ namespace Valorant_Datahub
             im = System.Drawing.Image.FromFile(image_path + $"{initial}3.jpg");
             pictureBox3.Image = im;
         }
-        
+
+        private void Weapons_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
