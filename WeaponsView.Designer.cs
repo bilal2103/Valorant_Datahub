@@ -65,35 +65,43 @@
             // 
             // m_rangetxt
             // 
-            this.m_rangetxt.Location = new System.Drawing.Point(175, 474);
+            this.m_rangetxt.BackColor = System.Drawing.Color.White;
+            this.m_rangetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.m_rangetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_rangetxt.Location = new System.Drawing.Point(178, 518);
             this.m_rangetxt.Name = "m_rangetxt";
-            this.m_rangetxt.Size = new System.Drawing.Size(105, 22);
+            this.m_rangetxt.Size = new System.Drawing.Size(150, 28);
             this.m_rangetxt.TabIndex = 74;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(172, 454);
+            this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(174, 486);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 16);
+            this.label4.Size = new System.Drawing.Size(156, 20);
             this.label4.TabIndex = 73;
-            this.label4.Text = "Maximum Range";
+            this.label4.Text = "Maximum range:";
             // 
             // fmodetxt
             // 
-            this.fmodetxt.Location = new System.Drawing.Point(41, 474);
+            this.fmodetxt.BackColor = System.Drawing.Color.White;
+            this.fmodetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fmodetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fmodetxt.Location = new System.Drawing.Point(43, 518);
             this.fmodetxt.Name = "fmodetxt";
-            this.fmodetxt.Size = new System.Drawing.Size(98, 22);
+            this.fmodetxt.Size = new System.Drawing.Size(98, 28);
             this.fmodetxt.TabIndex = 72;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(38, 454);
+            this.label8.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(40, 486);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 16);
+            this.label8.Size = new System.Drawing.Size(103, 20);
             this.label8.TabIndex = 71;
-            this.label8.Text = "Fire Mode";
+            this.label8.Text = "Fire mode:";
             // 
             // mmrtxt
             // 
@@ -113,9 +121,13 @@
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(684, 533);
+            this.updatebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updatebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatebtn.ForeColor = System.Drawing.Color.Cornsilk;
+            this.updatebtn.Location = new System.Drawing.Point(685, 585);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(170, 46);
+            this.updatebtn.Size = new System.Drawing.Size(175, 60);
             this.updatebtn.TabIndex = 68;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = true;
@@ -123,9 +135,12 @@
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(434, 533);
+            this.deletebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebtn.Location = new System.Drawing.Point(435, 585);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(170, 46);
+            this.deletebtn.Size = new System.Drawing.Size(175, 60);
             this.deletebtn.TabIndex = 67;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = true;
@@ -133,9 +148,12 @@
             // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(194, 533);
+            this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insert_btn.Location = new System.Drawing.Point(195, 585);
             this.insert_btn.Name = "insert_btn";
-            this.insert_btn.Size = new System.Drawing.Size(170, 46);
+            this.insert_btn.Size = new System.Drawing.Size(175, 60);
             this.insert_btn.TabIndex = 66;
             this.insert_btn.Text = "Insert";
             this.insert_btn.UseVisualStyleBackColor = true;
@@ -144,68 +162,82 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(760, 395);
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(855, 395);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 16);
+            this.label3.Size = new System.Drawing.Size(132, 20);
             this.label3.TabIndex = 65;
-            this.label3.Text = "Reload Speed";
+            this.label3.Text = "Reload speed:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(660, 395);
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(731, 395);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.Size = new System.Drawing.Size(89, 20);
             this.label2.TabIndex = 64;
-            this.label2.Text = "Fire Rate";
+            this.label2.Text = "Fire rate:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(419, 395);
+            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(485, 395);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
+            this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 63;
-            this.label1.Text = "Capacity";
+            this.label1.Text = "Capacity:";
             // 
             // rspeedtxt
             // 
-            this.rspeedtxt.Location = new System.Drawing.Point(763, 414);
+            this.rspeedtxt.BackColor = System.Drawing.Color.White;
+            this.rspeedtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rspeedtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rspeedtxt.Location = new System.Drawing.Point(862, 428);
             this.rspeedtxt.Name = "rspeedtxt";
-            this.rspeedtxt.Size = new System.Drawing.Size(93, 22);
+            this.rspeedtxt.Size = new System.Drawing.Size(93, 28);
             this.rspeedtxt.TabIndex = 62;
             // 
             // fratetxt
             // 
-            this.fratetxt.Location = new System.Drawing.Point(663, 414);
+            this.fratetxt.BackColor = System.Drawing.Color.White;
+            this.fratetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fratetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fratetxt.Location = new System.Drawing.Point(735, 428);
             this.fratetxt.Name = "fratetxt";
-            this.fratetxt.Size = new System.Drawing.Size(71, 22);
+            this.fratetxt.Size = new System.Drawing.Size(71, 28);
             this.fratetxt.TabIndex = 61;
             // 
             // capacitytxt
             // 
-            this.capacitytxt.Location = new System.Drawing.Point(422, 414);
+            this.capacitytxt.BackColor = System.Drawing.Color.White;
+            this.capacitytxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.capacitytxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capacitytxt.Location = new System.Drawing.Point(489, 428);
             this.capacitytxt.Name = "capacitytxt";
-            this.capacitytxt.Size = new System.Drawing.Size(75, 22);
+            this.capacitytxt.Size = new System.Drawing.Size(75, 28);
             this.capacitytxt.TabIndex = 60;
             // 
             // winlbl
             // 
             this.winlbl.AutoSize = true;
-            this.winlbl.Location = new System.Drawing.Point(238, 395);
+            this.winlbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winlbl.Location = new System.Drawing.Point(292, 395);
             this.winlbl.Name = "winlbl";
-            this.winlbl.Size = new System.Drawing.Size(94, 16);
+            this.winlbl.Size = new System.Drawing.Size(129, 20);
             this.winlbl.TabIndex = 59;
-            this.winlbl.Text = "Weapon Type";
+            this.winlbl.Text = "Weapon type:";
             // 
             // uname
             // 
             this.uname.AutoSize = true;
+            this.uname.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uname.Location = new System.Drawing.Point(40, 395);
             this.uname.Name = "uname";
-            this.uname.Size = new System.Drawing.Size(99, 16);
+            this.uname.Size = new System.Drawing.Size(139, 20);
             this.uname.TabIndex = 58;
-            this.uname.Text = "Weapon Name";
+            this.uname.Text = "Weapon name:";
             // 
             // namelbl
             // 
@@ -218,16 +250,22 @@
             // 
             // wtypetxt
             // 
-            this.wtypetxt.Location = new System.Drawing.Point(241, 414);
+            this.wtypetxt.BackColor = System.Drawing.Color.White;
+            this.wtypetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.wtypetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wtypetxt.Location = new System.Drawing.Point(296, 428);
             this.wtypetxt.Name = "wtypetxt";
-            this.wtypetxt.Size = new System.Drawing.Size(151, 22);
+            this.wtypetxt.Size = new System.Drawing.Size(151, 28);
             this.wtypetxt.TabIndex = 56;
             // 
             // wnametxt
             // 
-            this.wnametxt.Location = new System.Drawing.Point(43, 415);
+            this.wnametxt.BackColor = System.Drawing.Color.White;
+            this.wnametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.wnametxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wnametxt.Location = new System.Drawing.Point(43, 428);
             this.wnametxt.Name = "wnametxt";
-            this.wnametxt.Size = new System.Drawing.Size(170, 22);
+            this.wnametxt.Size = new System.Drawing.Size(215, 28);
             this.wnametxt.TabIndex = 55;
             // 
             // idtxt
@@ -318,24 +356,28 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(537, 395);
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(605, 395);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 16);
+            this.label5.Size = new System.Drawing.Size(88, 20);
             this.label5.TabIndex = 76;
-            this.label5.Text = "Damage";
+            this.label5.Text = "Damage:";
             // 
             // dmgtxt
             // 
-            this.dmgtxt.Location = new System.Drawing.Point(540, 414);
+            this.dmgtxt.BackColor = System.Drawing.Color.White;
+            this.dmgtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dmgtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dmgtxt.Location = new System.Drawing.Point(610, 428);
             this.dmgtxt.Name = "dmgtxt";
-            this.dmgtxt.Size = new System.Drawing.Size(75, 22);
+            this.dmgtxt.Size = new System.Drawing.Size(75, 28);
             this.dmgtxt.TabIndex = 75;
             // 
             // WeaponsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 608);
+            this.ClientSize = new System.Drawing.Size(1064, 673);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dmgtxt);
             this.Controls.Add(this.m_rangetxt);

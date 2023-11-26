@@ -14,114 +14,139 @@ namespace Valorant_Datahub
     public partial class TournamentHistoryView : Form
     {
         public string connection, last_clicked_match, last_clicked_tournament;
+        
+        SqlConnection con;
+        SqlConnection readerCon;
+        SqlTransaction transaction;
         public TournamentHistoryView()
         {
             InitializeComponent();
             connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            displaytable();
-        }
-
-        private void displaytable()
-        {
-            string query = "select * from tournament_history";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
+            foreach (Control ctl in Controls)
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["Tournament_id"].ToString(), reader["Match_id"].ToString(),
-                    reader["match_tag"].ToString());
-                dataGridView1.Rows.Add(row);
-            }
-            con.Close();
-        }
+                if (ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
 
-        private void insert_btn_Click(object sender, EventArgs e)
-        {
-            string query = "select * from tournament_history where tournament_id = '" + tidtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
+                }
+                if(ctl is TextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                }
+                if (ctl is Label)
+                    ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+            }
+            dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
             try
             {
-                if (reader.HasRows)
-                {
-                    con.Close();
-                    query = "select * from tournament_history where match_id = '" + midtxt.Text + "'";
-                    con = new SqlConnection(connection);
-                    con.Open();
-                    cmd = new SqlCommand(query, con);
-                    reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        MessageBox.Show("This record already exists");
-                    }
-                    else
-                    {
-                        con.Close();
-                        con.Open();
-                        query = "select * from matches where match_id = '" + midtxt.Text + "'";
-                        cmd = new SqlCommand(query, con);
-                        reader = cmd.ExecuteReader();
-                        if (!reader.HasRows)
-                        {
-                            MessageBox.Show("Match with this ID does not exist.");
-                        }
-                        else
-                        {
-                            con.Close();
-                            con.Open();
-                            query = "insert into tournament_history values ('" + tidtxt.Text + "', '" + midtxt.Text + "','" + tagtxt.Text + "')";
-                            cmd = new SqlCommand(query, con);
-                            cmd.ExecuteNonQuery();
-                            dataGridView1.Rows.Clear();
-                            displaytable();
-                        }
-                    }
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    query = "select * from tournaments where tournament_id = '" + tidtxt.Text + "'";
-                    cmd = new SqlCommand(query, con);
-                    reader = cmd.ExecuteReader();
-                    if (!reader.HasRows)
-                    {
-                        MessageBox.Show("Tournament with this ID does not exist.");
-                    }
-                    else
-                    {
-                        con.Close();
-                        con.Open();
-                        query = "select * from matches where match_id = '" + midtxt.Text + "'";
-                        cmd = new SqlCommand(query, con);
-                        reader = cmd.ExecuteReader();
-                        if (!reader.HasRows)
-                        {
-                            MessageBox.Show("Match with this ID does not exist.");
-                        }
-                        else
-                        {
-                            con.Close();
-                            con.Open();
-                            query = "insert into tournament_history values ('" + tidtxt.Text + "', '" + midtxt.Text + "','" + tagtxt.Text + "')";
-                            cmd = new SqlCommand(query, con);
-                            cmd.ExecuteNonQuery();
-                            dataGridView1.Rows.Clear();
-                            displaytable();
-                        }
-                    }
-                }
+                con = new SqlConnection(connection);
+                readerCon = new SqlConnection(connection);
+                con.Open();
             }
-            catch (SqlException ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            displaytable();
+        }
+        private void reset_textbox()
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                    control.Text = "";
+            }
+
+        }
+        private void displaytable()
+        {
+            reset_textbox();
+            string query = "select * from tournament_history (NOLOCK)";
+            readerCon.Open();
+            Console.WriteLine("initializing cmd");
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, readerCon);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1, reader["Tournament_id"].ToString(), reader["Match_id"].ToString(),
+                        reader["match_tag"].ToString());
+                    dataGridView1.Rows.Add(row);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            Console.WriteLine("Done");
+            
+            
+            readerCon.Close();
+        }
+        private void insert_btn_Click(object sender, EventArgs e)
+        {
+            string query = $"insert into tournament_history values({tidtxt.Text},{midtxt.Text},'{tagtxt.Text}')";
+
+            try
+            {
+                transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 3;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Click on commit to save your changes");
+                dataGridView1.Rows.Clear();
+                displaytable();
+
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("The data that you're trying to access is locked in another transaction");
+            }
+
+        }
+        private void rollback_btn_Click(object sender, EventArgs e)
+        {
+            if(transaction != null)
+            try 
+            { 
+                transaction.Rollback();
+                dataGridView1.Rows.Clear();
+                displaytable();
+                MessageBox.Show("Rolled back successfully");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+            
+        }
+
+        private void TournamentHistoryView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (transaction != null && transaction.Connection != null && transaction.Connection.State == System.Data.ConnectionState.Open)
+                transaction.Rollback();
             con.Close();
+        }
+
+        private void commitbtn_Click(object sender, EventArgs e)
+        {
+            if(transaction != null)
+            try
+            {
+                transaction.Commit();
+                dataGridView1.Rows.Clear();
+                displaytable();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -137,9 +162,5 @@ namespace Valorant_Datahub
             }
         }
 
-        private void updatebtn_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

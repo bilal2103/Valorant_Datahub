@@ -18,6 +18,7 @@ namespace Valorant_Datahub
             InitializeComponent();
             
             pictureBox1.SendToBack();
+            
         }
         
         private void GuestButton_Click(object sender, EventArgs e)

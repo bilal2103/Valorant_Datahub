@@ -34,7 +34,6 @@ namespace Valorant_Datahub
             this.maptxt = new System.Windows.Forms.TextBox();
             this.insert_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.winnertxt = new System.Windows.Forms.TextBox();
             this.team2txt = new System.Windows.Forms.TextBox();
             this.picklbl = new System.Windows.Forms.Label();
@@ -48,15 +47,18 @@ namespace Valorant_Datahub
             this.winner_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.map_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
+            this.commit_btn = new System.Windows.Forms.Button();
+            this.rollback_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(560, 427);
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(741, 445);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 16);
+            this.label5.Size = new System.Drawing.Size(108, 20);
             this.label5.TabIndex = 94;
             this.label5.Text = "Map Name:";
             // 
@@ -70,83 +72,96 @@ namespace Valorant_Datahub
             // 
             // maptxt
             // 
-            this.maptxt.Location = new System.Drawing.Point(557, 447);
+            this.maptxt.BackColor = System.Drawing.Color.White;
+            this.maptxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.maptxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maptxt.Location = new System.Drawing.Point(744, 478);
             this.maptxt.Name = "maptxt";
-            this.maptxt.Size = new System.Drawing.Size(163, 22);
+            this.maptxt.Size = new System.Drawing.Size(163, 28);
             this.maptxt.TabIndex = 91;
             // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(284, 507);
+            this.insert_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insert_btn.Location = new System.Drawing.Point(427, 556);
             this.insert_btn.Name = "insert_btn";
-            this.insert_btn.Size = new System.Drawing.Size(172, 46);
+            this.insert_btn.Size = new System.Drawing.Size(179, 51);
             this.insert_btn.TabIndex = 88;
             this.insert_btn.Text = "Insert";
-            this.insert_btn.UseVisualStyleBackColor = true;
+            this.insert_btn.UseVisualStyleBackColor = false;
             this.insert_btn.Click += new System.EventHandler(this.insert_btn_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(415, 427);
+            this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(535, 445);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 16);
+            this.label4.Size = new System.Drawing.Size(105, 20);
             this.label4.TabIndex = 87;
             this.label4.Text = "Winner ID:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(524, 427);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
-            this.label2.TabIndex = 85;
             // 
             // winnertxt
             // 
-            this.winnertxt.Location = new System.Drawing.Point(415, 447);
+            this.winnertxt.BackColor = System.Drawing.Color.White;
+            this.winnertxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.winnertxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winnertxt.Location = new System.Drawing.Point(531, 478);
             this.winnertxt.Name = "winnertxt";
-            this.winnertxt.Size = new System.Drawing.Size(109, 22);
+            this.winnertxt.Size = new System.Drawing.Size(109, 28);
             this.winnertxt.TabIndex = 84;
             // 
             // team2txt
             // 
-            this.team2txt.Location = new System.Drawing.Point(293, 447);
+            this.team2txt.BackColor = System.Drawing.Color.White;
+            this.team2txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.team2txt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team2txt.Location = new System.Drawing.Point(366, 478);
             this.team2txt.Name = "team2txt";
-            this.team2txt.Size = new System.Drawing.Size(90, 22);
+            this.team2txt.Size = new System.Drawing.Size(90, 28);
             this.team2txt.TabIndex = 83;
             // 
             // picklbl
             // 
             this.picklbl.AutoSize = true;
-            this.picklbl.Location = new System.Drawing.Point(169, 427);
+            this.picklbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picklbl.Location = new System.Drawing.Point(201, 445);
             this.picklbl.Name = "picklbl";
-            this.picklbl.Size = new System.Drawing.Size(72, 16);
+            this.picklbl.Size = new System.Drawing.Size(106, 20);
             this.picklbl.TabIndex = 82;
             this.picklbl.Text = "Team 1 ID:";
             // 
             // namelbl
             // 
             this.namelbl.AutoSize = true;
-            this.namelbl.Location = new System.Drawing.Point(46, 427);
+            this.namelbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namelbl.Location = new System.Drawing.Point(43, 445);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(62, 16);
+            this.namelbl.Size = new System.Drawing.Size(95, 20);
             this.namelbl.TabIndex = 81;
             this.namelbl.Text = "Match ID:";
             // 
             // team1txt
             // 
-            this.team1txt.Location = new System.Drawing.Point(169, 447);
+            this.team1txt.BackColor = System.Drawing.Color.White;
+            this.team1txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.team1txt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.team1txt.Location = new System.Drawing.Point(204, 478);
             this.team1txt.Name = "team1txt";
-            this.team1txt.Size = new System.Drawing.Size(90, 22);
+            this.team1txt.Size = new System.Drawing.Size(90, 28);
             this.team1txt.TabIndex = 80;
             // 
             // idtxt
             // 
-            this.idtxt.Location = new System.Drawing.Point(46, 447);
+            this.idtxt.BackColor = System.Drawing.Color.White;
+            this.idtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idtxt.Location = new System.Drawing.Point(46, 478);
             this.idtxt.Name = "idtxt";
-            this.idtxt.Size = new System.Drawing.Size(90, 22);
+            this.idtxt.Size = new System.Drawing.Size(90, 28);
             this.idtxt.TabIndex = 79;
             // 
             // dataGridView1
@@ -162,7 +177,7 @@ namespace Valorant_Datahub
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(674, 356);
+            this.dataGridView1.Size = new System.Drawing.Size(941, 358);
             this.dataGridView1.TabIndex = 78;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -196,32 +211,62 @@ namespace Valorant_Datahub
             // 
             // map_name
             // 
+            this.map_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.map_name.HeaderText = "Map Name";
             this.map_name.MinimumWidth = 6;
             this.map_name.Name = "map_name";
-            this.map_name.Width = 125;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(293, 427);
+            this.label7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(363, 445);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 16);
+            this.label7.Size = new System.Drawing.Size(106, 20);
             this.label7.TabIndex = 96;
             this.label7.Text = "Team 2 ID:";
+            // 
+            // commit_btn
+            // 
+            this.commit_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.commit_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.commit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commit_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commit_btn.Location = new System.Drawing.Point(185, 556);
+            this.commit_btn.Name = "commit_btn";
+            this.commit_btn.Size = new System.Drawing.Size(179, 51);
+            this.commit_btn.TabIndex = 97;
+            this.commit_btn.Text = "Commit";
+            this.commit_btn.UseVisualStyleBackColor = false;
+            this.commit_btn.Click += new System.EventHandler(this.commit_btn_Click);
+            // 
+            // rollback_btn
+            // 
+            this.rollback_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.rollback_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rollback_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rollback_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollback_btn.Location = new System.Drawing.Point(670, 556);
+            this.rollback_btn.Name = "rollback_btn";
+            this.rollback_btn.Size = new System.Drawing.Size(179, 51);
+            this.rollback_btn.TabIndex = 98;
+            this.rollback_btn.Text = "Rollback";
+            this.rollback_btn.UseVisualStyleBackColor = false;
+            this.rollback_btn.Click += new System.EventHandler(this.rollback_btn_Click);
             // 
             // MatchesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(769, 589);
+            this.ClientSize = new System.Drawing.Size(1017, 681);
+            this.Controls.Add(this.rollback_btn);
+            this.Controls.Add(this.commit_btn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.maptxt);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.winnertxt);
             this.Controls.Add(this.team2txt);
             this.Controls.Add(this.picklbl);
@@ -231,6 +276,7 @@ namespace Valorant_Datahub
             this.Controls.Add(this.dataGridView1);
             this.Name = "MatchesView";
             this.Text = "MatchesView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MatchesView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -243,7 +289,6 @@ namespace Valorant_Datahub
         private System.Windows.Forms.TextBox maptxt;
         private System.Windows.Forms.Button insert_btn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox winnertxt;
         private System.Windows.Forms.TextBox team2txt;
         private System.Windows.Forms.Label picklbl;
@@ -257,5 +302,7 @@ namespace Valorant_Datahub
         private System.Windows.Forms.DataGridViewTextBoxColumn team2_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn winner_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn map_name;
+        private System.Windows.Forms.Button commit_btn;
+        private System.Windows.Forms.Button rollback_btn;
     }
 }

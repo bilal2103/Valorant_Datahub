@@ -18,6 +18,24 @@ namespace Valorant_Datahub
         {
             InitializeComponent();
             this.connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+            this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is Button)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
+
+                }
+                if (ctl is TextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                }
+                if (ctl is Label)
+                    ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+            }
+            dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
             displaytable();
 
         }

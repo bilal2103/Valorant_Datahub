@@ -29,6 +29,7 @@ namespace Valorant_Datahub
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.updatebtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
@@ -54,9 +55,12 @@ namespace Valorant_Datahub
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(666, 568);
+            this.updatebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updatebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatebtn.Location = new System.Drawing.Point(712, 614);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(184, 46);
+            this.updatebtn.Size = new System.Drawing.Size(208, 59);
             this.updatebtn.TabIndex = 44;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = true;
@@ -64,9 +68,12 @@ namespace Valorant_Datahub
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(401, 568);
+            this.deletebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebtn.Location = new System.Drawing.Point(445, 614);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(185, 46);
+            this.deletebtn.Size = new System.Drawing.Size(209, 59);
             this.deletebtn.TabIndex = 43;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = true;
@@ -74,9 +81,12 @@ namespace Valorant_Datahub
             // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(142, 568);
+            this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insert_btn.Location = new System.Drawing.Point(185, 614);
             this.insert_btn.Name = "insert_btn";
-            this.insert_btn.Size = new System.Drawing.Size(181, 46);
+            this.insert_btn.Size = new System.Drawing.Size(205, 59);
             this.insert_btn.TabIndex = 42;
             this.insert_btn.Text = "Insert";
             this.insert_btn.UseVisualStyleBackColor = true;
@@ -85,90 +95,111 @@ namespace Valorant_Datahub
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 491);
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(33, 512);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 16);
+            this.label5.Size = new System.Drawing.Size(114, 20);
             this.label5.TabIndex = 39;
             this.label5.Text = "Description:";
             // 
             // desctxt
             // 
-            this.desctxt.Location = new System.Drawing.Point(36, 511);
+            this.desctxt.BackColor = System.Drawing.Color.White;
+            this.desctxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.desctxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desctxt.Location = new System.Drawing.Point(36, 545);
             this.desctxt.Name = "desctxt";
-            this.desctxt.Size = new System.Drawing.Size(708, 22);
+            this.desctxt.Size = new System.Drawing.Size(918, 28);
             this.desctxt.TabIndex = 38;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(616, 430);
+            this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(825, 430);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 16);
+            this.label4.Size = new System.Drawing.Size(115, 20);
             this.label4.TabIndex = 37;
             this.label4.Text = "Location ID:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(406, 430);
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(570, 430);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 16);
+            this.label3.Size = new System.Drawing.Size(147, 20);
             this.label3.TabIndex = 36;
             this.label3.Text = "Suited Weapon:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(505, 430);
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(669, 430);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 35;
             // 
             // locationtxt
             // 
-            this.locationtxt.Location = new System.Drawing.Point(619, 450);
+            this.locationtxt.BackColor = System.Drawing.Color.White;
+            this.locationtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.locationtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationtxt.Location = new System.Drawing.Point(829, 463);
             this.locationtxt.Name = "locationtxt";
-            this.locationtxt.Size = new System.Drawing.Size(125, 22);
+            this.locationtxt.Size = new System.Drawing.Size(125, 28);
             this.locationtxt.TabIndex = 33;
             // 
             // weapontxt
             // 
-            this.weapontxt.Location = new System.Drawing.Point(401, 450);
+            this.weapontxt.BackColor = System.Drawing.Color.White;
+            this.weapontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.weapontxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weapontxt.Location = new System.Drawing.Point(565, 463);
             this.weapontxt.Name = "weapontxt";
-            this.weapontxt.Size = new System.Drawing.Size(179, 22);
+            this.weapontxt.Size = new System.Drawing.Size(179, 28);
             this.weapontxt.TabIndex = 32;
             this.weapontxt.TextChanged += new System.EventHandler(this.weapontxt_TextChanged);
             // 
             // picklbl
             // 
             this.picklbl.AutoSize = true;
-            this.picklbl.Location = new System.Drawing.Point(241, 430);
+            this.picklbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picklbl.Location = new System.Drawing.Point(317, 430);
             this.picklbl.Name = "picklbl";
-            this.picklbl.Size = new System.Drawing.Size(78, 16);
+            this.picklbl.Size = new System.Drawing.Size(114, 20);
             this.picklbl.TabIndex = 28;
             this.picklbl.Text = "Spike Sites:";
             // 
             // namelbl
             // 
             this.namelbl.AutoSize = true;
+            this.namelbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.namelbl.Location = new System.Drawing.Point(33, 430);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(47, 16);
+            this.namelbl.Size = new System.Drawing.Size(67, 20);
             this.namelbl.TabIndex = 27;
             this.namelbl.Text = "Name:";
             // 
             // sitestxt
             // 
-            this.sitestxt.Location = new System.Drawing.Point(237, 450);
+            this.sitestxt.BackColor = System.Drawing.Color.White;
+            this.sitestxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sitestxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sitestxt.Location = new System.Drawing.Point(321, 463);
             this.sitestxt.Name = "sitestxt";
-            this.sitestxt.Size = new System.Drawing.Size(129, 22);
+            this.sitestxt.Size = new System.Drawing.Size(129, 28);
             this.sitestxt.TabIndex = 25;
             // 
             // nametxt
             // 
-            this.nametxt.Location = new System.Drawing.Point(36, 450);
+            this.nametxt.BackColor = System.Drawing.Color.White;
+            this.nametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nametxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nametxt.Location = new System.Drawing.Point(37, 463);
             this.nametxt.Name = "nametxt";
-            this.nametxt.Size = new System.Drawing.Size(162, 22);
+            this.nametxt.Size = new System.Drawing.Size(213, 28);
             this.nametxt.TabIndex = 24;
             // 
             // dataGridView1
@@ -183,51 +214,58 @@ namespace Valorant_Datahub
             this.dataGridView1.Location = new System.Drawing.Point(27, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(981, 352);
+            this.dataGridView1.Size = new System.Drawing.Size(1070, 354);
             this.dataGridView1.TabIndex = 23;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // name
             // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.name.HeaderText = "Name";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
-            this.name.Width = 125;
+            this.name.Width = 73;
             // 
             // spike_sites
             // 
+            this.spike_sites.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.spike_sites.HeaderText = "Spike Sites";
             this.spike_sites.MinimumWidth = 6;
             this.spike_sites.Name = "spike_sites";
-            this.spike_sites.Width = 125;
+            this.spike_sites.Width = 96;
             // 
             // suited_weapon
             // 
+            this.suited_weapon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.suited_weapon.HeaderText = "Suited Weapon";
             this.suited_weapon.MinimumWidth = 6;
             this.suited_weapon.Name = "suited_weapon";
-            this.suited_weapon.Width = 125;
+            this.suited_weapon.Width = 119;
             // 
             // location_id
             // 
+            this.location_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.location_id.HeaderText = "Location ID";
             this.location_id.MinimumWidth = 6;
             this.location_id.Name = "location_id";
-            this.location_id.Width = 125;
+            this.location_id.Width = 95;
             // 
             // description
             // 
-            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.description.HeaderText = "Description";
             this.description.MinimumWidth = 6;
             this.description.Name = "description";
+            this.description.Width = 104;
             // 
             // MapsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 651);
+            this.ClientSize = new System.Drawing.Size(1109, 708);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.insert_btn);

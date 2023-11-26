@@ -116,5 +116,14 @@ namespace Valorant_Datahub
             this.reload_speed = reload_speed;
         }
     }
+    public static class Colors
+    {
+        public static string fore_color = "#000000";
+        public static string back_color = "#E2D1F9";
+        public static string btn_color = "#7092be";
+        public static string btn_fore_color = "#FFFFFF";
+        public static string tb_backcolor = "#FFFFFF";
+        public static string tb_forecolor = "#000000";
+    }
 
 }

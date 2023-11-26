@@ -70,9 +70,12 @@
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(611, 570);
+            this.updatebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updatebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatebtn.Location = new System.Drawing.Point(723, 599);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(170, 46);
+            this.updatebtn.Size = new System.Drawing.Size(175, 60);
             this.updatebtn.TabIndex = 44;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = true;
@@ -80,9 +83,12 @@
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(361, 570);
+            this.deletebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebtn.Location = new System.Drawing.Point(473, 599);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(170, 46);
+            this.deletebtn.Size = new System.Drawing.Size(175, 60);
             this.deletebtn.TabIndex = 43;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = true;
@@ -90,9 +96,12 @@
             // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(121, 570);
+            this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insert_btn.Location = new System.Drawing.Point(233, 599);
             this.insert_btn.Name = "insert_btn";
-            this.insert_btn.Size = new System.Drawing.Size(170, 46);
+            this.insert_btn.Size = new System.Drawing.Size(175, 60);
             this.insert_btn.TabIndex = 42;
             this.insert_btn.Text = "Insert";
             this.insert_btn.UseVisualStyleBackColor = true;
@@ -101,97 +110,121 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(820, 432);
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(819, 417);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 17);
+            this.label3.Size = new System.Drawing.Size(134, 20);
             this.label3.TabIndex = 36;
             this.label3.Text = "Favorite Agent";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(720, 432);
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(719, 417);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 17);
+            this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 35;
             this.label2.Text = "Age";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(609, 432);
+            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(608, 417);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.TabIndex = 34;
             this.label1.Text = "Gender";
             // 
             // agentxt
             // 
+            this.agentxt.BackColor = System.Drawing.Color.White;
+            this.agentxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.agentxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agentxt.Location = new System.Drawing.Point(823, 451);
             this.agentxt.Name = "agentxt";
-            this.agentxt.Size = new System.Drawing.Size(142, 22);
+            this.agentxt.Size = new System.Drawing.Size(142, 28);
             this.agentxt.TabIndex = 32;
             // 
             // agetxt
             // 
+            this.agetxt.BackColor = System.Drawing.Color.White;
+            this.agetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.agetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.agetxt.Location = new System.Drawing.Point(723, 451);
             this.agetxt.Name = "agetxt";
-            this.agetxt.Size = new System.Drawing.Size(56, 22);
+            this.agetxt.Size = new System.Drawing.Size(56, 28);
             this.agetxt.TabIndex = 31;
             // 
             // gendertxt
             // 
+            this.gendertxt.BackColor = System.Drawing.Color.White;
+            this.gendertxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gendertxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gendertxt.Location = new System.Drawing.Point(612, 451);
             this.gendertxt.Name = "gendertxt";
-            this.gendertxt.Size = new System.Drawing.Size(75, 22);
+            this.gendertxt.Size = new System.Drawing.Size(75, 28);
             this.gendertxt.TabIndex = 30;
             // 
             // winlbl
             // 
             this.winlbl.AutoSize = true;
-            this.winlbl.Location = new System.Drawing.Point(314, 432);
+            this.winlbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winlbl.Location = new System.Drawing.Point(313, 417);
             this.winlbl.Name = "winlbl";
-            this.winlbl.Size = new System.Drawing.Size(45, 17);
+            this.winlbl.Size = new System.Drawing.Size(59, 20);
             this.winlbl.TabIndex = 29;
             this.winlbl.Text = "Name";
             // 
             // uname
             // 
             this.uname.AutoSize = true;
-            this.uname.Location = new System.Drawing.Point(116, 432);
+            this.uname.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uname.Location = new System.Drawing.Point(115, 417);
             this.uname.Name = "uname";
-            this.uname.Size = new System.Drawing.Size(73, 17);
+            this.uname.Size = new System.Drawing.Size(95, 20);
             this.uname.TabIndex = 28;
             this.uname.Text = "Username";
             // 
             // namelbl
             // 
             this.namelbl.AutoSize = true;
-            this.namelbl.Location = new System.Drawing.Point(27, 433);
+            this.namelbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namelbl.Location = new System.Drawing.Point(26, 418);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(65, 17);
+            this.namelbl.Size = new System.Drawing.Size(88, 20);
             this.namelbl.TabIndex = 27;
             this.namelbl.Text = "Player ID";
             // 
             // nametxt
             // 
+            this.nametxt.BackColor = System.Drawing.Color.White;
+            this.nametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nametxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nametxt.Location = new System.Drawing.Point(317, 451);
             this.nametxt.Name = "nametxt";
-            this.nametxt.Size = new System.Drawing.Size(151, 22);
+            this.nametxt.Size = new System.Drawing.Size(151, 28);
             this.nametxt.TabIndex = 26;
             // 
             // unametxt
             // 
+            this.unametxt.BackColor = System.Drawing.Color.White;
+            this.unametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.unametxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unametxt.Location = new System.Drawing.Point(119, 452);
             this.unametxt.Name = "unametxt";
-            this.unametxt.Size = new System.Drawing.Size(170, 22);
+            this.unametxt.Size = new System.Drawing.Size(170, 28);
             this.unametxt.TabIndex = 25;
             // 
             // idtxt
             // 
+            this.idtxt.BackColor = System.Drawing.Color.White;
+            this.idtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.idtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idtxt.Location = new System.Drawing.Point(30, 452);
             this.idtxt.Name = "idtxt";
-            this.idtxt.Size = new System.Drawing.Size(62, 22);
+            this.idtxt.Size = new System.Drawing.Size(62, 28);
             this.idtxt.TabIndex = 24;
             // 
             // dataGridView1
@@ -224,20 +257,21 @@
             this.id.HeaderText = "Player ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
-            this.id.Width = 94;
+            this.id.Width = 91;
             // 
             // username
             // 
             this.username.HeaderText = "Username";
             this.username.MinimumWidth = 6;
             this.username.Name = "username";
-            this.username.Width = 102;
+            this.username.Width = 99;
             // 
             // name
             // 
             this.name.HeaderText = "Full Name";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
+            this.name.Width = 97;
             // 
             // team
             // 
@@ -245,49 +279,49 @@
             this.team.MinimumWidth = 6;
             this.team.Name = "team";
             this.team.ReadOnly = true;
-            this.team.Width = 90;
+            this.team.Width = 88;
             // 
             // gender
             // 
             this.gender.HeaderText = "Gender";
             this.gender.MinimumWidth = 6;
             this.gender.Name = "gender";
-            this.gender.Width = 85;
+            this.gender.Width = 81;
             // 
             // age
             // 
             this.age.HeaderText = "Age";
             this.age.MinimumWidth = 6;
             this.age.Name = "age";
-            this.age.Width = 62;
+            this.age.Width = 61;
             // 
             // agent
             // 
             this.agent.HeaderText = "Favorite Agent";
             this.agent.MinimumWidth = 6;
             this.agent.Name = "agent";
-            this.agent.Width = 129;
+            this.agent.Width = 123;
             // 
             // mmr
             // 
             this.mmr.HeaderText = "MMR";
             this.mmr.MinimumWidth = 6;
             this.mmr.Name = "mmr";
-            this.mmr.Width = 69;
+            this.mmr.Width = 68;
             // 
             // kills
             // 
             this.kills.HeaderText = "Kills";
             this.kills.MinimumWidth = 6;
             this.kills.Name = "kills";
-            this.kills.Width = 62;
+            this.kills.Width = 60;
             // 
             // deaths
             // 
             this.deaths.HeaderText = "Deaths";
             this.deaths.MinimumWidth = 6;
             this.deaths.Name = "deaths";
-            this.deaths.Width = 82;
+            this.deaths.Width = 79;
             // 
             // location
             // 
@@ -295,93 +329,113 @@
             this.location.MinimumWidth = 6;
             this.location.Name = "location";
             this.location.ReadOnly = true;
-            this.location.Width = 108;
+            this.location.Width = 103;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(27, 491);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 17);
+            this.label7.Size = new System.Drawing.Size(49, 20);
             this.label7.TabIndex = 45;
             this.label7.Text = "MMR";
             // 
             // mmrtxt
             // 
-            this.mmrtxt.Location = new System.Drawing.Point(30, 511);
+            this.mmrtxt.BackColor = System.Drawing.Color.White;
+            this.mmrtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mmrtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mmrtxt.Location = new System.Drawing.Point(30, 526);
             this.mmrtxt.Name = "mmrtxt";
-            this.mmrtxt.Size = new System.Drawing.Size(56, 22);
+            this.mmrtxt.Size = new System.Drawing.Size(56, 28);
             this.mmrtxt.TabIndex = 46;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(114, 491);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 17);
+            this.label8.Size = new System.Drawing.Size(45, 20);
             this.label8.TabIndex = 47;
             this.label8.Text = "Kills";
             // 
             // killstxt
             // 
-            this.killstxt.Location = new System.Drawing.Point(117, 511);
+            this.killstxt.BackColor = System.Drawing.Color.White;
+            this.killstxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.killstxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.killstxt.Location = new System.Drawing.Point(118, 526);
             this.killstxt.Name = "killstxt";
-            this.killstxt.Size = new System.Drawing.Size(56, 22);
+            this.killstxt.Size = new System.Drawing.Size(56, 28);
             this.killstxt.TabIndex = 48;
             // 
             // deathstxt
             // 
-            this.deathstxt.Location = new System.Drawing.Point(205, 511);
+            this.deathstxt.BackColor = System.Drawing.Color.White;
+            this.deathstxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deathstxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deathstxt.Location = new System.Drawing.Point(206, 526);
             this.deathstxt.Name = "deathstxt";
-            this.deathstxt.Size = new System.Drawing.Size(56, 22);
+            this.deathstxt.Size = new System.Drawing.Size(56, 28);
             this.deathstxt.TabIndex = 50;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(202, 491);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.Size = new System.Drawing.Size(69, 20);
             this.label4.TabIndex = 49;
             this.label4.Text = "Deaths";
             // 
             // locationtxt
             // 
-            this.locationtxt.Location = new System.Drawing.Point(302, 511);
+            this.locationtxt.BackColor = System.Drawing.Color.White;
+            this.locationtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.locationtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationtxt.Location = new System.Drawing.Point(301, 526);
             this.locationtxt.Name = "locationtxt";
-            this.locationtxt.Size = new System.Drawing.Size(71, 22);
+            this.locationtxt.Size = new System.Drawing.Size(71, 28);
             this.locationtxt.TabIndex = 52;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(299, 491);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 17);
+            this.label5.Size = new System.Drawing.Size(107, 20);
             this.label5.TabIndex = 51;
             this.label5.Text = "Location ID";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(491, 432);
+            this.label6.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(490, 417);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 17);
+            this.label6.Size = new System.Drawing.Size(81, 20);
             this.label6.TabIndex = 54;
             this.label6.Text = "Team ID";
             // 
             // tidtxt
             // 
+            this.tidtxt.BackColor = System.Drawing.Color.White;
+            this.tidtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tidtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tidtxt.Location = new System.Drawing.Point(494, 451);
             this.tidtxt.Name = "tidtxt";
-            this.tidtxt.Size = new System.Drawing.Size(75, 22);
+            this.tidtxt.Size = new System.Drawing.Size(75, 28);
             this.tidtxt.TabIndex = 53;
             // 
             // PlayerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 648);
+            this.ClientSize = new System.Drawing.Size(1161, 686);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tidtxt);
             this.Controls.Add(this.locationtxt);

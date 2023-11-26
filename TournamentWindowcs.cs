@@ -18,15 +18,22 @@ namespace Valorant_Datahub
         public TournamentWindow(Dictionary<string, List<MatchesInformation>> matches)
         {
             InitializeComponent();
-            InitializeComponent();
-            this.BackColor = ColorTranslator.FromHtml("#E2D1F9");
-            this.ForeColor = ColorTranslator.FromHtml("#317773");
+            this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
-                if (ctl is TextBox || ctl is RichTextBox)
+                if (ctl is Button)
                 {
-                    ctl.BackColor = ColorTranslator.FromHtml("#317773");
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
+
                 }
+                if (ctl is TextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                }
+                if (ctl is Label)
+                    ctl.ForeColor = ColorTranslator.FromHtml("#000000");
             }
             DisplayMatches(matches);
         }

@@ -29,16 +29,8 @@ namespace Valorant_Datahub
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pick_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.win_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.suited_weapon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ultimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.voiced_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nametxt = new System.Windows.Forms.TextBox();
             this.picktxt = new System.Windows.Forms.TextBox();
             this.wintxt = new System.Windows.Forms.TextBox();
@@ -60,6 +52,15 @@ namespace Valorant_Datahub
             this.insert_btn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.updatebtn = new System.Windows.Forms.Button();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pick_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.win_pct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.suited_weapon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ultimate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.voiced_by = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,110 +75,59 @@ namespace Valorant_Datahub
             this.role,
             this.suited_weapon,
             this.ultimate,
-            this.description,
-            this.voiced_by});
+            this.voiced_by,
+            this.description});
             this.dataGridView1.Location = new System.Drawing.Point(35, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(747, 356);
+            this.dataGridView1.Size = new System.Drawing.Size(1127, 349);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.Width = 125;
-            // 
-            // pick_pct
-            // 
-            this.pick_pct.HeaderText = "Pick Percentage";
-            this.pick_pct.MinimumWidth = 6;
-            this.pick_pct.Name = "pick_pct";
-            this.pick_pct.Width = 125;
-            // 
-            // win_pct
-            // 
-            this.win_pct.HeaderText = "Win Percentage";
-            this.win_pct.MinimumWidth = 6;
-            this.win_pct.Name = "win_pct";
-            this.win_pct.Width = 125;
-            // 
-            // tier
-            // 
-            this.tier.HeaderText = "Tier";
-            this.tier.MinimumWidth = 6;
-            this.tier.Name = "tier";
-            this.tier.Width = 125;
-            // 
-            // role
-            // 
-            this.role.HeaderText = "Role";
-            this.role.MinimumWidth = 6;
-            this.role.Name = "role";
-            this.role.Width = 125;
-            // 
-            // suited_weapon
-            // 
-            this.suited_weapon.HeaderText = "Suited Weapon";
-            this.suited_weapon.MinimumWidth = 6;
-            this.suited_weapon.Name = "suited_weapon";
-            this.suited_weapon.Width = 125;
-            // 
-            // ultimate
-            // 
-            this.ultimate.HeaderText = "Ultimate";
-            this.ultimate.MinimumWidth = 6;
-            this.ultimate.Name = "ultimate";
-            this.ultimate.Width = 125;
-            // 
-            // description
-            // 
-            this.description.HeaderText = "Description";
-            this.description.MinimumWidth = 6;
-            this.description.Name = "description";
-            this.description.Width = 125;
-            // 
-            // voiced_by
-            // 
-            this.voiced_by.HeaderText = "Voiced By";
-            this.voiced_by.MinimumWidth = 6;
-            this.voiced_by.Name = "voiced_by";
-            this.voiced_by.Width = 125;
-            // 
             // nametxt
             // 
-            this.nametxt.Location = new System.Drawing.Point(35, 467);
+            this.nametxt.BackColor = System.Drawing.Color.White;
+            this.nametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nametxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nametxt.Location = new System.Drawing.Point(45, 477);
             this.nametxt.Name = "nametxt";
-            this.nametxt.Size = new System.Drawing.Size(100, 22);
+            this.nametxt.Size = new System.Drawing.Size(141, 28);
             this.nametxt.TabIndex = 1;
             this.nametxt.TextChanged += new System.EventHandler(this.nametxt_TextChanged);
             // 
             // picktxt
             // 
-            this.picktxt.Location = new System.Drawing.Point(156, 467);
+            this.picktxt.BackColor = System.Drawing.Color.White;
+            this.picktxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picktxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picktxt.Location = new System.Drawing.Point(212, 477);
             this.picktxt.Name = "picktxt";
-            this.picktxt.Size = new System.Drawing.Size(100, 22);
+            this.picktxt.Size = new System.Drawing.Size(100, 28);
             this.picktxt.TabIndex = 3;
             this.picktxt.TextChanged += new System.EventHandler(this.picktxt_TextChanged);
             // 
             // wintxt
             // 
-            this.wintxt.Location = new System.Drawing.Point(275, 467);
+            this.wintxt.BackColor = System.Drawing.Color.White;
+            this.wintxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.wintxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wintxt.Location = new System.Drawing.Point(370, 477);
             this.wintxt.Name = "wintxt";
-            this.wintxt.Size = new System.Drawing.Size(100, 22);
+            this.wintxt.Size = new System.Drawing.Size(100, 28);
             this.wintxt.TabIndex = 4;
             this.wintxt.TextChanged += new System.EventHandler(this.wintxt_TextChanged);
             // 
             // namelbl
             // 
             this.namelbl.AutoSize = true;
+            this.namelbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.namelbl.Location = new System.Drawing.Point(41, 447);
             this.namelbl.Name = "namelbl";
-            this.namelbl.Size = new System.Drawing.Size(49, 17);
+            this.namelbl.Size = new System.Drawing.Size(67, 20);
             this.namelbl.TabIndex = 5;
             this.namelbl.Text = "Name:";
             this.namelbl.Click += new System.EventHandler(this.namelbl_Click);
@@ -185,9 +135,10 @@ namespace Valorant_Datahub
             // picklbl
             // 
             this.picklbl.AutoSize = true;
-            this.picklbl.Location = new System.Drawing.Point(153, 447);
+            this.picklbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picklbl.Location = new System.Drawing.Point(208, 447);
             this.picklbl.Name = "picklbl";
-            this.picklbl.Size = new System.Drawing.Size(61, 17);
+            this.picklbl.Size = new System.Drawing.Size(84, 20);
             this.picklbl.TabIndex = 6;
             this.picklbl.Text = "Pick pct:";
             this.picklbl.Click += new System.EventHandler(this.picklbl_Click);
@@ -195,51 +146,65 @@ namespace Valorant_Datahub
             // winlbl
             // 
             this.winlbl.AutoSize = true;
-            this.winlbl.Location = new System.Drawing.Point(272, 447);
+            this.winlbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winlbl.Location = new System.Drawing.Point(366, 447);
             this.winlbl.Name = "winlbl";
-            this.winlbl.Size = new System.Drawing.Size(59, 17);
+            this.winlbl.Size = new System.Drawing.Size(83, 20);
             this.winlbl.TabIndex = 7;
             this.winlbl.Text = "Win pct:";
             this.winlbl.Click += new System.EventHandler(this.winlbl_Click);
             // 
             // tiertxt
             // 
-            this.tiertxt.Location = new System.Drawing.Point(396, 467);
+            this.tiertxt.BackColor = System.Drawing.Color.White;
+            this.tiertxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tiertxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tiertxt.Location = new System.Drawing.Point(517, 477);
             this.tiertxt.Name = "tiertxt";
-            this.tiertxt.Size = new System.Drawing.Size(100, 22);
+            this.tiertxt.Size = new System.Drawing.Size(100, 28);
             this.tiertxt.TabIndex = 8;
             this.tiertxt.TextChanged += new System.EventHandler(this.tiertxt_TextChanged);
             // 
             // roletxt
             // 
-            this.roletxt.Location = new System.Drawing.Point(516, 467);
+            this.roletxt.BackColor = System.Drawing.Color.White;
+            this.roletxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.roletxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roletxt.Location = new System.Drawing.Point(683, 477);
             this.roletxt.Name = "roletxt";
-            this.roletxt.Size = new System.Drawing.Size(100, 22);
+            this.roletxt.Size = new System.Drawing.Size(138, 28);
             this.roletxt.TabIndex = 9;
             this.roletxt.TextChanged += new System.EventHandler(this.roletxt_TextChanged);
             // 
             // weapontxt
             // 
-            this.weapontxt.Location = new System.Drawing.Point(640, 467);
+            this.weapontxt.BackColor = System.Drawing.Color.White;
+            this.weapontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.weapontxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weapontxt.Location = new System.Drawing.Point(878, 477);
             this.weapontxt.Name = "weapontxt";
-            this.weapontxt.Size = new System.Drawing.Size(142, 22);
+            this.weapontxt.Size = new System.Drawing.Size(174, 28);
             this.weapontxt.TabIndex = 10;
             this.weapontxt.TextChanged += new System.EventHandler(this.weapontxt_TextChanged);
             // 
             // ultimatetxt
             // 
-            this.ultimatetxt.Location = new System.Drawing.Point(516, 528);
+            this.ultimatetxt.BackColor = System.Drawing.Color.White;
+            this.ultimatetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ultimatetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ultimatetxt.Location = new System.Drawing.Point(683, 537);
             this.ultimatetxt.Name = "ultimatetxt";
-            this.ultimatetxt.Size = new System.Drawing.Size(100, 22);
+            this.ultimatetxt.Size = new System.Drawing.Size(164, 28);
             this.ultimatetxt.TabIndex = 11;
             this.ultimatetxt.TextChanged += new System.EventHandler(this.ultimatetxt_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(393, 447);
+            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(513, 447);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 17);
+            this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "Tier:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -247,9 +212,10 @@ namespace Valorant_Datahub
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(513, 447);
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(679, 447);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 17);
+            this.label2.Size = new System.Drawing.Size(54, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "Role:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -257,9 +223,10 @@ namespace Valorant_Datahub
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(637, 447);
+            this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(874, 447);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 17);
+            this.label3.Size = new System.Drawing.Size(147, 20);
             this.label3.TabIndex = 14;
             this.label3.Text = "Suited Weapon:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -267,54 +234,67 @@ namespace Valorant_Datahub
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(513, 508);
+            this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(680, 511);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 17);
+            this.label4.Size = new System.Drawing.Size(90, 20);
             this.label4.TabIndex = 15;
             this.label4.Text = "Ultimate:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // desctxt
             // 
-            this.desctxt.Location = new System.Drawing.Point(35, 528);
+            this.desctxt.BackColor = System.Drawing.Color.White;
+            this.desctxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.desctxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.desctxt.Location = new System.Drawing.Point(45, 537);
             this.desctxt.Name = "desctxt";
-            this.desctxt.Size = new System.Drawing.Size(461, 22);
+            this.desctxt.Size = new System.Drawing.Size(597, 28);
             this.desctxt.TabIndex = 16;
             this.desctxt.TextChanged += new System.EventHandler(this.desctxt_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(41, 508);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 17);
+            this.label5.Size = new System.Drawing.Size(114, 20);
             this.label5.TabIndex = 17;
             this.label5.Text = "Description:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // voicetxt
             // 
-            this.voicetxt.Location = new System.Drawing.Point(640, 528);
+            this.voicetxt.BackColor = System.Drawing.Color.White;
+            this.voicetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.voicetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.voicetxt.Location = new System.Drawing.Point(877, 534);
             this.voicetxt.Name = "voicetxt";
-            this.voicetxt.Size = new System.Drawing.Size(142, 22);
+            this.voicetxt.Size = new System.Drawing.Size(209, 28);
             this.voicetxt.TabIndex = 18;
             this.voicetxt.TextChanged += new System.EventHandler(this.voicetxt_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(637, 508);
+            this.label6.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(874, 508);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 17);
+            this.label6.Size = new System.Drawing.Size(101, 20);
             this.label6.TabIndex = 19;
             this.label6.Text = "Voiced By:";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // insert_btn
             // 
-            this.insert_btn.Location = new System.Drawing.Point(35, 594);
+            this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insert_btn.ForeColor = System.Drawing.Color.Black;
+            this.insert_btn.Location = new System.Drawing.Point(212, 603);
             this.insert_btn.Name = "insert_btn";
-            this.insert_btn.Size = new System.Drawing.Size(179, 46);
+            this.insert_btn.Size = new System.Drawing.Size(198, 54);
             this.insert_btn.TabIndex = 20;
             this.insert_btn.Text = "Insert";
             this.insert_btn.UseVisualStyleBackColor = true;
@@ -322,9 +302,13 @@ namespace Valorant_Datahub
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(313, 594);
+            this.deletebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebtn.ForeColor = System.Drawing.Color.Black;
+            this.deletebtn.Location = new System.Drawing.Point(490, 603);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(183, 46);
+            this.deletebtn.Size = new System.Drawing.Size(202, 54);
             this.deletebtn.TabIndex = 21;
             this.deletebtn.Text = "Delete";
             this.deletebtn.UseVisualStyleBackColor = true;
@@ -332,19 +316,95 @@ namespace Valorant_Datahub
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(607, 594);
+            this.updatebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updatebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatebtn.ForeColor = System.Drawing.Color.Black;
+            this.updatebtn.Location = new System.Drawing.Point(784, 603);
             this.updatebtn.Name = "updatebtn";
-            this.updatebtn.Size = new System.Drawing.Size(175, 46);
+            this.updatebtn.Size = new System.Drawing.Size(194, 54);
             this.updatebtn.TabIndex = 22;
             this.updatebtn.Text = "Update";
             this.updatebtn.UseVisualStyleBackColor = true;
             this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
             // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.Width = 73;
+            // 
+            // pick_pct
+            // 
+            this.pick_pct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.pick_pct.HeaderText = "Pick Percentage";
+            this.pick_pct.MinimumWidth = 6;
+            this.pick_pct.Name = "pick_pct";
+            this.pick_pct.Width = 124;
+            // 
+            // win_pct
+            // 
+            this.win_pct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.win_pct.HeaderText = "Win Percentage";
+            this.win_pct.MinimumWidth = 6;
+            this.win_pct.Name = "win_pct";
+            this.win_pct.Width = 121;
+            // 
+            // tier
+            // 
+            this.tier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.tier.HeaderText = "Tier";
+            this.tier.MinimumWidth = 6;
+            this.tier.Name = "tier";
+            this.tier.Width = 60;
+            // 
+            // role
+            // 
+            this.role.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.role.HeaderText = "Role";
+            this.role.MinimumWidth = 6;
+            this.role.Name = "role";
+            this.role.Width = 65;
+            // 
+            // suited_weapon
+            // 
+            this.suited_weapon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.suited_weapon.HeaderText = "Suited Weapon";
+            this.suited_weapon.MinimumWidth = 6;
+            this.suited_weapon.Name = "suited_weapon";
+            this.suited_weapon.Width = 119;
+            // 
+            // ultimate
+            // 
+            this.ultimate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ultimate.HeaderText = "Ultimate";
+            this.ultimate.MinimumWidth = 6;
+            this.ultimate.Name = "ultimate";
+            this.ultimate.Width = 85;
+            // 
+            // voiced_by
+            // 
+            this.voiced_by.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.voiced_by.HeaderText = "Voiced By";
+            this.voiced_by.MinimumWidth = 6;
+            this.voiced_by.Name = "voiced_by";
+            this.voiced_by.Width = 91;
+            // 
+            // description
+            // 
+            this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.description.HeaderText = "Description";
+            this.description.MinimumWidth = 6;
+            this.description.Name = "description";
+            this.description.Width = 104;
+            // 
             // AgentsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 675);
+            this.ClientSize = new System.Drawing.Size(1169, 680);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.insert_btn);
@@ -407,7 +467,7 @@ namespace Valorant_Datahub
         private System.Windows.Forms.DataGridViewTextBoxColumn role;
         private System.Windows.Forms.DataGridViewTextBoxColumn suited_weapon;
         private System.Windows.Forms.DataGridViewTextBoxColumn ultimate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn voiced_by;
+        private System.Windows.Forms.DataGridViewTextBoxColumn description;
     }
 }
