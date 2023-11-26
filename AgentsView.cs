@@ -14,6 +14,8 @@ namespace Valorant_Datahub
     public partial class AgentsView : Form
     {
         public string connection, last_Agent_clicked;
+        SqlConnection con,ReaderCon;
+        SqlTransaction transaction;
         public AgentsView()
         {
             InitializeComponent();
@@ -36,15 +38,26 @@ namespace Valorant_Datahub
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
+            con = new SqlConnection(connection);
+            ReaderCon = new SqlConnection(connection);
+            con.Open();
             displaytable();
             
         }
+        private void ResetTextBoxes()
+        {
+            foreach(Control c in Controls)
+            {
+                if (c is TextBox) c.Text = "";
+            }
+        }
         private void displaytable()
         {
-            string query = "select * from agents";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
+            ResetTextBoxes();
+            string query = "select * from agents (NOLOCK)";
+            ReaderCon.Open();
+            
+            SqlCommand cmd = new SqlCommand(query, ReaderCon);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -54,21 +67,7 @@ namespace Valorant_Datahub
                      reader["Voiced_by"].ToString(), reader["Description"].ToString()); 
                 dataGridView1.Rows.Add(row);
             }
-            con.Close();
-        }
-        private void AgentsView_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
+            ReaderCon.Close();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -95,53 +94,70 @@ namespace Valorant_Datahub
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from agents where agent_name = '" + nametxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = $"insert into agents values('{nametxt.Text}',{picktxt.Text},{wintxt.Text}," +
+                $"'{tiertxt.Text}','{roletxt.Text}','{weapontxt.Text}','{ultimatetxt.Text}','{desctxt.Text}','{voicetxt.Text}')";
+            
             try
             {
-                if (reader.HasRows)
-                {
-                    MessageBox.Show("Agent Name has already been taken");
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    query = "select * from weaponary where weapon_name = '" + weapontxt.Text + "'";
-                    cmd = new SqlCommand(query, con);
-                    reader = cmd.ExecuteReader();
-                    if (!reader.HasRows)
-                    {
-                        MessageBox.Show("Weapon with this name does not exist.");
-                    }
-                    else
-                    {
-                        con.Close();
-                        con.Open();
-                        query = "insert into agents values ('" + nametxt.Text + "', '" + picktxt.Text + "','" + wintxt.Text + "', '" + tiertxt.Text + "',  '" + roletxt.Text + "','" + weapontxt.Text + "','" + ultimatetxt.Text + "','" + desctxt.Text + "','" + voicetxt.Text + "')";
-                        cmd = new SqlCommand(query, con);
-                        cmd.ExecuteNonQuery();
-                        dataGridView1.Rows.Clear();
-                        displaytable();
-                    }
-                    con.Close();
-                }
+                transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 3;
+                cmd.ExecuteNonQuery();
+                dataGridView1.Rows.Clear();
+                displaytable();
+
             }
-            catch (SqlException ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                transaction.Rollback(); 
             }
+        }
+
+        private void AgentsView_FormClosing(object sender, FormClosingEventArgs e)
+        {
             con.Close();
+        }
+
+        private void commit_btn_Click(object sender, EventArgs e)
+        {
+            if(transaction != null)
+            {
+                try
+                {
+                    transaction.Commit();
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void rollback_btn_Click(object sender, EventArgs e)
+        {
+            if (transaction != null)
+            {
+                try
+                {
+                    transaction.Rollback();
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            string query = "select * from agents where agent_name = '" + nametxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
+            string query = "select * from agents (NOLOCK) where agent_name = '" + nametxt.Text + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (!reader.HasRows)
@@ -150,100 +166,23 @@ namespace Valorant_Datahub
             }
             else
             {
-                con.Close();
-                con.Open();
-                query = "delete from agents where agent_name = '" + nametxt.Text + "'"; 
-                cmd = new SqlCommand(query, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
+                reader.Close();
+                query = "delete from agents where agent_name = '" + nametxt.Text + "'";
+                try
+                {
+                    transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                    cmd = new SqlCommand(query, con, transaction);
+                    cmd.CommandTimeout = 3;
+                    cmd.ExecuteNonQuery();
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    transaction.Rollback();
+                }
             }
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void voicetxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void desctxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ultimatetxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void weapontxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roletxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tiertxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void winlbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picklbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void namelbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void wintxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void picktxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void nametxt_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void updatebtn_Click(object sender, EventArgs e)
@@ -251,18 +190,19 @@ namespace Valorant_Datahub
             string query = "update agents set pick_pct = '" + picktxt.Text + "'," +
                 "win_pct = '" + wintxt.Text + "',tier = '" + tiertxt.Text + "',Role='" + roletxt.Text + "',Suited_weapon='" + weapontxt.Text + "'," +
                 "Description = '" + desctxt.Text + "',Voiced_by = '" + voicetxt.Text + "' where agent_name = '" + last_Agent_clicked + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
             try
             {
+                transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 3;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException E)
             {
                 MessageBox.Show(E.Message);
+                transaction.Rollback();
             }
-            con.Close();
+            
             dataGridView1.Rows.Clear();
             displaytable();
         }

@@ -106,6 +106,7 @@ namespace Valorant_Datahub
             catch (SqlException ex)
             {
                 MessageBox.Show("The data that you're trying to access is locked in another transaction");
+                transaction.Rollback();
             }
 
         }
