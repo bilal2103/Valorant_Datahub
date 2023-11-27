@@ -52,20 +52,24 @@ namespace Valorant_Datahub
             this.agent_played = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.map_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.player_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rollback_btn = new System.Windows.Forms.Button();
+            this.commit_btn = new System.Windows.Forms.Button();
+            this.refreshbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // insert_btn
             // 
+            this.insert_btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insert_btn.Location = new System.Drawing.Point(366, 532);
+            this.insert_btn.Location = new System.Drawing.Point(124, 534);
             this.insert_btn.Name = "insert_btn";
             this.insert_btn.Size = new System.Drawing.Size(175, 60);
             this.insert_btn.TabIndex = 42;
             this.insert_btn.Text = "Insert";
-            this.insert_btn.UseVisualStyleBackColor = true;
+            this.insert_btn.UseVisualStyleBackColor = false;
             this.insert_btn.Click += new System.EventHandler(this.insert_btn_Click);
             // 
             // label4
@@ -280,11 +284,56 @@ namespace Valorant_Datahub
             this.player_id.MinimumWidth = 6;
             this.player_id.Name = "player_id";
             // 
+            // rollback_btn
+            // 
+            this.rollback_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.rollback_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rollback_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rollback_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollback_btn.Location = new System.Drawing.Point(685, 534);
+            this.rollback_btn.Name = "rollback_btn";
+            this.rollback_btn.Size = new System.Drawing.Size(175, 60);
+            this.rollback_btn.TabIndex = 108;
+            this.rollback_btn.Text = "Rollback";
+            this.rollback_btn.UseVisualStyleBackColor = false;
+            this.rollback_btn.Click += new System.EventHandler(this.rollback_btn_Click);
+            // 
+            // commit_btn
+            // 
+            this.commit_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.commit_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.commit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commit_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commit_btn.Location = new System.Drawing.Point(403, 534);
+            this.commit_btn.Name = "commit_btn";
+            this.commit_btn.Size = new System.Drawing.Size(175, 60);
+            this.commit_btn.TabIndex = 107;
+            this.commit_btn.Text = "Commit";
+            this.commit_btn.UseVisualStyleBackColor = false;
+            this.commit_btn.Click += new System.EventHandler(this.commit_btn_Click);
+            // 
+            // refreshbtn
+            // 
+            this.refreshbtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.refreshbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.refreshbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshbtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbtn.Location = new System.Drawing.Point(403, 627);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(175, 60);
+            this.refreshbtn.TabIndex = 112;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.UseVisualStyleBackColor = false;
+            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            // 
             // SoloMatchesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 636);
+            this.ClientSize = new System.Drawing.Size(963, 709);
+            this.Controls.Add(this.refreshbtn);
+            this.Controls.Add(this.rollback_btn);
+            this.Controls.Add(this.commit_btn);
             this.Controls.Add(this.insert_btn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -303,6 +352,7 @@ namespace Valorant_Datahub
             this.Controls.Add(this.dataGridView1);
             this.Name = "SoloMatchesView";
             this.Text = "SoloMatchesView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SoloMatchesView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -333,5 +383,8 @@ namespace Valorant_Datahub
         private System.Windows.Forms.DataGridViewTextBoxColumn agent_played;
         private System.Windows.Forms.DataGridViewTextBoxColumn map_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn player_id;
+        private System.Windows.Forms.Button rollback_btn;
+        private System.Windows.Forms.Button commit_btn;
+        private System.Windows.Forms.Button refreshbtn;
     }
 }

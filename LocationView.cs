@@ -14,6 +14,8 @@ namespace Valorant_Datahub
     public partial class LocationView : Form
     {
         public string connection;
+        SqlConnection con;
+        SqlTransaction transaction;
         public LocationView()
         {
             InitializeComponent();
@@ -35,11 +37,13 @@ namespace Valorant_Datahub
                 if (ctl is Label)
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
             }
+            con = new SqlConnection(connection);
+            con.Open();
             displaytable();
         }
         private void ResetTextboxes()
         {
-            foreach(Control ctr in this.Controls)
+            foreach (Control ctr in this.Controls)
             {
                 if (ctr is TextBox)
                     ctr.Text = "";
@@ -49,72 +53,60 @@ namespace Valorant_Datahub
         {
             ResetTextboxes();
             string query = "select * from location";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["location_id"].ToString(), reader["country"].ToString(),
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1, reader["location_id"].ToString(), reader["country"].ToString(),
                     reader["region"].ToString(), reader["city"].ToString());
-                dataGridView1.Rows.Add(row);
+                    dataGridView1.Rows.Add(row);
+                }
+                reader.Close();
             }
-            con.Close();
+            catch (Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed. Please wait...");
+            }
+            
         }
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from location where location_id = '" + locationtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = "insert into location values ('" + locationtxt.Text + "', '" + countrytxt.Text + "','" + regiontxt.Text + "','" + citytxt.Text + "')";
             try
             {
-                if (reader.HasRows)
-                {
-                    MessageBox.Show("Location with location id " + locationtxt.Text + " already exists");
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    query = "insert into location values ('" + locationtxt.Text + "', '" + countrytxt.Text + "','" + regiontxt.Text + "','" + citytxt.Text + "')";
-                    cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    dataGridView1.Rows.Clear();
-                    displaytable();
-                }
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
-            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            string query = "select * from location where location_id = '" + locationtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (!reader.HasRows)
+            string query = "delete from location where location_id = '" + locationtxt.Text + "'";
+            try
             {
-                MessageBox.Show("No location with location ID "+locationtxt.Text+" exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "delete from location where location_id = '" + locationtxt.Text + "'";
-                cmd = new SqlCommand(query, con);
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
+                MessageBox.Show("Press commit to see your changes");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
         }
 
@@ -122,18 +114,65 @@ namespace Valorant_Datahub
         {
             string query = $"update location set country = '{countrytxt.Text}', region = '{regiontxt.Text}', city = '{citytxt.Text}'" +
                 $" where location_id = {locationtxt.Text}";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
             try
             {
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con,transaction);
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
             }
-            catch(SqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
+
+        }
+
+        private void LocationView_FormClosing(object sender, FormClosingEventArgs e)
+        {
             con.Close();
+        }
+
+        private void commit_btn_Click(object sender, EventArgs e)
+        {
+            if (transaction != null)
+            {
+                try
+                {
+                    transaction.Commit();
+                    MessageBox.Show("Commit Successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void rollback_btn_Click(object sender, EventArgs e)
+        {
+            if(transaction != null)
+            {
+                try
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Rollback Successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void refreshbtn_Click(object sender, EventArgs e)
+        {
             dataGridView1.Rows.Clear();
             displaytable();
         }

@@ -50,6 +50,9 @@ namespace Valorant_Datahub
             this.suited_weapon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.location_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rollback_btn = new System.Windows.Forms.Button();
+            this.commit_btn = new System.Windows.Forms.Button();
+            this.refreshbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,7 +163,6 @@ namespace Valorant_Datahub
             this.weapontxt.Name = "weapontxt";
             this.weapontxt.Size = new System.Drawing.Size(179, 28);
             this.weapontxt.TabIndex = 32;
-            this.weapontxt.TextChanged += new System.EventHandler(this.weapontxt_TextChanged);
             // 
             // picklbl
             // 
@@ -261,11 +263,56 @@ namespace Valorant_Datahub
             this.description.Name = "description";
             this.description.Width = 104;
             // 
+            // rollback_btn
+            // 
+            this.rollback_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.rollback_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rollback_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rollback_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollback_btn.Location = new System.Drawing.Point(445, 697);
+            this.rollback_btn.Name = "rollback_btn";
+            this.rollback_btn.Size = new System.Drawing.Size(209, 59);
+            this.rollback_btn.TabIndex = 104;
+            this.rollback_btn.Text = "Rollback";
+            this.rollback_btn.UseVisualStyleBackColor = false;
+            this.rollback_btn.Click += new System.EventHandler(this.rollback_btn_Click);
+            // 
+            // commit_btn
+            // 
+            this.commit_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.commit_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.commit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commit_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commit_btn.Location = new System.Drawing.Point(185, 697);
+            this.commit_btn.Name = "commit_btn";
+            this.commit_btn.Size = new System.Drawing.Size(209, 59);
+            this.commit_btn.TabIndex = 103;
+            this.commit_btn.Text = "Commit";
+            this.commit_btn.UseVisualStyleBackColor = false;
+            this.commit_btn.Click += new System.EventHandler(this.commit_btn_Click);
+            // 
+            // refreshbtn
+            // 
+            this.refreshbtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.refreshbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.refreshbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshbtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbtn.Location = new System.Drawing.Point(712, 697);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(209, 59);
+            this.refreshbtn.TabIndex = 105;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.UseVisualStyleBackColor = false;
+            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            // 
             // MapsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 708);
+            this.ClientSize = new System.Drawing.Size(1107, 781);
+            this.Controls.Add(this.refreshbtn);
+            this.Controls.Add(this.rollback_btn);
+            this.Controls.Add(this.commit_btn);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.insert_btn);
@@ -283,6 +330,7 @@ namespace Valorant_Datahub
             this.Controls.Add(this.dataGridView1);
             this.Name = "MapsView";
             this.Text = "MapsView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MapsView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,5 +359,8 @@ namespace Valorant_Datahub
         private System.Windows.Forms.DataGridViewTextBoxColumn suited_weapon;
         private System.Windows.Forms.DataGridViewTextBoxColumn location_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
+        private System.Windows.Forms.Button rollback_btn;
+        private System.Windows.Forms.Button commit_btn;
+        private System.Windows.Forms.Button refreshbtn;
     }
 }

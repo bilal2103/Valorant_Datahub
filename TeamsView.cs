@@ -14,6 +14,8 @@ namespace Valorant_Datahub
     public partial class TeamsView : Form
     {
         public string connection;
+        SqlConnection con;
+        SqlTransaction transaction;
         public TeamsView()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace Valorant_Datahub
                 if (ctl is Label)
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
             }
+            con = new SqlConnection(connection);
+            con.Open();
             displaytable();
         }
         private void ResetTextboxes()
@@ -49,73 +53,61 @@ namespace Valorant_Datahub
         {
             ResetTextboxes();
             string query = "select * from teams";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["team_id"].ToString(), reader["team_name"].ToString(),
-                    reader["matches_won"].ToString(), reader["matches_played"].ToString(),
-                    reader["tournaments_won"].ToString(), reader["tournaments_played"].ToString());
-                dataGridView1.Rows.Add(row);
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1, reader["team_id"].ToString(), reader["team_name"].ToString(),
+                        reader["matches_won"].ToString(), reader["matches_played"].ToString(),
+                        reader["tournaments_won"].ToString(), reader["tournaments_played"].ToString());
+                    dataGridView1.Rows.Add(row);
+                }
+                reader.Close();
             }
-            con.Close();
+            catch(Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed. Please wait...");
+            }
+
         }
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from teams where team_id = '" + idtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = "insert into teams values ('" + idtxt.Text + "', '" + nametxt.Text + "','" + mwontxt.Text + "','" + mplayedtxt.Text + "','" + twontxt.Text + "','" + tplayedtxt.Text + "')";
             try
             {
-                if (reader.HasRows)
-                {
-                    MessageBox.Show("Team ID has already been taken");
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    query = "insert into teams values ('" + idtxt.Text + "', '" + nametxt.Text + "','" + mwontxt.Text + "','" + mplayedtxt.Text + "','" + twontxt.Text + "','" + tplayedtxt.Text + "')";
-                    cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    dataGridView1.Rows.Clear();
-                    displaytable();
-                }
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
-            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            string query = "select * from teams where team_id = '" + idtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (!reader.HasRows)
+            string query = "delete from teams where team_id = '" + idtxt.Text + "'";
+            try
             {
-                MessageBox.Show("No team with this team ID exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "delete from teams where team_id = '" + idtxt.Text + "'";
-                cmd = new SqlCommand(query, con);
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
+                MessageBox.Show("Press commit to see your changes");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
         }
 
@@ -123,21 +115,20 @@ namespace Valorant_Datahub
         {
             string query = $"update teams set team_name = '{nametxt.Text}',matches_played = {mplayedtxt.Text},matches_won = {mwontxt.Text}," +
                 $"tournaments_won = {twontxt.Text},tournaments_played = {tplayedtxt.Text} where team_id = {idtxt.Text}";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
             try
             {
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("The data that you tried updating doesn't exist in matches and tournaments history table.");
+                MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
-            dataGridView1.Rows.Clear();
-            displaytable();
         }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -152,37 +143,7 @@ namespace Valorant_Datahub
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tplayedtxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void twontxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
         {
 
         }
@@ -192,39 +153,51 @@ namespace Valorant_Datahub
 
         }
 
-        private void mplayedtxt_TextChanged(object sender, EventArgs e)
+        private void commit_btn_Click(object sender, EventArgs e)
         {
-
+            if (transaction != null)
+            {
+                try
+                {
+                    transaction.Commit();
+                    MessageBox.Show("Commit Successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
-        private void mwontxt_TextChanged(object sender, EventArgs e)
+        private void refreshbtn_Click(object sender, EventArgs e)
         {
-
+            dataGridView1.Rows.Clear();
+            displaytable();
         }
 
-        private void picklbl_Click(object sender, EventArgs e)
+        private void rollback_btn_Click(object sender, EventArgs e)
         {
-
+            if (transaction != null)
+            {
+                try
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Rollback Successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
-        private void namelbl_Click(object sender, EventArgs e)
+        private void TeamsView_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void nametxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void idtxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            con.Close();
         }
     }
 }

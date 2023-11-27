@@ -14,6 +14,8 @@ namespace Valorant_Datahub
     public partial class SoloMatchesView : Form
     {
         public string connection;
+        SqlConnection con;
+        SqlTransaction transaction;
         public SoloMatchesView()
         {
             InitializeComponent();
@@ -36,91 +38,51 @@ namespace Valorant_Datahub
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
+            con = new SqlConnection(connection);
+            con.Open();
             displaytable();
         }
 
         private void displaytable()
         {
             string query = "select * from solo_matches order by match_id";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["Match_ID"].ToString(), reader["Kills"].ToString(), reader["Deaths"].ToString(),
-                    reader["Result"].ToString(), reader["Agent_Played"].ToString(), reader["Map_Name"].ToString(), reader["Player_ID"].ToString());
-                dataGridView1.Rows.Add(row);
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1, reader["match_id"].ToString(), reader["kills"].ToString(),
+                        reader["deaths"].ToString(), reader["result"].ToString(),
+                        reader["agent_played"].ToString(), reader["map_name"].ToString(), reader["player_id"].ToString());
+                    dataGridView1.Rows.Add(row);
+                }
+                reader.Close();
             }
-            con.Close();
+            catch (Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed. Please wait...");
+            }
         }
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from solo_matches where match_id = '" + midtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = "insert into solo_matches values ('" + midtxt.Text + "', '" + killstxt.Text + "','" + deathstxt.Text + "', '" + resulttxt.Text + "',  '" + agenttxt.Text + "','" + maptxt.Text + "','" + pidtxt.Text + "')";
             try
             {
-                if (reader.HasRows)
-                {
-                    MessageBox.Show("Match with this ID already exists");
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    query = "select * from agents where agent_name = '" + agenttxt.Text + "'";
-                    cmd = new SqlCommand(query, con);
-                    reader = cmd.ExecuteReader();
-                    if (!reader.HasRows)
-                    {
-                        MessageBox.Show("Agent with this name does not exist.");
-                    }
-                    else
-                    {
-                        con.Close();
-                        con.Open();
-                        query = "select * from player where pid = '" + pidtxt.Text + "'";
-                        cmd = new SqlCommand(query, con);
-                        reader = cmd.ExecuteReader();
-                        if (!reader.HasRows)
-                        {
-                            MessageBox.Show("Player with this ID does not exist.");
-                        }
-                        else
-                        {
-                            con.Close();
-                            con.Open();
-                            query = "select * from maps where map_name = '" + maptxt.Text + "'";
-                            cmd = new SqlCommand(query, con);
-                            reader = cmd.ExecuteReader();
-                            if (!reader.HasRows)
-                            {
-                                MessageBox.Show("Map with this name does not exist.");
-                            }
-                            else
-                            {
-                                con.Close();
-                                con.Open();
-                                query = "insert into solo_matches values ('" + midtxt.Text + "', '" + killstxt.Text + "','" + deathstxt.Text + "', '" + resulttxt.Text + "',  '" + agenttxt.Text + "','" + maptxt.Text + "','" + pidtxt.Text + "')";
-                                cmd = new SqlCommand(query, con);
-                                cmd.ExecuteNonQuery();
-                                dataGridView1.Rows.Clear();
-                                displaytable();
-                            }
-                        }
-                    }
-                }
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
-            con.Close();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -138,14 +100,51 @@ namespace Valorant_Datahub
             }
         }
 
-        private void deletebtn_Click(object sender, EventArgs e)
+        private void commit_btn_Click(object sender, EventArgs e)
         {
-            
+            if (transaction != null)
+            {
+                try
+                {
+                    transaction.Commit();
+                    MessageBox.Show("Commit Successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
-        private void updatebtn_Click(object sender, EventArgs e)
+        private void SoloMatchesView_FormClosing(object sender, FormClosingEventArgs e)
         {
+            con.Close();
+        }
 
+        private void rollback_btn_Click(object sender, EventArgs e)
+        {
+            if (transaction != null)
+            {
+                try
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Rollback Successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void refreshbtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            displaytable();
         }
     }
 }

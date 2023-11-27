@@ -14,7 +14,7 @@ namespace Valorant_Datahub
     public partial class MatchesView : Form
     {
         public string connection;
-        SqlConnection con, readerCon;
+        SqlConnection con;
         SqlTransaction transaction;
         public MatchesView()
         {
@@ -39,26 +39,34 @@ namespace Valorant_Datahub
             }
             
             con = new SqlConnection(connection);
-            readerCon = new SqlConnection(connection);
-            displaytable();
+            
             con.Open();
+            displaytable();
         }
 
         private void displaytable()
         {
             reset_textbox();
-            string query = "select * from matches (NOLOCK)";
-            readerCon.Open();
-            SqlCommand cmd = new SqlCommand(query, readerCon);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            string query = "select * from matches";
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["match_id"].ToString(), reader["team1_id"].ToString(),
-                    reader["team2_id"].ToString(), reader["winner_id"].ToString(),reader["map_name"].ToString());
-                dataGridView1.Rows.Add(row);
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1, reader["match_id"].ToString(), reader["team1_id"].ToString(),
+                        reader["team2_id"].ToString(), reader["winner_id"].ToString(),
+                        reader["map_name"].ToString());
+                    dataGridView1.Rows.Add(row);
+                }
+                reader.Close();
             }
-            readerCon.Close();
+            catch (Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed. Please wait...");
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -76,7 +84,7 @@ namespace Valorant_Datahub
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from matches (NOLOCK) where match_id = '" + idtxt.Text + "'";
+            string query = "select * from matches where match_id = '" + idtxt.Text + "'";
             try
             {
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -89,7 +97,7 @@ namespace Valorant_Datahub
                     }
                     else
                     {
-                        query = "select * from teams (NOLOCK) where team_id = '" + team1txt.Text + "'";
+                        query = "select * from teams  where team_id = '" + team1txt.Text + "'";
                         cmd = new SqlCommand(query, con);
                         reader.Close();
                         reader = cmd.ExecuteReader();
@@ -99,7 +107,7 @@ namespace Valorant_Datahub
                         }
                         else
                         {
-                            query = "select * from teams (NOLOCK) where team_id = '" + team2txt.Text + "'";
+                            query = "select * from teams where team_id = '" + team2txt.Text + "'";
                             cmd = new SqlCommand(query, con);
                             reader.Close();
                             reader = cmd.ExecuteReader();
@@ -109,7 +117,7 @@ namespace Valorant_Datahub
                             }
                             else
                             {
-                                query = "select * from maps (NOLOCK) where map_name = '" + maptxt.Text + "'";
+                                query = "select * from maps where map_name = '" + maptxt.Text + "'";
                                 cmd = new SqlCommand(query, con);
                                 reader.Close();
                                 reader = cmd.ExecuteReader();
@@ -123,21 +131,17 @@ namespace Valorant_Datahub
                                     Console.WriteLine("Ready to begin transaction");
                                     try
                                     {
-                                        transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                                        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
                                         query = "insert into matches values ('" + idtxt.Text + "', '" + team1txt.Text + "','" + team2txt.Text + "','" + winnertxt.Text + "','" + maptxt.Text + "')";
                                         cmd = new SqlCommand(query, con, transaction);
-                                        cmd.CommandTimeout = 3;
+                                        cmd.CommandTimeout = 1;
                                         cmd.ExecuteNonQuery();
-                                        dataGridView1.Rows.Clear();
-                                        displaytable();
-                                    }
-                                    catch (SqlException ex)
-                                    {
-                                        MessageBox.Show("The data you're trying to access is currently locked in a transaction");
+                                        MessageBox.Show("Press commit to see your changes");
                                     }
                                     catch (Exception ex)
                                     {
                                         MessageBox.Show(ex.Message);
+                                        transaction.Rollback();
                                     }
                                 }
                             }
@@ -164,12 +168,14 @@ namespace Valorant_Datahub
                 try
                 {
                     transaction.Commit();
+                    MessageBox.Show("Commit successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    dataGridView1.Rows.Clear();
-                    displaytable();
+                    
                 }
             }
             
@@ -187,7 +193,8 @@ namespace Valorant_Datahub
             try
             {
                 transaction.Rollback();
-                dataGridView1.Rows.Clear();
+                    MessageBox.Show("Rollback successful");
+                    dataGridView1.Rows.Clear();
                 displaytable();
                 
             }
@@ -196,6 +203,13 @@ namespace Valorant_Datahub
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void refreshbtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            displaytable();
+        }
+
         private void reset_textbox()
         {
             foreach (Control control in Controls)

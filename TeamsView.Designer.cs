@@ -29,7 +29,7 @@ namespace Valorant_Datahub
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.updatebtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
@@ -43,22 +43,26 @@ namespace Valorant_Datahub
             this.nametxt = new System.Windows.Forms.TextBox();
             this.idtxt = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tplayedtxt = new System.Windows.Forms.TextBox();
-            this.twontxt = new System.Windows.Forms.TextBox();
             this.team_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.team_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matches_won = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matches_played = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tournaments_won = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tournaments_played = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tplayedtxt = new System.Windows.Forms.TextBox();
+            this.twontxt = new System.Windows.Forms.TextBox();
+            this.rollback_btn = new System.Windows.Forms.Button();
+            this.commit_btn = new System.Windows.Forms.Button();
+            this.refreshbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // updatebtn
             // 
+            this.updatebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.updatebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updatebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -67,11 +71,12 @@ namespace Valorant_Datahub
             this.updatebtn.Size = new System.Drawing.Size(193, 51);
             this.updatebtn.TabIndex = 72;
             this.updatebtn.Text = "Update";
-            this.updatebtn.UseVisualStyleBackColor = true;
+            this.updatebtn.UseVisualStyleBackColor = false;
             this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
             // 
             // deletebtn
             // 
+            this.deletebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.deletebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deletebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,11 +85,12 @@ namespace Valorant_Datahub
             this.deletebtn.Size = new System.Drawing.Size(193, 51);
             this.deletebtn.TabIndex = 71;
             this.deletebtn.Text = "Delete";
-            this.deletebtn.UseVisualStyleBackColor = true;
+            this.deletebtn.UseVisualStyleBackColor = false;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
             // insert_btn
             // 
+            this.insert_btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -93,7 +99,7 @@ namespace Valorant_Datahub
             this.insert_btn.Size = new System.Drawing.Size(193, 51);
             this.insert_btn.TabIndex = 70;
             this.insert_btn.Text = "Insert";
-            this.insert_btn.UseVisualStyleBackColor = true;
+            this.insert_btn.UseVisualStyleBackColor = false;
             this.insert_btn.Click += new System.EventHandler(this.insert_btn_Click);
             // 
             // label4
@@ -105,7 +111,6 @@ namespace Valorant_Datahub
             this.label4.Size = new System.Drawing.Size(149, 20);
             this.label4.TabIndex = 69;
             this.label4.Text = "Matches Played:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -116,7 +121,6 @@ namespace Valorant_Datahub
             this.label3.Size = new System.Drawing.Size(130, 20);
             this.label3.TabIndex = 68;
             this.label3.Text = "Matches Won:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -137,7 +141,6 @@ namespace Valorant_Datahub
             this.mplayedtxt.Name = "mplayedtxt";
             this.mplayedtxt.Size = new System.Drawing.Size(117, 28);
             this.mplayedtxt.TabIndex = 66;
-            this.mplayedtxt.TextChanged += new System.EventHandler(this.mplayedtxt_TextChanged);
             // 
             // mwontxt
             // 
@@ -148,7 +151,6 @@ namespace Valorant_Datahub
             this.mwontxt.Name = "mwontxt";
             this.mwontxt.Size = new System.Drawing.Size(95, 28);
             this.mwontxt.TabIndex = 65;
-            this.mwontxt.TextChanged += new System.EventHandler(this.mwontxt_TextChanged);
             // 
             // picklbl
             // 
@@ -159,7 +161,6 @@ namespace Valorant_Datahub
             this.picklbl.Size = new System.Drawing.Size(118, 20);
             this.picklbl.TabIndex = 64;
             this.picklbl.Text = "Team Name:";
-            this.picklbl.Click += new System.EventHandler(this.picklbl_Click);
             // 
             // namelbl
             // 
@@ -170,7 +171,6 @@ namespace Valorant_Datahub
             this.namelbl.Size = new System.Drawing.Size(89, 20);
             this.namelbl.TabIndex = 63;
             this.namelbl.Text = "Team ID:";
-            this.namelbl.Click += new System.EventHandler(this.namelbl_Click);
             // 
             // nametxt
             // 
@@ -181,7 +181,6 @@ namespace Valorant_Datahub
             this.nametxt.Name = "nametxt";
             this.nametxt.Size = new System.Drawing.Size(153, 28);
             this.nametxt.TabIndex = 62;
-            this.nametxt.TextChanged += new System.EventHandler(this.nametxt_TextChanged);
             // 
             // idtxt
             // 
@@ -192,7 +191,6 @@ namespace Valorant_Datahub
             this.idtxt.Name = "idtxt";
             this.idtxt.Size = new System.Drawing.Size(62, 28);
             this.idtxt.TabIndex = 61;
-            this.idtxt.TextChanged += new System.EventHandler(this.idtxt_TextChanged);
             // 
             // dataGridView1
             // 
@@ -207,66 +205,12 @@ namespace Valorant_Datahub
             this.dataGridView1.Location = new System.Drawing.Point(38, 53);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(963, 358);
             this.dataGridView1.TabIndex = 60;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(822, 434);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 20);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "Tournaments Played:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(644, 434);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(171, 20);
-            this.label5.TabIndex = 76;
-            this.label5.Text = "Tournaments Won:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(823, 414);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 16);
-            this.label6.TabIndex = 75;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // tplayedtxt
-            // 
-            this.tplayedtxt.BackColor = System.Drawing.Color.White;
-            this.tplayedtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tplayedtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tplayedtxt.Location = new System.Drawing.Point(826, 468);
-            this.tplayedtxt.Name = "tplayedtxt";
-            this.tplayedtxt.Size = new System.Drawing.Size(140, 28);
-            this.tplayedtxt.TabIndex = 74;
-            this.tplayedtxt.TextChanged += new System.EventHandler(this.tplayedtxt_TextChanged);
-            // 
-            // twontxt
-            // 
-            this.twontxt.BackColor = System.Drawing.Color.White;
-            this.twontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.twontxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.twontxt.Location = new System.Drawing.Point(648, 468);
-            this.twontxt.Name = "twontxt";
-            this.twontxt.Size = new System.Drawing.Size(129, 28);
-            this.twontxt.TabIndex = 73;
-            this.twontxt.TextChanged += new System.EventHandler(this.twontxt_TextChanged);
             // 
             // team_id
             // 
@@ -274,7 +218,7 @@ namespace Valorant_Datahub
             this.team_id.HeaderText = "Team ID";
             this.team_id.MinimumWidth = 6;
             this.team_id.Name = "team_id";
-            this.team_id.Width = 88;
+            this.team_id.Width = 82;
             // 
             // team_name
             // 
@@ -289,7 +233,7 @@ namespace Valorant_Datahub
             this.matches_won.HeaderText = "Matches Won";
             this.matches_won.MinimumWidth = 6;
             this.matches_won.Name = "matches_won";
-            this.matches_won.Width = 118;
+            this.matches_won.Width = 109;
             // 
             // matches_played
             // 
@@ -314,11 +258,105 @@ namespace Valorant_Datahub
             this.tournaments_played.MinimumWidth = 6;
             this.tournaments_played.Name = "tournaments_played";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(822, 434);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 20);
+            this.label1.TabIndex = 77;
+            this.label1.Text = "Tournaments Played:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(644, 434);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(171, 20);
+            this.label5.TabIndex = 76;
+            this.label5.Text = "Tournaments Won:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(823, 414);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 16);
+            this.label6.TabIndex = 75;
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // tplayedtxt
+            // 
+            this.tplayedtxt.BackColor = System.Drawing.Color.White;
+            this.tplayedtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tplayedtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tplayedtxt.Location = new System.Drawing.Point(826, 468);
+            this.tplayedtxt.Name = "tplayedtxt";
+            this.tplayedtxt.Size = new System.Drawing.Size(175, 28);
+            this.tplayedtxt.TabIndex = 74;
+            // 
+            // twontxt
+            // 
+            this.twontxt.BackColor = System.Drawing.Color.White;
+            this.twontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.twontxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.twontxt.Location = new System.Drawing.Point(648, 468);
+            this.twontxt.Name = "twontxt";
+            this.twontxt.Size = new System.Drawing.Size(151, 28);
+            this.twontxt.TabIndex = 73;
+            // 
+            // rollback_btn
+            // 
+            this.rollback_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.rollback_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rollback_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rollback_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollback_btn.Location = new System.Drawing.Point(400, 620);
+            this.rollback_btn.Name = "rollback_btn";
+            this.rollback_btn.Size = new System.Drawing.Size(193, 51);
+            this.rollback_btn.TabIndex = 110;
+            this.rollback_btn.Text = "Rollback";
+            this.rollback_btn.UseVisualStyleBackColor = false;
+            this.rollback_btn.Click += new System.EventHandler(this.rollback_btn_Click);
+            // 
+            // commit_btn
+            // 
+            this.commit_btn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.commit_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.commit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commit_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commit_btn.Location = new System.Drawing.Point(98, 620);
+            this.commit_btn.Name = "commit_btn";
+            this.commit_btn.Size = new System.Drawing.Size(193, 51);
+            this.commit_btn.TabIndex = 109;
+            this.commit_btn.Text = "Commit";
+            this.commit_btn.UseVisualStyleBackColor = false;
+            this.commit_btn.Click += new System.EventHandler(this.commit_btn_Click);
+            // 
+            // refreshbtn
+            // 
+            this.refreshbtn.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.refreshbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.refreshbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshbtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbtn.Location = new System.Drawing.Point(718, 620);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(193, 51);
+            this.refreshbtn.TabIndex = 111;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.UseVisualStyleBackColor = false;
+            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            // 
             // TeamsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 597);
+            this.ClientSize = new System.Drawing.Size(1080, 702);
+            this.Controls.Add(this.refreshbtn);
+            this.Controls.Add(this.rollback_btn);
+            this.Controls.Add(this.commit_btn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -339,6 +377,7 @@ namespace Valorant_Datahub
             this.Controls.Add(this.dataGridView1);
             this.Name = "TeamsView";
             this.Text = "TeamsView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TeamsView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -371,5 +410,8 @@ namespace Valorant_Datahub
         private System.Windows.Forms.DataGridViewTextBoxColumn matches_played;
         private System.Windows.Forms.DataGridViewTextBoxColumn tournaments_won;
         private System.Windows.Forms.DataGridViewTextBoxColumn tournaments_played;
+        private System.Windows.Forms.Button rollback_btn;
+        private System.Windows.Forms.Button commit_btn;
+        private System.Windows.Forms.Button refreshbtn;
     }
 }

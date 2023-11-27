@@ -14,6 +14,8 @@ namespace Valorant_Datahub
     public partial class TournamentsView : Form
     {
         public string connection;
+        SqlConnection con;
+        SqlTransaction transaction;
         public TournamentsView()
         {
             InitializeComponent();
@@ -36,24 +38,31 @@ namespace Valorant_Datahub
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
+            con = new SqlConnection(connection);
+            con.Open();
             displaytable();
         }
 
         private void displaytable()
         {
             string query = "select * from tournaments";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["tid"].ToString(), reader["tournament_title"].ToString(),
-                    reader["prize_pool"].ToString(), reader["location_id"].ToString());
-                dataGridView1.Rows.Add(row);
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1, reader["tid"].ToString(), reader["tournament_title"].ToString(), reader["prize_pool"].ToString(), reader["location_id"].ToString());
+                    dataGridView1.Rows.Add(row);
+                }
+                reader.Close();
             }
-            con.Close();
+            catch (Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed. Please wait...");
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -70,74 +79,104 @@ namespace Valorant_Datahub
 
         private void insert_btn_Click(object sender, EventArgs e)
         {
-            string query = "select * from tournaments where tid = '" + idtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
+            string query = $"insert into tournaments values({idtxt.Text},{prizetxt.Text},{locationtxt.Text},'{titletxt.Text}')";
             try
             {
-                if (reader.HasRows)
-                {
-                    MessageBox.Show("Tournament with TID " + idtxt.Text + " already exists");
-                }
-                else
-                {
-                    con.Close();
-                    con.Open();
-                    query = "select * from location where location_id = '" + locationtxt.Text + "'";
-                    cmd = new SqlCommand(query, con);
-                    reader = cmd.ExecuteReader();
-                    if (!reader.HasRows)
-                    {
-                        MessageBox.Show("Location with location id " + locationtxt.Text + " does not exist.");
-                    }
-                    else
-                    {
-                        con.Close();
-                        con.Open();
-                        query = "insert into tournaments values ('" + idtxt.Text + "', '" + prizetxt.Text + "','" + locationtxt.Text + "','" + titletxt.Text + "')";
-                        cmd = new SqlCommand(query, con);
-                        cmd.ExecuteNonQuery();
-                        dataGridView1.Rows.Clear();
-                        displaytable();
-                    }
-                }
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
-            con.Close();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            string query = "select * from tournaments where tid = '" + idtxt.Text + "'";
-            SqlConnection con = new SqlConnection(connection);
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            if (!reader.HasRows)
+            string query = "delete from tournaments where tid = '" + idtxt.Text + "'";
+            try
             {
-                MessageBox.Show("No tournament with this TID exists");
-            }
-            else
-            {
-                con.Close();
-                con.Open();
-                query = "delete from tournaments where tid = '" + idtxt.Text + "'";
-                cmd = new SqlCommand(query, con);
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
-                con.Close();
-                dataGridView1.Rows.Clear();
-                displaytable();
+                MessageBox.Show("Press commit to see your changes");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                transaction.Rollback();
             }
         }
 
         private void updatebtn_Click(object sender, EventArgs e)
         {
+            string query = $"update tournaments set prize_pool = {prizetxt.Text},tournament_title = '{titletxt.Text}',location_id = {locationtxt.Text} where tid = {idtxt.Text}";
+            try
+            {
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
+                SqlCommand cmd = new SqlCommand(query, con, transaction);
+                cmd.CommandTimeout = 1;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                transaction.Rollback();
+            }
+        }
 
+        private void refreshbtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            displaytable();
+        }
+
+        private void TournamentsView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            con.Close();
+        }
+
+        private void commitbtn_Click(object sender, EventArgs e)
+        {
+            if(transaction != null)
+            {
+                try
+                {
+                    transaction.Commit();
+                    MessageBox.Show("Commit successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void rollbackbtn_Click(object sender, EventArgs e)
+        {
+            if (transaction != null)
+            {
+                try
+                {
+                    transaction.Rollback();
+                    MessageBox.Show("Rollback successful");
+                    dataGridView1.Rows.Clear();
+                    displaytable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }
+

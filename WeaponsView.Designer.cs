@@ -60,6 +60,9 @@
             this.max_range = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
             this.dmgtxt = new System.Windows.Forms.TextBox();
+            this.commitbtn = new System.Windows.Forms.Button();
+            this.refreshbtn = new System.Windows.Forms.Button();
+            this.rollbackbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +124,7 @@
             // 
             // updatebtn
             // 
+            this.updatebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.updatebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.updatebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updatebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,11 +134,12 @@
             this.updatebtn.Size = new System.Drawing.Size(175, 60);
             this.updatebtn.TabIndex = 68;
             this.updatebtn.Text = "Update";
-            this.updatebtn.UseVisualStyleBackColor = true;
+            this.updatebtn.UseVisualStyleBackColor = false;
             this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
             // 
             // deletebtn
             // 
+            this.deletebtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.deletebtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deletebtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,11 +148,12 @@
             this.deletebtn.Size = new System.Drawing.Size(175, 60);
             this.deletebtn.TabIndex = 67;
             this.deletebtn.Text = "Delete";
-            this.deletebtn.UseVisualStyleBackColor = true;
+            this.deletebtn.UseVisualStyleBackColor = false;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
             // insert_btn
             // 
+            this.insert_btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.insert_btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.insert_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.insert_btn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -156,7 +162,7 @@
             this.insert_btn.Size = new System.Drawing.Size(175, 60);
             this.insert_btn.TabIndex = 66;
             this.insert_btn.Text = "Insert";
-            this.insert_btn.UseVisualStyleBackColor = true;
+            this.insert_btn.UseVisualStyleBackColor = false;
             this.insert_btn.Click += new System.EventHandler(this.insert_btn_Click);
             // 
             // label3
@@ -373,11 +379,57 @@
             this.dmgtxt.Size = new System.Drawing.Size(75, 28);
             this.dmgtxt.TabIndex = 75;
             // 
+            // commitbtn
+            // 
+            this.commitbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.commitbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.commitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.commitbtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.commitbtn.Location = new System.Drawing.Point(195, 685);
+            this.commitbtn.Name = "commitbtn";
+            this.commitbtn.Size = new System.Drawing.Size(175, 60);
+            this.commitbtn.TabIndex = 77;
+            this.commitbtn.Text = "Commit";
+            this.commitbtn.UseVisualStyleBackColor = false;
+            this.commitbtn.Click += new System.EventHandler(this.commitbtn_Click);
+            // 
+            // refreshbtn
+            // 
+            this.refreshbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.refreshbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.refreshbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshbtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbtn.ForeColor = System.Drawing.Color.Cornsilk;
+            this.refreshbtn.Location = new System.Drawing.Point(685, 685);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(175, 60);
+            this.refreshbtn.TabIndex = 79;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.UseVisualStyleBackColor = false;
+            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            // 
+            // rollbackbtn
+            // 
+            this.rollbackbtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.rollbackbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.rollbackbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rollbackbtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rollbackbtn.Location = new System.Drawing.Point(435, 685);
+            this.rollbackbtn.Name = "rollbackbtn";
+            this.rollbackbtn.Size = new System.Drawing.Size(175, 60);
+            this.rollbackbtn.TabIndex = 78;
+            this.rollbackbtn.Text = "Rollback";
+            this.rollbackbtn.UseVisualStyleBackColor = false;
+            this.rollbackbtn.Click += new System.EventHandler(this.rollbackbtn_Click);
+            // 
             // WeaponsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 673);
+            this.ClientSize = new System.Drawing.Size(1064, 774);
+            this.Controls.Add(this.refreshbtn);
+            this.Controls.Add(this.rollbackbtn);
+            this.Controls.Add(this.commitbtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dmgtxt);
             this.Controls.Add(this.m_rangetxt);
@@ -404,6 +456,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "WeaponsView";
             this.Text = "WeaponsView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WeaponsView_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -443,5 +496,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn max_range;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox dmgtxt;
+        private System.Windows.Forms.Button commitbtn;
+        private System.Windows.Forms.Button refreshbtn;
+        private System.Windows.Forms.Button rollbackbtn;
     }
 }

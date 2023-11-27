@@ -14,7 +14,7 @@ namespace Valorant_Datahub
     public partial class AgentsView : Form
     {
         public string connection, last_Agent_clicked;
-        SqlConnection con,ReaderCon;
+        SqlConnection con;
         SqlTransaction transaction;
         public AgentsView()
         {
@@ -39,7 +39,6 @@ namespace Valorant_Datahub
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
             con = new SqlConnection(connection);
-            ReaderCon = new SqlConnection(connection);
             con.Open();
             displaytable();
             
@@ -54,20 +53,27 @@ namespace Valorant_Datahub
         private void displaytable()
         {
             ResetTextBoxes();
-            string query = "select * from agents (NOLOCK)";
-            ReaderCon.Open();
-            
-            SqlCommand cmd = new SqlCommand(query, ReaderCon);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            string query = "select * from agents";
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(dataGridView1, reader["Agent_name"].ToString(), reader["Pick_pct"].ToString(), reader["Win_pct"].ToString(),
-                    reader["Tier"].ToString(), reader["Role"].ToString(), reader["Suited_Weapon"].ToString(), reader["Ultimate"].ToString(),
-                     reader["Voiced_by"].ToString(), reader["Description"].ToString()); 
-                dataGridView1.Rows.Add(row);
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dataGridView1, reader["agent_name"].ToString(), reader["pick_pct"].ToString(),
+                        reader["win_pct"].ToString(), reader["tier"].ToString(),
+                        reader["role"].ToString(), reader["suited_weapon"].ToString(), reader["ultimate"].ToString()
+                        , reader["voiced_by"].ToString(), reader["description"].ToString());
+                    dataGridView1.Rows.Add(row);
+                }
+                reader.Close();
             }
-            ReaderCon.Close();
+            catch (Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed. Please wait...");
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -99,12 +105,11 @@ namespace Valorant_Datahub
             
             try
             {
-                transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
                 SqlCommand cmd = new SqlCommand(query, con, transaction);
-                cmd.CommandTimeout = 3;
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
-                dataGridView1.Rows.Clear();
-                displaytable();
+                MessageBox.Show("Press commit to see your changes");
 
             }
             catch(Exception ex)
@@ -128,6 +133,7 @@ namespace Valorant_Datahub
                     transaction.Commit();
                     dataGridView1.Rows.Clear();
                     displaytable();
+                    MessageBox.Show("Commit successful");
 
                 }
                 catch(Exception ex)
@@ -146,6 +152,7 @@ namespace Valorant_Datahub
                     transaction.Rollback();
                     dataGridView1.Rows.Clear();
                     displaytable();
+                    MessageBox.Show("Rollback successful");
 
                 }
                 catch (Exception ex)
@@ -153,6 +160,12 @@ namespace Valorant_Datahub
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void refreshbtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            displaytable();
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
@@ -170,12 +183,11 @@ namespace Valorant_Datahub
                 query = "delete from agents where agent_name = '" + nametxt.Text + "'";
                 try
                 {
-                    transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                    transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
                     cmd = new SqlCommand(query, con, transaction);
-                    cmd.CommandTimeout = 3;
+                    cmd.CommandTimeout = 1;
                     cmd.ExecuteNonQuery();
-                    dataGridView1.Rows.Clear();
-                    displaytable();
+                    MessageBox.Show("Press commit to see your changes");
                 }
                 catch(Exception ex)
                 {
@@ -192,19 +204,17 @@ namespace Valorant_Datahub
                 "Description = '" + desctxt.Text + "',Voiced_by = '" + voicetxt.Text + "' where agent_name = '" + last_Agent_clicked + "'";
             try
             {
-                transaction = con.BeginTransaction(IsolationLevel.ReadUncommitted);
+                transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
                 SqlCommand cmd = new SqlCommand(query, con, transaction);
-                cmd.CommandTimeout = 3;
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Press commit to see your changes");
             }
-            catch (SqlException E)
+            catch (Exception ex)
             {
-                MessageBox.Show(E.Message);
+                MessageBox.Show(ex.Message);
                 transaction.Rollback();
             }
-            
-            dataGridView1.Rows.Clear();
-            displaytable();
         }
     }   
 }

@@ -43,6 +43,7 @@ namespace Valorant_Datahub
             this.match_tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rollback_btn = new System.Windows.Forms.Button();
             this.commitbtn = new System.Windows.Forms.Button();
+            this.refreshbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,11 +200,28 @@ namespace Valorant_Datahub
             this.commitbtn.UseVisualStyleBackColor = false;
             this.commitbtn.Click += new System.EventHandler(this.commitbtn_Click);
             // 
+            // refreshbtn
+            // 
+            this.refreshbtn.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.refreshbtn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.refreshbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshbtn.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshbtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.refreshbtn.Location = new System.Drawing.Point(326, 632);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(175, 60);
+            this.refreshbtn.TabIndex = 104;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.refreshbtn.UseVisualStyleBackColor = false;
+            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            // 
             // TournamentHistoryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 669);
+            this.ClientSize = new System.Drawing.Size(872, 713);
+            this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.commitbtn);
             this.Controls.Add(this.rollback_btn);
             this.Controls.Add(this.insert_btn);
@@ -239,5 +257,6 @@ namespace Valorant_Datahub
         private System.Windows.Forms.DataGridViewTextBoxColumn match_tag;
         private System.Windows.Forms.Button rollback_btn;
         private System.Windows.Forms.Button commitbtn;
+        private System.Windows.Forms.Button refreshbtn;
     }
 }

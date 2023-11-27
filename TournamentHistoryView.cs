@@ -16,7 +16,6 @@ namespace Valorant_Datahub
         public string connection, last_clicked_match, last_clicked_tournament;
         
         SqlConnection con;
-        SqlConnection readerCon;
         SqlTransaction transaction;
         public TournamentHistoryView()
         {
@@ -43,7 +42,6 @@ namespace Valorant_Datahub
             try
             {
                 con = new SqlConnection(connection);
-                readerCon = new SqlConnection(connection);
                 con.Open();
             }
             catch(Exception ex)
@@ -64,12 +62,11 @@ namespace Valorant_Datahub
         private void displaytable()
         {
             reset_textbox();
-            string query = "select * from tournament_history (NOLOCK)";
-            readerCon.Open();
-            Console.WriteLine("initializing cmd");
+            string query = "select * from tournament_history";
             try
             {
-                SqlCommand cmd = new SqlCommand(query, readerCon);
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -78,15 +75,12 @@ namespace Valorant_Datahub
                         reader["match_tag"].ToString());
                     dataGridView1.Rows.Add(row);
                 }
+                reader.Close();
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Dirty reads are not allowed. Please wait...");
             }
-            Console.WriteLine("Done");
-            
-            
-            readerCon.Close();
         }
         private void insert_btn_Click(object sender, EventArgs e)
         {
@@ -98,14 +92,11 @@ namespace Valorant_Datahub
                 SqlCommand cmd = new SqlCommand(query, con, transaction);
                 cmd.CommandTimeout = 3;
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Click on commit to save your changes");
-                dataGridView1.Rows.Clear();
-                displaytable();
-
+                MessageBox.Show("Press commit to see your changes");
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("The data that you're trying to access is locked in another transaction");
+                MessageBox.Show(ex.Message);
                 transaction.Rollback();
             }
 
@@ -130,9 +121,13 @@ namespace Valorant_Datahub
 
         private void TournamentHistoryView_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (transaction != null && transaction.Connection != null && transaction.Connection.State == System.Data.ConnectionState.Open)
-                transaction.Rollback();
             con.Close();
+        }
+
+        private void refreshbtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            displaytable();
         }
 
         private void commitbtn_Click(object sender, EventArgs e)

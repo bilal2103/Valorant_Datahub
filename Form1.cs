@@ -18,8 +18,6 @@ namespace Valorant_Datahub
             InitializeComponent();
             
             pictureBox1.SendToBack();
-            AgentsView a = new AgentsView();
-            a.Show();
         }
         
         private void GuestButton_Click(object sender, EventArgs e)
