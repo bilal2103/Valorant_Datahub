@@ -128,7 +128,7 @@ namespace Valorant_Datahub
             this.citytxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.citytxt.Location = new System.Drawing.Point(632, 450);
             this.citytxt.Name = "citytxt";
-            this.citytxt.Size = new System.Drawing.Size(117, 28);
+            this.citytxt.Size = new System.Drawing.Size(168, 28);
             this.citytxt.TabIndex = 51;
             // 
             // regiontxt

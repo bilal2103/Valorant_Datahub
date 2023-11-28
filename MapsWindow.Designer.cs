@@ -64,7 +64,7 @@
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(271, 284);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 63);
+            this.button1.Size = new System.Drawing.Size(185, 71);
             this.button1.TabIndex = 2;
             this.button1.Text = "View Description";
             this.button1.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(26, 40);
+            this.label2.Location = new System.Drawing.Point(12, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(500, 28);
             this.label2.TabIndex = 3;

@@ -32,19 +32,23 @@ namespace Valorant_Datahub
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
+                if (ctl is TextBox || ctl is RichTextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
                 if (ctl is Button)
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
-
-                }
-                if (ctl is TextBox)
-                {
-                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
-                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Bold);
                 }
                 if (ctl is Label)
+                {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
             }
             displayLeaderboard();
         }
@@ -73,20 +77,31 @@ namespace Valorant_Datahub
             query = "select * from player_leaderboard_users order by mmr desc,kd_ratio desc";
             con.Open();
             cmd = new SqlCommand(query, con);
-            reader= cmd.ExecuteReader();
+            cmd.CommandTimeout = 1;
+            
             int index = 1;
-            while(reader.Read())
+            try
             {
-                DataGridViewRow row = new DataGridViewRow();
-                
-                row.CreateCells(dataGridView1, reader["username"].ToString(), reader["Pname"].ToString(), getRank((int)reader["MMR"]),
-                    reader["fav_agent"].ToString(), string.Format("{0:N3}", Convert.ToDouble(reader["kd_ratio"])), reader["Country"]);
-                if (reader["username"].ToString() == this.username)
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    label2.Text = $"{username}, you are currently ranked number {index}!";
+                    DataGridViewRow row = new DataGridViewRow();
+
+                    row.CreateCells(dataGridView1, reader["username"].ToString(), reader["Pname"].ToString(), getRank((int)reader["MMR"]),
+                        reader["fav_agent"].ToString(), string.Format("{0:N3}", Convert.ToDouble(reader["kd_ratio"])), reader["Country"]);
+                    if (reader["username"].ToString() == this.username)
+                    {
+                        label2.Text = $"{username}, you are currently ranked number {index}!";
+                    }
+                    dataGridView1.Rows.Add(row);
+                    index++;
                 }
-                dataGridView1.Rows.Add(row);
-                index++;
+                this.Show();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed, Please wait...");
+                this.Close();
             }
             con.Close();
         }

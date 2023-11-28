@@ -14,27 +14,38 @@ namespace Valorant_Datahub
 {
     public partial class TournamentWindow : Form
     {
+        string connection;
+        SqlConnection con;
         public TournamentWindow() { InitializeComponent(); }
         public TournamentWindow(Dictionary<string, List<MatchesInformation>> matches)
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
+            this.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
+
             foreach (Control ctl in Controls)
             {
+                if (ctl is TextBox || ctl is RichTextBox)
+                {
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font =new Font("Franklin Gothic Medium Cond", 9, FontStyle.Regular);
+                }
                 if (ctl is Button)
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
-
-                }
-                if (ctl is TextBox)
-                {
-                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
-                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 10, FontStyle.Bold);
                 }
                 if (ctl is Label)
+                {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 11, FontStyle.Regular);
+                }
             }
+            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+            con = new SqlConnection(connection);
+            con.Open();
             DisplayMatches(matches);
         }
         public void DisplayMatches(Dictionary<string, List<MatchesInformation>> matches)
@@ -42,76 +53,74 @@ namespace Valorant_Datahub
             string Query = "select T.team_name as 'First_Team',T1.team_name as 'Second_Team',T2.Team_name as 'Winner_Team'" +
                     " from teams T join matches on (T.team_id = Team1_id) join teams T1 on (T1.Team_Id = Team2_id) " +
                     "join Teams T2 on(T2.team_id = Winner_id) where match_id = @curr_id";
-
-            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(connection);
             SqlCommand cmd;
+            
             SqlDataReader reader;
 
-            int i = 1,j=1;
-            List<MatchesInformation> temp= new List<MatchesInformation>(matches["Quarter-Final"]);
+            int i = 1, j = 1;
+            List<MatchesInformation> temp = new List<MatchesInformation>(matches["Quarter-Final"]);
             RichTextBox tb;
             string tb_name;
-            foreach (var value in temp)
+            try
             {
-                tb_name = "Team" + i.ToString();
-                ++i;
-                con.Open();
-                cmd = new SqlCommand(Query, con);
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("curr_id", value.match_id);
-                reader = cmd.ExecuteReader();
-                reader.Read();
-
-                tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
-                if(tb != null)
+                foreach (var value in temp)
                 {
+                    tb_name = "Team" + i.ToString();
+                    ++i;
+                    cmd = new SqlCommand(Query, con);
+                    cmd.CommandTimeout = 1;
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("curr_id", value.match_id);
+
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+
+                    tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
                     tb.Text = reader["First_Team"].ToString();
-                }
-                else Console.WriteLine("Couldnt find " + tb_name);
-
-                tb_name = "Team" + i.ToString();
-                i++;
-                tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
-                if (tb != null)
+                    tb_name = "Team" + i.ToString();
+                    i++;
+                    tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
                     tb.Text = reader["Second_Team"].ToString();
-                else Console.WriteLine("Couldnt find " + tb_name);
-
-                tb_name = "Winner" + j.ToString();
-                j++;
-                tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
-                if (tb != null)
+                    tb_name = "Winner" + j.ToString();
+                    j++;
+                    tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
                     tb.Text = reader["Winner_Team"].ToString();
-                else Console.WriteLine("Couldnt find " + tb_name);
-                con.Close();
-            }
-            temp = new List<MatchesInformation>(matches["Semi-Final"]);
-            i = 5;
-            foreach(var value in temp)
-            {
-                tb_name = "Winner" + i;
-                i++;
+                    reader.Close();
+                }
+
+                temp = new List<MatchesInformation>(matches["Semi-Final"]);
+                i = 5;
+                foreach (var value in temp)
+                {
+                    tb_name = "Winner" + i;
+                    i++;
+                    tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
+                    cmd = new SqlCommand(Query, con);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("curr_id", value.match_id);
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    tb.Text = reader["Winner_Team"].ToString();
+                    reader.Close();
+                }
+                temp = new List<MatchesInformation>(matches["Final"]);
+                tb_name = "Winner";
                 tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
-                con.Open();
+
                 cmd = new SqlCommand(Query, con);
                 cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("curr_id", value.match_id);
+                cmd.Parameters.AddWithValue("curr_id", temp[0].match_id);
                 reader = cmd.ExecuteReader();
                 reader.Read();
                 tb.Text = reader["Winner_Team"].ToString();
+                reader.Close();
                 con.Close();
             }
-            temp = new List<MatchesInformation>(matches["Final"]);
-            tb_name = "Winner";
-            tb = (RichTextBox)this.Controls.Find(tb_name, true)[0];
-            con.Open();
-            cmd = new SqlCommand(Query, con);
-            cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("curr_id", temp[0].match_id);
-            reader = cmd.ExecuteReader();
-            reader.Read();
-            tb.Text = reader["Winner_Team"].ToString();
-            con.Close();
+            catch(Exception)
+            {
+                MessageBox.Show("Dirty reads are not allowed, Please wait...");
+            }
+
         }
 
         private void Tournament_Paint(object sender, PaintEventArgs e)

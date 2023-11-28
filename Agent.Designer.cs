@@ -214,7 +214,7 @@
             this.About_tb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.About_tb.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.About_tb.ForeColor = System.Drawing.Color.Black;
-            this.About_tb.Location = new System.Drawing.Point(405, 499);
+            this.About_tb.Location = new System.Drawing.Point(405, 484);
             this.About_tb.Name = "About_tb";
             this.About_tb.Size = new System.Drawing.Size(763, 108);
             this.About_tb.TabIndex = 17;

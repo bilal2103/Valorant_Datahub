@@ -46,7 +46,6 @@
             this.totalmatches_tb = new System.Windows.Forms.TextBox();
             this.kd_tb = new System.Windows.Forms.TextBox();
             this.kills_tb = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.rank_tb = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -159,7 +158,7 @@
             this.name_tb.BackColor = System.Drawing.Color.White;
             this.name_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.name_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_tb.Location = new System.Drawing.Point(292, 143);
+            this.name_tb.Location = new System.Drawing.Point(257, 142);
             this.name_tb.Name = "name_tb";
             this.name_tb.ReadOnly = true;
             this.name_tb.Size = new System.Drawing.Size(255, 29);
@@ -170,7 +169,7 @@
             this.id_tb.BackColor = System.Drawing.Color.White;
             this.id_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.id_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_tb.Location = new System.Drawing.Point(292, 196);
+            this.id_tb.Location = new System.Drawing.Point(257, 195);
             this.id_tb.Name = "id_tb";
             this.id_tb.ReadOnly = true;
             this.id_tb.Size = new System.Drawing.Size(255, 29);
@@ -181,7 +180,7 @@
             this.uname_tb.BackColor = System.Drawing.Color.White;
             this.uname_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.uname_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uname_tb.Location = new System.Drawing.Point(292, 248);
+            this.uname_tb.Location = new System.Drawing.Point(257, 247);
             this.uname_tb.Name = "uname_tb";
             this.uname_tb.ReadOnly = true;
             this.uname_tb.Size = new System.Drawing.Size(255, 29);
@@ -192,7 +191,7 @@
             this.agent_tb.BackColor = System.Drawing.Color.White;
             this.agent_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.agent_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agent_tb.Location = new System.Drawing.Point(292, 300);
+            this.agent_tb.Location = new System.Drawing.Point(257, 299);
             this.agent_tb.Name = "agent_tb";
             this.agent_tb.ReadOnly = true;
             this.agent_tb.Size = new System.Drawing.Size(255, 29);
@@ -203,7 +202,7 @@
             this.wonmatches_tb.BackColor = System.Drawing.Color.White;
             this.wonmatches_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.wonmatches_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wonmatches_tb.Location = new System.Drawing.Point(292, 509);
+            this.wonmatches_tb.Location = new System.Drawing.Point(257, 508);
             this.wonmatches_tb.Name = "wonmatches_tb";
             this.wonmatches_tb.ReadOnly = true;
             this.wonmatches_tb.Size = new System.Drawing.Size(255, 29);
@@ -214,7 +213,7 @@
             this.totalmatches_tb.BackColor = System.Drawing.Color.White;
             this.totalmatches_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.totalmatches_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalmatches_tb.Location = new System.Drawing.Point(292, 457);
+            this.totalmatches_tb.Location = new System.Drawing.Point(257, 456);
             this.totalmatches_tb.Name = "totalmatches_tb";
             this.totalmatches_tb.ReadOnly = true;
             this.totalmatches_tb.Size = new System.Drawing.Size(255, 29);
@@ -225,7 +224,7 @@
             this.kd_tb.BackColor = System.Drawing.Color.White;
             this.kd_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.kd_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kd_tb.Location = new System.Drawing.Point(292, 405);
+            this.kd_tb.Location = new System.Drawing.Point(257, 404);
             this.kd_tb.Name = "kd_tb";
             this.kd_tb.ReadOnly = true;
             this.kd_tb.Size = new System.Drawing.Size(255, 29);
@@ -236,22 +235,11 @@
             this.kills_tb.BackColor = System.Drawing.Color.White;
             this.kills_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.kills_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kills_tb.Location = new System.Drawing.Point(292, 352);
+            this.kills_tb.Location = new System.Drawing.Point(257, 351);
             this.kills_tb.Name = "kills_tb";
             this.kills_tb.ReadOnly = true;
             this.kills_tb.Size = new System.Drawing.Size(255, 29);
             this.kills_tb.TabIndex = 14;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(429, 27);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(344, 34);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Displaying Information";
             // 
             // label11
             // 
@@ -269,7 +257,7 @@
             this.rank_tb.BackColor = System.Drawing.Color.White;
             this.rank_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rank_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rank_tb.Location = new System.Drawing.Point(292, 563);
+            this.rank_tb.Location = new System.Drawing.Point(257, 562);
             this.rank_tb.Name = "rank_tb";
             this.rank_tb.ReadOnly = true;
             this.rank_tb.Size = new System.Drawing.Size(255, 29);
@@ -291,7 +279,7 @@
             this.mmr_tb.BackColor = System.Drawing.Color.White;
             this.mmr_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mmr_tb.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mmr_tb.Location = new System.Drawing.Point(292, 615);
+            this.mmr_tb.Location = new System.Drawing.Point(257, 614);
             this.mmr_tb.Name = "mmr_tb";
             this.mmr_tb.ReadOnly = true;
             this.mmr_tb.Size = new System.Drawing.Size(255, 29);
@@ -317,7 +305,6 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.rank_tb);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.wonmatches_tb);
             this.Controls.Add(this.totalmatches_tb);
             this.Controls.Add(this.kd_tb);
@@ -362,7 +349,6 @@
         private System.Windows.Forms.TextBox totalmatches_tb;
         private System.Windows.Forms.TextBox kd_tb;
         private System.Windows.Forms.TextBox kills_tb;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox rank_tb;
         private System.Windows.Forms.Label label12;

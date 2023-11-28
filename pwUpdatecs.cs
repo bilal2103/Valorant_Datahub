@@ -25,19 +25,23 @@ namespace Valorant_Datahub
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
+                if (ctl is TextBox || ctl is RichTextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
                 if (ctl is Button)
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
-
-                }
-                if (ctl is TextBox)
-                {
-                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
-                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Bold);
                 }
                 if (ctl is Label)
+                {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -47,37 +51,43 @@ namespace Valorant_Datahub
             string query = "select password from users where player_id = "+pid+"";
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            if (reader["password"].ToString() == textBox1.Text)
+            cmd.CommandTimeout = 1;
+            try
             {
-                con.Close();
-                if (textBox2.Text == textBox3.Text)
+                SqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                if (reader["password"].ToString() == textBox1.Text)
                 {
-                    query = "update users set password = '" + textBox2.Text + "' where player_id = " + pid + "";
-
-                    con.Open();
-                    cmd = new SqlCommand(query, con);
-                    try
+                    reader.Close();
+                    if (textBox2.Text == textBox3.Text)
                     {
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Your password has been updated successfully");
-                        this.Close();
+                        query = "update users set password = '" + textBox2.Text + "' where player_id = " + pid + "";
+                        cmd = new SqlCommand(query, con);
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Your password has been updated successfully");
+                            this.Close();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("The password's length should be eight to ten characters " +
+                                "and must include a special character and a digit");
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show("The password's length should be eight to ten characters " +
-                            "and must include a special character and a digit");
+                        MessageBox.Show("The new passwords don't match");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("The new passwords don't match");
+                    MessageBox.Show("Old password incorrcet");
                 }
             }
-            else
+            catch(Exception)
             {
-                MessageBox.Show("Old password incorrcet");
+                MessageBox.Show("Dirty reads are not allowed, please wait...");
             }
             con.Close();
         }

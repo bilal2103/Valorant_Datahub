@@ -39,7 +39,7 @@
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(383, 183);
+            this.textBox1.Location = new System.Drawing.Point(295, 183);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(221, 29);
             this.textBox1.TabIndex = 1;
@@ -50,7 +50,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(269, 301);
+            this.button1.Location = new System.Drawing.Point(245, 283);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 56);
             this.button1.TabIndex = 2;

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,9 +73,9 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(28, 284);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(282, 18);
+            this.label3.Size = new System.Drawing.Size(289, 18);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Enter Tournament\'s Hosting Location";
+            this.label3.Text = "Enter Tournament\'s Hosting Location:";
             // 
             // title_tb
             // 
@@ -83,7 +83,7 @@
             this.title_tb.BackColor = System.Drawing.Color.White;
             this.title_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.title_tb.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title_tb.Location = new System.Drawing.Point(359, 159);
+            this.title_tb.Location = new System.Drawing.Point(316, 159);
             this.title_tb.Name = "title_tb";
             this.title_tb.Size = new System.Drawing.Size(239, 26);
             this.title_tb.TabIndex = 4;
@@ -94,7 +94,7 @@
             this.prize_tb.BackColor = System.Drawing.Color.White;
             this.prize_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.prize_tb.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prize_tb.Location = new System.Drawing.Point(359, 216);
+            this.prize_tb.Location = new System.Drawing.Point(316, 216);
             this.prize_tb.Name = "prize_tb";
             this.prize_tb.Size = new System.Drawing.Size(239, 26);
             this.prize_tb.TabIndex = 5;
@@ -105,7 +105,7 @@
             this.location_tb.BackColor = System.Drawing.Color.White;
             this.location_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.location_tb.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.location_tb.Location = new System.Drawing.Point(359, 276);
+            this.location_tb.Location = new System.Drawing.Point(316, 276);
             this.location_tb.Name = "location_tb";
             this.location_tb.Size = new System.Drawing.Size(239, 26);
             this.location_tb.TabIndex = 6;
@@ -118,7 +118,7 @@
             this.search_btn.ForeColor = System.Drawing.Color.Black;
             this.search_btn.Location = new System.Drawing.Point(189, 382);
             this.search_btn.Name = "search_btn";
-            this.search_btn.Size = new System.Drawing.Size(172, 53);
+            this.search_btn.Size = new System.Drawing.Size(181, 67);
             this.search_btn.TabIndex = 7;
             this.search_btn.Text = "Search";
             this.search_btn.UseVisualStyleBackColor = true;
@@ -133,26 +133,28 @@
             this.Tournament_ID,
             this.Tournament_Title});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(701, 46);
+            this.dataGridView1.Location = new System.Drawing.Point(658, 46);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 2.8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 2.8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 40;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 7.8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(490, 489);
+            this.dataGridView1.Size = new System.Drawing.Size(533, 489);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.Visible = false;
             // 
             // Tournament_ID
             // 
+            this.Tournament_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Tournament_ID.HeaderText = "Tournament_ID";
             this.Tournament_ID.MinimumWidth = 6;
             this.Tournament_ID.Name = "Tournament_ID";
@@ -161,6 +163,7 @@
             // 
             // Tournament_Title
             // 
+            this.Tournament_Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Tournament_Title.HeaderText = "Tournament_Title";
             this.Tournament_Title.MinimumWidth = 6;
             this.Tournament_Title.Name = "Tournament_Title";
@@ -209,8 +212,8 @@
         private System.Windows.Forms.TextBox location_tb;
         private System.Windows.Forms.Button search_btn;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tournament_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tournament_Title;
-        private System.Windows.Forms.Label label4;
     }
 }

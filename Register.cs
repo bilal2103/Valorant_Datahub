@@ -17,21 +17,26 @@ namespace Valorant_Datahub
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
+            this.ForeColor = ColorTranslator.FromHtml("#FFFFFF");
             foreach (Control ctl in Controls)
             {
+                if (ctl is TextBox || ctl is RichTextBox)
+                {
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
                 if (ctl is Button)
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
-
-                }
-                if (ctl is TextBox)
-                {
-                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
-                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Bold);
                 }
                 if (ctl is Label)
+                {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
             }
         }
 

@@ -37,11 +37,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(126, 222);
+            this.label1.Location = new System.Drawing.Point(200, 226);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 25);
+            this.label1.Size = new System.Drawing.Size(180, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Enter Weapon\'s Name:";
             // 
@@ -50,7 +50,7 @@
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(403, 218);
+            this.textBox1.Location = new System.Drawing.Point(403, 222);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(176, 29);
             this.textBox1.TabIndex = 1;
@@ -61,7 +61,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(305, 335);
+            this.button1.Location = new System.Drawing.Point(327, 316);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 57);
             this.button1.TabIndex = 2;
@@ -72,11 +72,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(34, 50);
+            this.label2.Location = new System.Drawing.Point(21, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(436, 28);
+            this.label2.Size = new System.Drawing.Size(312, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "View details of your favorite weapon";
             // 

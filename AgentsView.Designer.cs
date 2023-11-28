@@ -257,7 +257,7 @@ namespace Valorant_Datahub
             this.ultimatetxt.BackColor = System.Drawing.Color.White;
             this.ultimatetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ultimatetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ultimatetxt.Location = new System.Drawing.Point(683, 537);
+            this.ultimatetxt.Location = new System.Drawing.Point(683, 547);
             this.ultimatetxt.Name = "ultimatetxt";
             this.ultimatetxt.Size = new System.Drawing.Size(164, 28);
             this.ultimatetxt.TabIndex = 11;
@@ -296,7 +296,7 @@ namespace Valorant_Datahub
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(680, 511);
+            this.label4.Location = new System.Drawing.Point(680, 521);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 20);
             this.label4.TabIndex = 15;
@@ -307,7 +307,7 @@ namespace Valorant_Datahub
             this.desctxt.BackColor = System.Drawing.Color.White;
             this.desctxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.desctxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desctxt.Location = new System.Drawing.Point(45, 537);
+            this.desctxt.Location = new System.Drawing.Point(45, 547);
             this.desctxt.Name = "desctxt";
             this.desctxt.Size = new System.Drawing.Size(597, 28);
             this.desctxt.TabIndex = 16;
@@ -316,7 +316,7 @@ namespace Valorant_Datahub
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(41, 508);
+            this.label5.Location = new System.Drawing.Point(41, 518);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 20);
             this.label5.TabIndex = 17;
@@ -327,7 +327,7 @@ namespace Valorant_Datahub
             this.voicetxt.BackColor = System.Drawing.Color.White;
             this.voicetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.voicetxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voicetxt.Location = new System.Drawing.Point(877, 534);
+            this.voicetxt.Location = new System.Drawing.Point(877, 544);
             this.voicetxt.Name = "voicetxt";
             this.voicetxt.Size = new System.Drawing.Size(209, 28);
             this.voicetxt.TabIndex = 18;
@@ -336,7 +336,7 @@ namespace Valorant_Datahub
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(874, 508);
+            this.label6.Location = new System.Drawing.Point(874, 518);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 20);
             this.label6.TabIndex = 19;

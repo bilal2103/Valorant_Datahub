@@ -22,19 +22,22 @@ namespace Valorant_Datahub
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
+                if (ctl is TextBox || ctl is RichTextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
                 if (ctl is Button)
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
-
-                }
-                if (ctl is TextBox)
-                {
-                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
-                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Bold);
                 }
                 if (ctl is Label)
+                {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                }
             }
         }
 
@@ -46,22 +49,33 @@ namespace Valorant_Datahub
             string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
-            
-            SqlCommand cmd = new SqlCommand(query, con);
-            Console.WriteLine(cmd.CommandText);
-            SqlDataReader reader = cmd.ExecuteReader(); 
-            if(reader.HasRows)
+            if (uname == "admin" && pw == "admin")
             {
-                UserForm u = new UserForm(uname);
-                u.Show();
-            }
-            else if(uname=="admin" && pw== "admin"){
                 AdminWindow a = new AdminWindow();
                 a.Show();
             }
             else
             {
-                MessageBox.Show("Username or password is incorrect");
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.CommandTimeout = 1;
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        UserForm u = new UserForm(uname);
+                        u.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username or password is incorrect");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Dirty reads are not allowed, please wait...");
+                }
             }
             con.Close();
         }

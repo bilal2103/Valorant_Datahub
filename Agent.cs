@@ -21,21 +21,26 @@ namespace Valorant_Datahub
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
+                if (ctl is TextBox || ctl is RichTextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
                 if (ctl is Button)
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
-
-                }
-                if (ctl is TextBox)
-                {
-                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
-                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Bold);
                 }
                 if (ctl is Label)
+                {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                }
             }
-
+            About_tb.BackColor = ColorTranslator.FromHtml(Colors.back_color);
+            About_tb.ForeColor = ColorTranslator.FromHtml("#000000");
+            DisplayStats(obj);
         }
         public Agent()
         {
@@ -52,7 +57,6 @@ namespace Valorant_Datahub
             ult_tb.Text = obj.ultimate;
             weapon_tb.Text = obj.suited_weapon;
             About_tb.Text = obj.Description;
-            
             string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
             System.Drawing.Image im;
             if(obj.agent_name == "KAY/O" || obj.agent_name == "kay/o")

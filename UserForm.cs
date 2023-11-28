@@ -25,30 +25,34 @@ namespace Valorant_Datahub
         {
             InitializeComponent();
             this.uname = uname;
-            if(uname != "guest")
-                update_welcome_label(uname);   
-            else
-            {
-                pw_update.Enabled= false;
-                personal_btn.Enabled= false;
-                pid = -1;
-            }
+            
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
+                if (ctl is TextBox || ctl is RichTextBox)
+                {
+                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
+                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                }
                 if (ctl is Button)
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.btn_color);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.btn_fore_color);
-
-                }
-                if (ctl is TextBox)
-                {
-                    ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
-                    ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Bold);
                 }
                 if (ctl is Label)
+                {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                }
+            }
+            if (uname != "guest")
+                update_welcome_label(uname);
+            else
+            {
+                pw_update.Enabled = false;
+                personal_btn.Enabled = false;
+                pid = -1;
             }
         }
         private void update_welcome_label(string uname)
@@ -83,7 +87,6 @@ namespace Valorant_Datahub
         private void Leaderboards_btn_Click(object sender, EventArgs e)
         {
             Leaderboards l = new Leaderboards(pid,uname);
-            l.Show();
         }
 
         private void Agents_btn_Click(object sender, EventArgs e)
@@ -107,7 +110,6 @@ namespace Valorant_Datahub
         private void personal_btn_Click(object sender, EventArgs e)
         {
             statsWindow s = new statsWindow(pid);
-            s.Show();
         }
 
 
