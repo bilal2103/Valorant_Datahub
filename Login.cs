@@ -89,5 +89,10 @@ namespace Valorant_Datahub
         {
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

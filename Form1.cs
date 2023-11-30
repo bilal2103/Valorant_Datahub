@@ -37,5 +37,10 @@ namespace Valorant_Datahub
             Register r = new Register();
             r.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

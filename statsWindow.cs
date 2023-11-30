@@ -150,5 +150,10 @@ namespace Valorant_Datahub
             }
             con.Close();
         }
+
+        private void kills_tb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

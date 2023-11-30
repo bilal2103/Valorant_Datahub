@@ -43,7 +43,7 @@
             // 
             this.Leaderboards_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Leaderboards_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Leaderboards_btn.Location = new System.Drawing.Point(583, 244);
+            this.Leaderboards_btn.Location = new System.Drawing.Point(634, 244);
             this.Leaderboards_btn.Name = "Leaderboards_btn";
             this.Leaderboards_btn.Size = new System.Drawing.Size(191, 76);
             this.Leaderboards_btn.TabIndex = 9;
@@ -55,7 +55,7 @@
             // 
             this.Tournament_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Tournament_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Tournament_btn.Location = new System.Drawing.Point(322, 244);
+            this.Tournament_btn.Location = new System.Drawing.Point(373, 244);
             this.Tournament_btn.Name = "Tournament_btn";
             this.Tournament_btn.Size = new System.Drawing.Size(191, 76);
             this.Tournament_btn.TabIndex = 8;
@@ -67,7 +67,7 @@
             // 
             this.Maps_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Maps_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maps_btn.Location = new System.Drawing.Point(54, 355);
+            this.Maps_btn.Location = new System.Drawing.Point(105, 355);
             this.Maps_btn.Name = "Maps_btn";
             this.Maps_btn.Size = new System.Drawing.Size(191, 76);
             this.Maps_btn.TabIndex = 7;
@@ -79,7 +79,7 @@
             // 
             this.Agents_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.Agents_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Agents_btn.Location = new System.Drawing.Point(54, 244);
+            this.Agents_btn.Location = new System.Drawing.Point(105, 244);
             this.Agents_btn.Name = "Agents_btn";
             this.Agents_btn.Size = new System.Drawing.Size(191, 76);
             this.Agents_btn.TabIndex = 6;
@@ -91,7 +91,7 @@
             // 
             this.weaponary_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.weaponary_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.weaponary_btn.Location = new System.Drawing.Point(322, 355);
+            this.weaponary_btn.Location = new System.Drawing.Point(373, 355);
             this.weaponary_btn.Name = "weaponary_btn";
             this.weaponary_btn.Size = new System.Drawing.Size(191, 76);
             this.weaponary_btn.TabIndex = 5;
@@ -103,7 +103,7 @@
             // 
             this.personal_btn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.personal_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.personal_btn.Location = new System.Drawing.Point(54, 478);
+            this.personal_btn.Location = new System.Drawing.Point(105, 478);
             this.personal_btn.Name = "personal_btn";
             this.personal_btn.Size = new System.Drawing.Size(191, 76);
             this.personal_btn.TabIndex = 10;
@@ -116,7 +116,7 @@
             this.welcome_lbl.AutoSize = true;
             this.welcome_lbl.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.welcome_lbl.ForeColor = System.Drawing.Color.Black;
-            this.welcome_lbl.Location = new System.Drawing.Point(13, 23);
+            this.welcome_lbl.Location = new System.Drawing.Point(105, 66);
             this.welcome_lbl.Name = "welcome_lbl";
             this.welcome_lbl.Size = new System.Drawing.Size(109, 36);
             this.welcome_lbl.TabIndex = 11;
@@ -126,7 +126,7 @@
             // 
             this.pw_update.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.pw_update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pw_update.Location = new System.Drawing.Point(322, 478);
+            this.pw_update.Location = new System.Drawing.Point(373, 478);
             this.pw_update.Name = "pw_update";
             this.pw_update.Size = new System.Drawing.Size(191, 76);
             this.pw_update.TabIndex = 12;
@@ -139,7 +139,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(13, 91);
+            this.label1.Location = new System.Drawing.Point(105, 134);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(501, 36);
             this.label1.TabIndex = 13;
