@@ -47,6 +47,10 @@ namespace Valorant_Datahub
         }
         private void displaytable()
         {
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is TextBox) ctl.Text = "";
+            }
             string query = "select * from maps";
             try
             {
@@ -89,7 +93,7 @@ namespace Valorant_Datahub
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.RowCount - 1)
             {
                 // Get data from the selected row and fill textboxes
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];

@@ -151,7 +151,7 @@ namespace Valorant_Datahub
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.RowCount - 1)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
                 midtxt.Text = selectedRow.Cells["match_id"].Value.ToString();

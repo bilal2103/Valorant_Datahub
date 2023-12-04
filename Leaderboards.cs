@@ -55,7 +55,7 @@ namespace Valorant_Datahub
         private string getRank(int mmr)
         {
             string query = $"select dbo.getRank({mmr})";
-            string connection = "Data Source=AIMANANANANA;Initial Catalog=Valo_Data;Integrated Security=True";
+            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             SqlConnection con = new SqlConnection(connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query,con);

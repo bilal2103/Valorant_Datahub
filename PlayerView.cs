@@ -17,6 +17,7 @@ namespace Valorant_Datahub
         private int last_pid;
         SqlConnection con;
         SqlTransaction transaction;
+        string last_op;
         public PlayerView()
         {
             InitializeComponent();
@@ -56,7 +57,7 @@ namespace Valorant_Datahub
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.RowCount - 1)
             {
                 // Get data from the selected row and fill textboxes
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
@@ -77,6 +78,10 @@ namespace Valorant_Datahub
         }
         private void displaytable()
         {
+            foreach(Control ctl in Controls)
+            {
+                if (ctl is TextBox) ctl.Text = "";
+            }
             string query = "select * from player  join users  on(player.pid = users.player_id) left outer join " +
                 "PLAYER_TEAM on(PLAYER_TEAM.Player_ID = player.pid)order by player.pid asc";
             try
@@ -124,9 +129,9 @@ namespace Valorant_Datahub
                 query = "insert into users values('" + unametxt.Text + "','default9*'," + Convert.ToInt32(idtxt.Text) + ")";
                 cmd = new SqlCommand(query, con, transaction);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show($"{nametxt.Text} has been registered successfully.they can log on to the portal using " +
-                    $"the username and password: 'default9*'. they should update this password upon login!");
+                
                 MessageBox.Show("Press commit to see your changes");
+                last_op = "insert";
             }
             catch (Exception ex)
             {
@@ -144,6 +149,7 @@ namespace Valorant_Datahub
                 cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Press commit to see your changes");
+                last_op = "delete";
             }
             catch (Exception ex)
             {
@@ -189,6 +195,7 @@ namespace Valorant_Datahub
                 cmd = new SqlCommand(query, con, transaction);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Press commit to see your changes");
+                last_op = "update";
             }
             catch (Exception ex)
             {
@@ -204,7 +211,9 @@ namespace Valorant_Datahub
                 try
                 {
                     transaction.Commit();
-                    MessageBox.Show("Commit Successful");
+                    if(last_op == "insert")
+                    MessageBox.Show($"{nametxt.Text} has been registered successfully.they can log on to the portal using " +
+                    $"the username and password: 'default9*'. they should update this password upon login!");
                     dataGridView1.Rows.Clear();
                     displaytable();
                 }

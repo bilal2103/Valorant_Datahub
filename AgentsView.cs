@@ -82,7 +82,7 @@ namespace Valorant_Datahub
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.RowCount - 1)
             {
                 // Get data from the selected row and fill textboxes
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];

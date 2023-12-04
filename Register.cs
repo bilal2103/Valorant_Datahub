@@ -102,7 +102,7 @@ namespace Valorant_Datahub
                             temp2 = Convert.ToInt32(reader["location_id"]);
                         }
 
-                        query = "select top 1 pid from player order by pid desc";
+                        query = "select top 1 pid from player join users on(player.pid = users.player_id) order by pid desc";
                         con.Close();
                         con.Open();
                         cmd = new SqlCommand(query, con);

@@ -55,7 +55,7 @@ namespace Valorant_Datahub
         private void displaytable()
         {
             ResetTextboxes();
-            string query = "select * from location";
+            string query = "select * from location where location_id != 999";
             try
             {
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -182,7 +182,7 @@ namespace Valorant_Datahub
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.RowCount - 1)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
                 locationtxt.Text = selectedRow.Cells["location_id"].Value.ToString();

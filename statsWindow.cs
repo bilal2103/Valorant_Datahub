@@ -79,7 +79,7 @@ namespace Valorant_Datahub
                 mmr_tb.Text = reader["MMR"].ToString();
                 rank_tb.Text = getRank((int)reader["MMR"]);
                 reader.Close();
-
+                Console.WriteLine("Data from player was read");
                 query = "select username from users where player_id = " + pid + "";
                 cmd = new SqlCommand(query, con);
                 cmd.CommandTimeout = 1;
@@ -87,22 +87,27 @@ namespace Valorant_Datahub
                 reader.Read();
                 uname_tb.Text = reader["username"].ToString();
                 reader.Close();
-
+                Console.WriteLine("Data from users was read");
                 query = "select count(1) as 'Total' from solo_matches where player_ID = " + pid + "";
                 cmd = new SqlCommand(query, con);
                 cmd.CommandTimeout = 1;
                 reader = cmd.ExecuteReader();
-                reader.Read();
-                int total_matches = (int)reader["Total"];
+                int total_matches = 0;
+                int matches_won = 0;
+                if(reader.HasRows)
+                {
+                    reader.Read();
+                    total_matches = (int)reader["Total"];
+                    reader.Close();
+                    query = "select count(1) as 'Won' from solo_matches where player_ID = " + pid + " and Result = 'Won'";
+                    cmd = new SqlCommand(query, con);
+                    cmd.CommandTimeout = 1;
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    matches_won = (int)reader["Won"];
+                }
                 reader.Close();
-                query = "select count(1) as 'Won' from solo_matches where player_ID = " + pid + " and Result = 'Won'";
-                cmd = new SqlCommand(query, con);
-                cmd.CommandTimeout = 1;
-                reader = cmd.ExecuteReader();
-                reader.Read();
-                int matches_won = (int)reader["Won"];
-                reader.Close();
-
+                Console.WriteLine("Data from solo_matches was read");
                 query = "select count(1) as 'exists',team_id from PLAYER_TEAM where player_id = " + pid + " group by team_id";
                 cmd = new SqlCommand(query, con);
                 cmd.CommandTimeout = 1;
@@ -137,15 +142,25 @@ namespace Valorant_Datahub
                 cmd = new SqlCommand(query, con);
                 cmd.CommandTimeout = 1;
                 reader = cmd.ExecuteReader();
-                reader.Read();
+                Image im;
                 string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
-                Image im = Image.FromFile(image_path + reader["agent_played"].ToString() + ".jpg");
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    im = Image.FromFile(image_path + reader["agent_played"].ToString() + ".jpg");
+                    reader.Close();
+                }
+                else
+                {
+                    im = Image.FromFile(image_path + "Sage" + ".jpg");
+                }
+                
                 pictureBox1.Image = im;
                 this.Show();
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                MessageBox.Show("Dirty reads are not allowed, please wait...");
+                MessageBox.Show(ex.Message);
                 this.Close();
             }
             con.Close();

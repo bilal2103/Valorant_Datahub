@@ -78,6 +78,8 @@ namespace Valorant_Datahub
                 }
             }
             con.Close();
+            textBox1.Text = "";
+            textBox2.Text = "";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
