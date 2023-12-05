@@ -46,8 +46,7 @@ namespace Valorant_Datahub
             string uname = textBox1.Text;
             string pw = textBox2.Text;
             string query = "select username from users where username = '"+uname+ "' COLLATE SQL_Latin1_General_CP1_CS_AS and password = '" + pw+"'";
-            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             con.Open();
             if (uname == "admin" && pw == "admin")
             {

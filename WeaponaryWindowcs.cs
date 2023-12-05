@@ -41,8 +41,7 @@ namespace Valorant_Datahub
         {
             string weapon_name = textBox1.Text;
             string Query = "select * from weaponary where weapon_name = @weapon_name";
-            string Connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(Connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(Query, con);
             cmd.CommandTimeout = 1;

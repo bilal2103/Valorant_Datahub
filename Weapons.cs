@@ -56,13 +56,12 @@ namespace Valorant_Datahub
         }
         private void set_image(string initial)
         {
-            string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
             System.Drawing.Image im;
-            im = System.Drawing.Image.FromFile(image_path + $"{initial}1.jpg");
+            im = System.Drawing.Image.FromFile(vars.image_path + $"{initial}1.jpg");
             pictureBox1.Image = im;
-            im = System.Drawing.Image.FromFile(image_path + $"{initial}2.jpg");
+            im = System.Drawing.Image.FromFile(vars.image_path + $"{initial}2.jpg");
             pictureBox2.Image = im;
-            im = System.Drawing.Image.FromFile(image_path + $"{initial}3.jpg");
+            im = System.Drawing.Image.FromFile(vars.image_path + $"{initial}3.jpg");
             pictureBox3.Image = im;
         }
 

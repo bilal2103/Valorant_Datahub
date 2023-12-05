@@ -13,14 +13,13 @@ namespace Valorant_Datahub
 {
     public partial class TournamentHistoryView : Form
     {
-        public string connection, last_clicked_match, last_clicked_tournament;
+        public string last_clicked_match, last_clicked_tournament;
         
         SqlConnection con;
         SqlTransaction transaction;
         public TournamentHistoryView()
         {
             InitializeComponent();
-            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
@@ -45,7 +44,7 @@ namespace Valorant_Datahub
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
             try
             {
-                con = new SqlConnection(connection);
+                con = new SqlConnection(vars.connection);
                 con.Open();
             }
             catch(Exception ex)
@@ -80,6 +79,7 @@ namespace Valorant_Datahub
                     dataGridView1.Rows.Add(row);
                 }
                 reader.Close();
+                this.Show();
             }
             catch (Exception)
             {

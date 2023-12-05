@@ -65,9 +65,8 @@ namespace Valorant_Datahub
             AddQuotes(ref locations);
             AddQuotes(ref titles);
             string query = "";
-            string Connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             
-            SqlConnection con = new SqlConnection(Connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             con.Open();
             query = "select location_id from location where Country in (" + locations + ")";
             SqlCommand cmd = new SqlCommand(query, con);

@@ -57,12 +57,11 @@ namespace Valorant_Datahub
             ult_tb.Text = obj.ultimate;
             weapon_tb.Text = obj.suited_weapon;
             About_tb.Text = obj.Description;
-            string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
             System.Drawing.Image im;
             if(obj.agent_name == "KAY/O" || obj.agent_name == "kay/o")
-                im = System.Drawing.Image.FromFile(image_path  + "kayo.jpg");
+                im = System.Drawing.Image.FromFile(vars.image_path  + "kayo.jpg");
             else
-                im = System.Drawing.Image.FromFile(image_path + obj.agent_name + ".jpg");
+                im = System.Drawing.Image.FromFile(vars.image_path + obj.agent_name + ".jpg");
             agent_picture.Image = im;
             agent_picture.SizeMode = PictureBoxSizeMode.Zoom;
 

@@ -50,8 +50,7 @@ namespace Valorant_Datahub
                 if (region_tb.TextLength == 0) region_tb.Text = "Unkown";
                 if (agent_tb.TextLength == 0) agent_tb.Text = "Sage";
                 string query = "select * from users where username = '" + uname_tb.Text + "'";
-                string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-                SqlConnection con = new SqlConnection(connection);
+                SqlConnection con = new SqlConnection(vars.connection);
                 con.Open();
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader reader = cmd.ExecuteReader();

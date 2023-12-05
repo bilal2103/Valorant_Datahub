@@ -14,7 +14,6 @@ namespace Valorant_Datahub
 {
     public partial class TournamentWindow : Form
     {
-        string connection;
         SqlConnection con;
         public TournamentWindow() { InitializeComponent(); }
         public TournamentWindow(Dictionary<string, List<MatchesInformation>> matches)
@@ -43,8 +42,7 @@ namespace Valorant_Datahub
                     ctl.Font = new Font("Franklin Gothic Medium Cond", 11, FontStyle.Regular);
                 }
             }
-            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            con = new SqlConnection(connection);
+            con = new SqlConnection(vars.connection);
             con.Open();
             DisplayMatches(matches);
         }

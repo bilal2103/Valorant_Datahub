@@ -13,13 +13,11 @@ namespace Valorant_Datahub
 {
     public partial class SoloMatchesView : Form
     {
-        public string connection;
         SqlConnection con;
         SqlTransaction transaction;
         public SoloMatchesView()
         {
             InitializeComponent();
-            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
@@ -42,7 +40,7 @@ namespace Valorant_Datahub
                 }
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
-            con = new SqlConnection(connection);
+            con = new SqlConnection(vars.connection);
             con.Open();
             displaytable();
         }
@@ -68,6 +66,7 @@ namespace Valorant_Datahub
                     dataGridView1.Rows.Add(row);
                 }
                 reader.Close();
+                this.Show();
             }
             catch (Exception)
             {

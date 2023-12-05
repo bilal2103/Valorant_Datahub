@@ -46,8 +46,7 @@ namespace Valorant_Datahub
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             string query = "select password from users where player_id = "+pid+"";
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);

@@ -51,8 +51,7 @@ namespace Valorant_Datahub
                 {
                     int Tournament_id = Convert.ToInt32(textBox1.Text);
                     string Query = "select Tid from tournaments where Tid = @Tournament_id";
-                    string Connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-                    SqlConnection con = new SqlConnection(Connection);
+                    SqlConnection con = new SqlConnection(vars.connection);
                     con.Open();
                     SqlCommand cmd = new SqlCommand(Query, con);
                     cmd.CommandTimeout = 1;

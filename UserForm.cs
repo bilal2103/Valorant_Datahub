@@ -58,8 +58,7 @@ namespace Valorant_Datahub
         private void update_welcome_label(string uname)
         {
             string query = "select player_id from users where username = @uname";
-            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("uname", uname);

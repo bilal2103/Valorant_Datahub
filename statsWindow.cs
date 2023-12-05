@@ -14,7 +14,6 @@ namespace Valorant_Datahub
     public partial class statsWindow : Form
     {
         int pid;
-        string connection;
         SqlConnection con;
         public statsWindow()
         {
@@ -45,8 +44,7 @@ namespace Valorant_Datahub
                     ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
                 }
             }
-            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            con = new SqlConnection(connection);
+            con = new SqlConnection(vars.connection);
             con.Open();
             DisplayInformation();
         }
@@ -54,7 +52,6 @@ namespace Valorant_Datahub
         {
             string str = "hehe";
             string query = $"select dbo.GetRank({MMR})";
-            SqlConnection con = new SqlConnection("Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             str = cmd.ExecuteScalar().ToString();
@@ -143,16 +140,15 @@ namespace Valorant_Datahub
                 cmd.CommandTimeout = 1;
                 reader = cmd.ExecuteReader();
                 Image im;
-                string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    im = Image.FromFile(image_path + reader["agent_played"].ToString() + ".jpg");
+                    im = Image.FromFile(vars.image_path + reader["agent_played"].ToString() + ".jpg");
                     reader.Close();
                 }
                 else
                 {
-                    im = Image.FromFile(image_path + "Sage" + ".jpg");
+                    im = Image.FromFile(vars.image_path + "Sage" + ".jpg");
                 }
                 
                 pictureBox1.Image = im;

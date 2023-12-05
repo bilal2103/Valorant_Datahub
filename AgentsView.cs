@@ -13,13 +13,12 @@ namespace Valorant_Datahub
 {
     public partial class AgentsView : Form
     {
-        public string connection, last_Agent_clicked;
+        public string last_Agent_clicked;
         SqlConnection con;
         SqlTransaction transaction;
         public AgentsView()
         {
             InitializeComponent();
-            connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             this.BackColor = ColorTranslator.FromHtml(Colors.back_color);
             foreach (Control ctl in Controls)
             {
@@ -42,7 +41,7 @@ namespace Valorant_Datahub
                 }
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
-            con = new SqlConnection(connection);
+            con = new SqlConnection(vars.connection);
             con.Open();
             displaytable();
             
@@ -73,10 +72,12 @@ namespace Valorant_Datahub
                     dataGridView1.Rows.Add(row);
                 }
                 reader.Close();
+                this.Show();
             }
             catch (Exception)
             {
                 MessageBox.Show("Dirty reads are not allowed. Please wait...");
+                
             }
         }
 

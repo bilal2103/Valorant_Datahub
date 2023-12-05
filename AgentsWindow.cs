@@ -44,8 +44,7 @@ namespace Valorant_Datahub
         {
             agent_name = textBox1.Text;
             string Query = "select * from agents where agent_name = @agent_name";
-            string Connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(Connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(Query, con);
             cmd.CommandTimeout = 1;

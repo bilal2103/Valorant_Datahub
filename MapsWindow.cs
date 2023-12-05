@@ -40,8 +40,7 @@ namespace Valorant_Datahub
         private void button1_Click(object sender, EventArgs e)
         {
             string map_name = name_tb.Text;
-            string Connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(Connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             con.Open();
             string Query = $"Select map_name,spike_sites,suited_weapon,country,description" +
                 $" from maps join location on(maps.Location_id = location.Location_id) where map_name='{map_name}'";

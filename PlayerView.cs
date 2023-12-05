@@ -13,7 +13,6 @@ namespace Valorant_Datahub
 {
     public partial class PlayerView : Form
     {
-        private string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
         private int last_pid;
         SqlConnection con;
         SqlTransaction transaction;
@@ -43,7 +42,7 @@ namespace Valorant_Datahub
                 }
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
-            con = new SqlConnection(connection);
+            con = new SqlConnection(vars.connection);
             con.Open();
             displaytable();
         }
@@ -100,6 +99,7 @@ namespace Valorant_Datahub
                     dataGridView1.Rows.Add(row);
                 }
                 reader.Close();
+                    this.Show();
             }
             catch (Exception)
             {

@@ -55,8 +55,7 @@ namespace Valorant_Datahub
         private string getRank(int mmr)
         {
             string query = $"select dbo.getRank({mmr})";
-            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
-            SqlConnection con = new SqlConnection(connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             con.Open();
             SqlCommand cmd = new SqlCommand(query,con);
             string res =  cmd.ExecuteScalar().ToString();
@@ -66,10 +65,9 @@ namespace Valorant_Datahub
         private void displayLeaderboard()
         {
             string query = "";
-            string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
             SqlCommand cmd;
             SqlDataReader reader;
-            SqlConnection con = new SqlConnection(connection);
+            SqlConnection con = new SqlConnection(vars.connection);
             if (pid == -1)
             {
                 label2.Text = "Get registered today to see yourself in the table below!";
