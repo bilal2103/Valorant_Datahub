@@ -50,12 +50,13 @@ namespace Valorant_Datahub
         }
         private string getRank(int MMR)
         {
+            SqlConnection con2 = new SqlConnection(vars.connection);
+            con2.Open();
             string str = "hehe";
             string query = $"select dbo.GetRank({MMR})";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
+            SqlCommand cmd = new SqlCommand(query, con2);
             str = cmd.ExecuteScalar().ToString();
-            con.Close();
+            con2.Close();
             return str;
         }
         private void DisplayInformation()
