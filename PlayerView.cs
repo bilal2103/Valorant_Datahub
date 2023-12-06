@@ -84,7 +84,7 @@ namespace Valorant_Datahub
         private void displaytable()
         {
             reset_textboxes();
-            string query = "select * from player  join users  on(player.pid = users.player_id) left outer join " +
+            string query = "select * from player join users on(player.pid = users.player_id) left outer join " +
                 "PLAYER_TEAM on(PLAYER_TEAM.Player_ID = player.pid)order by player.pid asc;";
             try
             {
@@ -102,7 +102,7 @@ namespace Valorant_Datahub
                     dataGridView1.Rows.Add(row);
                 }
                 reader.Close();
-                    this.Show();
+                this.Show();
             }
             catch (Exception)
             {
@@ -121,7 +121,7 @@ namespace Valorant_Datahub
             {
                 transaction = con.BeginTransaction(IsolationLevel.ReadCommitted);
                 SqlCommand cmd = new SqlCommand(query, con, transaction);
-                cmd.CommandTimeout = 10;
+                cmd.CommandTimeout = 1;
                 cmd.ExecuteNonQuery();
                 if (tidtxt.Text != "-")
                 {
@@ -163,7 +163,7 @@ namespace Valorant_Datahub
 
         private void updatebtn_Click(object sender, EventArgs e)
         {
-            string query = $"update player set pid = {Convert.ToInt32(idtxt.Text)},Pname = '{nametxt.Text}'," +
+            string query = $"update player set Pname = '{nametxt.Text}'," +
                 $"location_id = {Convert.ToInt32(locationtxt.Text)},fav_agent = '{agentxt.Text}',gender = '{gendertxt.Text}'," +
                 $"age = {Convert.ToInt32(agetxt.Text)},mmr = {Convert.ToInt32(mmrtxt.Text)},kills = {Convert.ToInt32(killstxt.Text)}," +
                 $"deaths = {Convert.ToInt32(deathstxt.Text)} where pid = {last_pid}";
