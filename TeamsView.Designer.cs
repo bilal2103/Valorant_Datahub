@@ -29,7 +29,7 @@ namespace Valorant_Datahub
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.updatebtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.insert_btn = new System.Windows.Forms.Button();
@@ -57,6 +57,8 @@ namespace Valorant_Datahub
             this.rollback_btn = new System.Windows.Forms.Button();
             this.commit_btn = new System.Windows.Forms.Button();
             this.refreshbtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.querytb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,8 +207,8 @@ namespace Valorant_Datahub
             this.dataGridView1.Location = new System.Drawing.Point(38, 53);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(963, 358);
             this.dataGridView1.TabIndex = 60;
@@ -349,11 +351,32 @@ namespace Valorant_Datahub
             this.refreshbtn.UseVisualStyleBackColor = false;
             this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 16);
+            this.label7.TabIndex = 113;
+            this.label7.Text = "Enter query here:";
+            // 
+            // querytb
+            // 
+            this.querytb.Location = new System.Drawing.Point(173, 9);
+            this.querytb.Name = "querytb";
+            this.querytb.Size = new System.Drawing.Size(828, 22);
+            this.querytb.TabIndex = 112;
+            this.querytb.Text = "select * from maps where ";
+            this.querytb.TextChanged += new System.EventHandler(this.querytb_TextChanged);
+            this.querytb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.querytb_KeyPress);
+            // 
             // TeamsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 702);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.querytb);
             this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.rollback_btn);
             this.Controls.Add(this.commit_btn);
@@ -413,5 +436,7 @@ namespace Valorant_Datahub
         private System.Windows.Forms.Button rollback_btn;
         private System.Windows.Forms.Button commit_btn;
         private System.Windows.Forms.Button refreshbtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox querytb;
     }
 }

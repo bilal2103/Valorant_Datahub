@@ -47,7 +47,11 @@ namespace Valorant_Datahub
         {
             foreach (Control ctl in Controls)
             {
-                if (ctl is TextBox) ctl.Text = "";
+                if (ctl is TextBox)
+                {
+                    if(ctl.Name == "querytb") querytb.Text = "select * from maps where ";
+                    else ctl.Text = "";
+                }
             }
             string query = "select * from maps";
             try
@@ -96,7 +100,7 @@ namespace Valorant_Datahub
             {
                 // Get data from the selected row and fill textboxes
                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                
+
                 nametxt.Text = selectedRow.Cells["name"].Value.ToString();
                 sitestxt.Text = selectedRow.Cells["spike_sites"].Value.ToString();
                 weapontxt.Text = selectedRow.Cells["suited_weapon"].Value.ToString();
@@ -187,6 +191,55 @@ namespace Valorant_Datahub
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            row.CreateCells(dataGridView1, reader["map_name"].ToString(), reader["spike_sites"].ToString(),
+                                reader["suited_weapon"].ToString(), reader["location_id"].ToString(),
+                                reader["description"].ToString());
+                            dataGridView1.Rows.Add(row);
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            
+        }
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            string temp = "select * from maps where ";
+            if (querytb.TextLength <= temp.Length)
+            {
+                querytb.Text = temp;
+                querytb.SelectionStart = temp.Length;
             }
         }
     }

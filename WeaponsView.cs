@@ -70,6 +70,7 @@ namespace Valorant_Datahub
             wnametxt.Text = "";
             wtypetxt.Text = ""; capacitytxt.Text = ""; dmgtxt.Text = ""; fratetxt.Text = "";
             m_rangetxt.Text = ""; fmodetxt.Text = ""; rspeedtxt.Text = "";
+            querytb.Text = "select * from weaponary where ";
         }
 
         private void insert_btn_Click(object sender, EventArgs e)
@@ -203,6 +204,56 @@ namespace Valorant_Datahub
                 MessageBox.Show("Dirty reads are not allowed. Please wait...");
             }
             
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            row.CreateCells(dataGridView1, reader["weapon_name"].ToString(), reader["weapon_type"].ToString(), reader["capacity"].ToString(),
+                                                reader["Damage"].ToString(), reader["fire_rate"].ToString(), reader["reload_speed"].ToString(), reader["fire_mode"].ToString(),
+                                                reader["max_range"].ToString());
+                            dataGridView1.Rows.Add(row);
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            string temp = "select * from weaponary where ";
+            if (querytb.TextLength <= temp.Length)
+            {
+                querytb.Text = temp;
+                querytb.SelectionStart = temp.Length + 1;
+            }
         }
     }
 }

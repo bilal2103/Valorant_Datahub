@@ -48,7 +48,15 @@ namespace Valorant_Datahub
             foreach (Control ctr in this.Controls)
             {
                 if (ctr is TextBox)
+                {
+                    if(ctr.Name == "querytb")
+                    {
+                        ctr.Text = "select * from teams where ";
+                    }
+                    else
                     ctr.Text = "";
+                }
+                    
             }
         }
         private void displaytable()
@@ -203,6 +211,56 @@ namespace Valorant_Datahub
         private void TeamsView_FormClosing(object sender, FormClosingEventArgs e)
         {
             con.Close();
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            row.CreateCells(dataGridView1, reader["team_id"].ToString(), reader["team_name"].ToString(),
+                        reader["matches_won"].ToString(), reader["matches_played"].ToString(),
+                        reader["tournaments_won"].ToString(), reader["tournaments_played"].ToString());
+                            dataGridView1.Rows.Add(row);
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            string temp = "select * from teams where ";
+            if (querytb.TextLength <= temp.Length)
+            {
+                querytb.Text = temp;
+                querytb.SelectionStart = temp.Length+1;
+            }
         }
     }
 }

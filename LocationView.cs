@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace Valorant_Datahub
 {
@@ -36,6 +37,7 @@ namespace Valorant_Datahub
                 if (ctl is Label)
                 {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
+                    ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
                 }
             }
             con = new SqlConnection(vars.connection);
@@ -47,7 +49,10 @@ namespace Valorant_Datahub
             foreach (Control ctr in this.Controls)
             {
                 if (ctr is TextBox)
-                    ctr.Text = "";
+                {
+                    if(ctr.Name == "querytb") querytb.Text = "select * from location where ";
+                    else ctr.Text = "";
+                }   
             }
         }
         private void displaytable()
@@ -189,6 +194,54 @@ namespace Valorant_Datahub
                 countrytxt.Text = selectedRow.Cells["country"].Value.ToString();
                 regiontxt.Text = selectedRow.Cells["region"].Value.ToString();
                 citytxt.Text = selectedRow.Cells["city"].Value.ToString();
+            }
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            row.CreateCells(dataGridView1, reader["location_id"].ToString(), reader["country"].ToString(),
+                            reader["region"].ToString(), reader["city"].ToString());
+                            dataGridView1.Rows.Add(row);
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            string temp = "select * from location where ";
+            if (querytb.TextLength <= temp.Length)
+            {
+                querytb.Text = temp;
+                querytb.SelectionStart = temp.Length+1;
             }
         }
     }

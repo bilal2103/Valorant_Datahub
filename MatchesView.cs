@@ -217,9 +217,63 @@ namespace Valorant_Datahub
             foreach (Control control in Controls)
             {
                 if (control is TextBox)
-                    control.Text = "";
+                {
+                    if(control.Name == "querytb") querytb.Text = "select * from matches where ";
+                    else control.Text = "";
+                }
             }
 
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            row.CreateCells(dataGridView1, reader["match_id"].ToString(), reader["team1_id"].ToString(),
+                        reader["team2_id"].ToString(), reader["winner_id"].ToString(),
+                        reader["map_name"].ToString());
+                            dataGridView1.Rows.Add(row);
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                        
+                    }
+                        
+                        
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            if (querytb.TextLength <= 28)
+            {
+                querytb.Text = "select * from matches where ";
+                querytb.SelectionStart = 28;
+            }
         }
     }
 }

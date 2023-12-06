@@ -27,6 +27,8 @@ namespace Valorant_Datahub
                 {
                     ctl.BackColor = ColorTranslator.FromHtml(Colors.tb_backcolor);
                     ctl.ForeColor = ColorTranslator.FromHtml(Colors.tb_forecolor);
+                    if(ctl.Name == "querytb") ctl.Font = new Font("Franklin Gothic Medium Cond", 9, FontStyle.Regular);
+                    else
                     ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
                 }
                 if (ctl is Button)
@@ -39,6 +41,8 @@ namespace Valorant_Datahub
                 {
                     ctl.ForeColor = ColorTranslator.FromHtml("#000000");
                     ctl.Font = new Font("Franklin Gothic Medium Cond", 12, FontStyle.Regular);
+                    if(ctl.Name ==  "label9")
+                        ctl.Font = new Font("Franklin Gothic Medium Cond", 9, FontStyle.Regular);
                 }
             }
             dataGridView1.RowsDefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#000000");
@@ -52,6 +56,8 @@ namespace Valorant_Datahub
             idtxt.Text = "";
             unametxt.Text = ""; nametxt.Text = ""; gendertxt.Text = ""; agetxt.Text = "";
             agentxt.Text = ""; mmrtxt.Text = ""; killstxt.Text = ""; deathstxt.Text = ""; locationtxt.Text = ""; tidtxt.Text = "";
+            querytb.Text = "select * from player  join users  on(player.pid = users.player_id) left outer join " +
+                "PLAYER_TEAM on(PLAYER_TEAM.Player_ID = player.pid) where ";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -77,12 +83,9 @@ namespace Valorant_Datahub
         }
         private void displaytable()
         {
-            foreach(Control ctl in Controls)
-            {
-                if (ctl is TextBox) ctl.Text = "";
-            }
+            reset_textboxes();
             string query = "select * from player  join users  on(player.pid = users.player_id) left outer join " +
-                "PLAYER_TEAM on(PLAYER_TEAM.Player_ID = player.pid)order by player.pid asc";
+                "PLAYER_TEAM on(PLAYER_TEAM.Player_ID = player.pid)order by player.pid asc;";
             try
             {
                 SqlCommand cmd = new SqlCommand(query, con);
@@ -245,6 +248,60 @@ namespace Valorant_Datahub
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            string team_id = reader["team_id"].ToString();
+                            if (team_id.Length == 0) team_id = "-";
+                            row.CreateCells(dataGridView1, reader["pid"].ToString(), reader["username"].ToString(), reader["pname"].ToString(),
+                                team_id, reader["gender"].ToString(), reader["age"].ToString(), reader["fav_agent"].ToString(), reader["MMR"].ToString(),
+                                reader["kills"].ToString(), reader["deaths"].ToString(), reader["location_id"].ToString());
+                            dataGridView1.Rows.Add(row);
+                            
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            string temp = "select * from player  join users  on(player.pid = users.player_id) left outer join " +
+                "PLAYER_TEAM on(PLAYER_TEAM.Player_ID = player.pid) where";
+            if (querytb.TextLength <= temp.Length)
+            {
+                querytb.Text = temp;
+                querytb.SelectionStart = querytb.TextLength+1;
             }
         }
     }

@@ -48,7 +48,7 @@ namespace Valorant_Datahub
             this.agentsbtn.FlatAppearance.BorderSize = 2;
             this.agentsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.agentsbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.agentsbtn.Location = new System.Drawing.Point(40, 231);
+            this.agentsbtn.Location = new System.Drawing.Point(88, 232);
             this.agentsbtn.Name = "agentsbtn";
             this.agentsbtn.Size = new System.Drawing.Size(191, 76);
             this.agentsbtn.TabIndex = 2;
@@ -62,7 +62,7 @@ namespace Valorant_Datahub
             this.mapsbtn.FlatAppearance.BorderSize = 2;
             this.mapsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mapsbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mapsbtn.Location = new System.Drawing.Point(39, 414);
+            this.mapsbtn.Location = new System.Drawing.Point(87, 415);
             this.mapsbtn.Name = "mapsbtn";
             this.mapsbtn.Size = new System.Drawing.Size(191, 76);
             this.mapsbtn.TabIndex = 3;
@@ -76,7 +76,7 @@ namespace Valorant_Datahub
             this.weaponrybtn.FlatAppearance.BorderSize = 2;
             this.weaponrybtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.weaponrybtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weaponrybtn.Location = new System.Drawing.Point(39, 508);
+            this.weaponrybtn.Location = new System.Drawing.Point(87, 509);
             this.weaponrybtn.Name = "weaponrybtn";
             this.weaponrybtn.Size = new System.Drawing.Size(191, 76);
             this.weaponrybtn.TabIndex = 4;
@@ -90,7 +90,7 @@ namespace Valorant_Datahub
             this.playersbtn.FlatAppearance.BorderSize = 2;
             this.playersbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playersbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playersbtn.Location = new System.Drawing.Point(39, 322);
+            this.playersbtn.Location = new System.Drawing.Point(87, 323);
             this.playersbtn.Name = "playersbtn";
             this.playersbtn.Size = new System.Drawing.Size(191, 76);
             this.playersbtn.TabIndex = 5;
@@ -104,7 +104,7 @@ namespace Valorant_Datahub
             this.locationbtn.FlatAppearance.BorderSize = 2;
             this.locationbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.locationbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locationbtn.Location = new System.Drawing.Point(360, 231);
+            this.locationbtn.Location = new System.Drawing.Point(408, 232);
             this.locationbtn.Name = "locationbtn";
             this.locationbtn.Size = new System.Drawing.Size(191, 76);
             this.locationbtn.TabIndex = 6;
@@ -118,7 +118,7 @@ namespace Valorant_Datahub
             this.teamsbtn.FlatAppearance.BorderSize = 2;
             this.teamsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.teamsbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teamsbtn.Location = new System.Drawing.Point(360, 322);
+            this.teamsbtn.Location = new System.Drawing.Point(408, 323);
             this.teamsbtn.Name = "teamsbtn";
             this.teamsbtn.Size = new System.Drawing.Size(191, 76);
             this.teamsbtn.TabIndex = 7;
@@ -132,7 +132,7 @@ namespace Valorant_Datahub
             this.matchesbtn.FlatAppearance.BorderSize = 2;
             this.matchesbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.matchesbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matchesbtn.Location = new System.Drawing.Point(360, 414);
+            this.matchesbtn.Location = new System.Drawing.Point(408, 415);
             this.matchesbtn.Name = "matchesbtn";
             this.matchesbtn.Size = new System.Drawing.Size(191, 76);
             this.matchesbtn.TabIndex = 8;
@@ -146,7 +146,7 @@ namespace Valorant_Datahub
             this.tournamentsbtn.FlatAppearance.BorderSize = 2;
             this.tournamentsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tournamentsbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tournamentsbtn.Location = new System.Drawing.Point(360, 508);
+            this.tournamentsbtn.Location = new System.Drawing.Point(408, 509);
             this.tournamentsbtn.Name = "tournamentsbtn";
             this.tournamentsbtn.Size = new System.Drawing.Size(191, 76);
             this.tournamentsbtn.TabIndex = 9;
@@ -160,7 +160,7 @@ namespace Valorant_Datahub
             this.THbtn.FlatAppearance.BorderSize = 2;
             this.THbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.THbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.THbtn.Location = new System.Drawing.Point(680, 231);
+            this.THbtn.Location = new System.Drawing.Point(728, 232);
             this.THbtn.Name = "THbtn";
             this.THbtn.Size = new System.Drawing.Size(191, 76);
             this.THbtn.TabIndex = 10;
@@ -174,7 +174,7 @@ namespace Valorant_Datahub
             this.solobtn.FlatAppearance.BorderSize = 2;
             this.solobtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.solobtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solobtn.Location = new System.Drawing.Point(680, 322);
+            this.solobtn.Location = new System.Drawing.Point(728, 323);
             this.solobtn.Name = "solobtn";
             this.solobtn.Size = new System.Drawing.Size(191, 76);
             this.solobtn.TabIndex = 11;
@@ -188,7 +188,7 @@ namespace Valorant_Datahub
             this.label1.Font = new System.Drawing.Font("Verdana", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(319, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(341, 41);
+            this.label1.Size = new System.Drawing.Size(333, 40);
             this.label1.TabIndex = 12;
             this.label1.Text = "Administrator View";
             // 

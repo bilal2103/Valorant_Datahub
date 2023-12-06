@@ -50,6 +50,8 @@ namespace Valorant_Datahub
             this.commit_btn = new System.Windows.Forms.Button();
             this.rollback_btn = new System.Windows.Forms.Button();
             this.refreshbtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.querytb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,11 +271,32 @@ namespace Valorant_Datahub
             this.refreshbtn.UseVisualStyleBackColor = false;
             this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.TabIndex = 109;
+            this.label1.Text = "Enter query here:";
+            // 
+            // querytb
+            // 
+            this.querytb.Location = new System.Drawing.Point(181, 3);
+            this.querytb.Name = "querytb";
+            this.querytb.Size = new System.Drawing.Size(816, 22);
+            this.querytb.TabIndex = 108;
+            this.querytb.Text = "select * from maps where ";
+            this.querytb.TextChanged += new System.EventHandler(this.querytb_TextChanged);
+            this.querytb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.querytb_KeyPress);
+            // 
             // MatchesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 681);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.querytb);
             this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.rollback_btn);
             this.Controls.Add(this.commit_btn);
@@ -321,5 +344,7 @@ namespace Valorant_Datahub
         private System.Windows.Forms.Button commit_btn;
         private System.Windows.Forms.Button rollback_btn;
         private System.Windows.Forms.Button refreshbtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox querytb;
     }
 }

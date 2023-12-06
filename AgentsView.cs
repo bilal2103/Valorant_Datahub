@@ -50,7 +50,11 @@ namespace Valorant_Datahub
         {
             foreach(Control c in Controls)
             {
-                if (c is TextBox) c.Text = "";
+                if (c is TextBox)
+                {
+                    if(c.Name == "querytb") querytb.Text = "select * from Agents where ";
+                    else c.Text = "";
+                }
             }
         }
         private void displaytable()
@@ -219,6 +223,57 @@ namespace Valorant_Datahub
             {
                 MessageBox.Show(ex.Message);
                 transaction.Rollback();
+            }
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            row.CreateCells(dataGridView1, reader["agent_name"].ToString(), reader["pick_pct"].ToString(),
+                        reader["win_pct"].ToString(), reader["tier"].ToString(),
+                        reader["role"].ToString(), reader["suited_weapon"].ToString(), reader["ultimate"].ToString()
+                        , reader["voiced_by"].ToString(), reader["description"].ToString());
+                            dataGridView1.Rows.Add(row);
+                        }
+                            reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            string temp = "select * from Agents where ";
+            if (querytb.TextLength <= temp.Length)
+            {
+                querytb.Text = temp;
+                querytb.SelectionStart = temp.Length+1;
             }
         }
     }   

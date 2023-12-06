@@ -68,6 +68,8 @@
             this.rollback_btn = new System.Windows.Forms.Button();
             this.commit_btn = new System.Windows.Forms.Button();
             this.refreshbtn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.querytb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -476,11 +478,32 @@
             this.refreshbtn.UseVisualStyleBackColor = false;
             this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(27, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 16);
+            this.label9.TabIndex = 109;
+            this.label9.Text = "Enter query here:";
+            // 
+            // querytb
+            // 
+            this.querytb.Location = new System.Drawing.Point(141, 6);
+            this.querytb.Name = "querytb";
+            this.querytb.Size = new System.Drawing.Size(984, 22);
+            this.querytb.TabIndex = 108;
+            this.querytb.Text = "select * from maps where ";
+            this.querytb.TextChanged += new System.EventHandler(this.querytb_TextChanged);
+            this.querytb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.querytb_KeyPress);
+            // 
             // PlayerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 779);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.querytb);
             this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.rollback_btn);
             this.Controls.Add(this.commit_btn);
@@ -560,5 +583,7 @@
         private System.Windows.Forms.Button rollback_btn;
         private System.Windows.Forms.Button commit_btn;
         private System.Windows.Forms.Button refreshbtn;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox querytb;
     }
 }

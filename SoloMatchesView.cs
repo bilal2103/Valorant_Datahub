@@ -49,7 +49,11 @@ namespace Valorant_Datahub
         {
             foreach (Control ctl in Controls)
             {
-                if (ctl is TextBox) ctl.Text = "";
+                if (ctl is TextBox)
+                {
+                    if(ctl.Name == "querytb") querytb.Text = "SELECT * FROM SOLO_MATCHES WHERE ";
+                    else ctl.Text = "";
+                }
             }
             string query = "select * from solo_matches order by match_id";
             try
@@ -152,6 +156,56 @@ namespace Valorant_Datahub
         {
             dataGridView1.Rows.Clear();
             displaytable();
+        }
+
+        private void querytb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string query = querytb.Text;
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.CommandTimeout = 1;
+                SqlDataReader reader;
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        dataGridView1.Rows.Clear();
+                        while (reader.Read())
+                        {
+                            DataGridViewRow row = new DataGridViewRow();
+                            row.CreateCells(dataGridView1, reader["match_id"].ToString(), reader["kills"].ToString(),
+                        reader["deaths"].ToString(), reader["result"].ToString(),
+                        reader["agent_played"].ToString(), reader["map_name"].ToString(), reader["player_id"].ToString());
+                            dataGridView1.Rows.Add(row);
+                        }
+                        reader.Close();
+                    }
+                    else
+                    {
+                        reader.Close();
+                        dataGridView1.Rows.Clear();
+                        displaytable();
+                        MessageBox.Show("Query has no rows");
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+        private void querytb_TextChanged(object sender, EventArgs e)
+        {
+            string temp = "SELECT * FROM SOLO_MATCHES WHERE ";
+            if (querytb.TextLength <= temp.Length)
+            {
+                querytb.Text = temp;
+                querytb.SelectionStart = temp.Length + 1 ;
+            }
         }
     }
 }

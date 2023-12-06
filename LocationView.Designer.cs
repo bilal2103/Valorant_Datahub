@@ -50,6 +50,8 @@ namespace Valorant_Datahub
             this.rollback_btn = new System.Windows.Forms.Button();
             this.commit_btn = new System.Windows.Forms.Button();
             this.refreshbtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.querytb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +98,7 @@ namespace Valorant_Datahub
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(628, 416);
+            this.label4.Location = new System.Drawing.Point(628, 424);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 20);
             this.label4.TabIndex = 54;
@@ -106,7 +108,7 @@ namespace Valorant_Datahub
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(404, 416);
+            this.label3.Location = new System.Drawing.Point(404, 424);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 20);
             this.label3.TabIndex = 53;
@@ -116,7 +118,7 @@ namespace Valorant_Datahub
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(628, 416);
+            this.label2.Location = new System.Drawing.Point(628, 424);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 52;
@@ -126,7 +128,7 @@ namespace Valorant_Datahub
             this.citytxt.BackColor = System.Drawing.Color.White;
             this.citytxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.citytxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.citytxt.Location = new System.Drawing.Point(632, 450);
+            this.citytxt.Location = new System.Drawing.Point(632, 458);
             this.citytxt.Name = "citytxt";
             this.citytxt.Size = new System.Drawing.Size(168, 28);
             this.citytxt.TabIndex = 51;
@@ -136,7 +138,7 @@ namespace Valorant_Datahub
             this.regiontxt.BackColor = System.Drawing.Color.White;
             this.regiontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.regiontxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regiontxt.Location = new System.Drawing.Point(408, 450);
+            this.regiontxt.Location = new System.Drawing.Point(408, 458);
             this.regiontxt.Name = "regiontxt";
             this.regiontxt.Size = new System.Drawing.Size(177, 28);
             this.regiontxt.TabIndex = 50;
@@ -145,7 +147,7 @@ namespace Valorant_Datahub
             // 
             this.picklbl.AutoSize = true;
             this.picklbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.picklbl.Location = new System.Drawing.Point(192, 416);
+            this.picklbl.Location = new System.Drawing.Point(192, 424);
             this.picklbl.Name = "picklbl";
             this.picklbl.Size = new System.Drawing.Size(85, 20);
             this.picklbl.TabIndex = 49;
@@ -155,7 +157,7 @@ namespace Valorant_Datahub
             // 
             this.namelbl.AutoSize = true;
             this.namelbl.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.namelbl.Location = new System.Drawing.Point(38, 416);
+            this.namelbl.Location = new System.Drawing.Point(38, 424);
             this.namelbl.Name = "namelbl";
             this.namelbl.Size = new System.Drawing.Size(115, 20);
             this.namelbl.TabIndex = 48;
@@ -166,7 +168,7 @@ namespace Valorant_Datahub
             this.countrytxt.BackColor = System.Drawing.Color.White;
             this.countrytxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.countrytxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.countrytxt.Location = new System.Drawing.Point(196, 450);
+            this.countrytxt.Location = new System.Drawing.Point(196, 458);
             this.countrytxt.Name = "countrytxt";
             this.countrytxt.Size = new System.Drawing.Size(177, 28);
             this.countrytxt.TabIndex = 47;
@@ -176,7 +178,7 @@ namespace Valorant_Datahub
             this.locationtxt.BackColor = System.Drawing.Color.White;
             this.locationtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.locationtxt.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locationtxt.Location = new System.Drawing.Point(41, 450);
+            this.locationtxt.Location = new System.Drawing.Point(41, 458);
             this.locationtxt.Name = "locationtxt";
             this.locationtxt.Size = new System.Drawing.Size(112, 28);
             this.locationtxt.TabIndex = 46;
@@ -189,7 +191,7 @@ namespace Valorant_Datahub
             this.country,
             this.region,
             this.city});
-            this.dataGridView1.Location = new System.Drawing.Point(41, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
@@ -269,11 +271,32 @@ namespace Valorant_Datahub
             this.refreshbtn.UseVisualStyleBackColor = false;
             this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 16);
+            this.label1.TabIndex = 109;
+            this.label1.Text = "Enter query here:";
+            // 
+            // querytb
+            // 
+            this.querytb.Location = new System.Drawing.Point(179, 3);
+            this.querytb.Name = "querytb";
+            this.querytb.Size = new System.Drawing.Size(586, 22);
+            this.querytb.TabIndex = 108;
+            this.querytb.Text = "select * from maps where ";
+            this.querytb.TextChanged += new System.EventHandler(this.querytb_TextChanged);
+            this.querytb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.querytb_KeyPress);
+            // 
             // LocationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 742);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.querytb);
             this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.rollback_btn);
             this.Controls.Add(this.commit_btn);
@@ -321,5 +344,7 @@ namespace Valorant_Datahub
         private System.Windows.Forms.Button rollback_btn;
         private System.Windows.Forms.Button commit_btn;
         private System.Windows.Forms.Button refreshbtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox querytb;
     }
 }
