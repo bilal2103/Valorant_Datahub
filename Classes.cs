@@ -41,7 +41,7 @@ namespace Valorant_Datahub
     }
     public static class vars
     {
-        public static string connection = "Data Source=BILALS-LAPPY;Initial Catalog=Valo_Data;Integrated Security=True";
+        public static string connection = "Data Source=AIMANANANANA;Initial Catalog=Valo_Data;Integrated Security=True";
         public static string image_path = "C:\\Users\\Dell\\OneDrive\\Desktop\\Valorant_Datahub\\Images\\";
     }
     public class LocationsInformation
